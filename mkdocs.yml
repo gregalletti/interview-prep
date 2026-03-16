@@ -1,0 +1,20 @@
+site_name: Coding Interview Diary
+site_description: Algorithms, patterns, and interview prep
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Home: index.md
+  - Arrays: arrays.md
