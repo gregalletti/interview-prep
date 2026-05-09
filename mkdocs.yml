@@ -3,6 +3,8 @@ site_description: Algorithms, patterns, and interview prep
 
 theme:
   name: material
+  palette:
+    scheme: slate
   features:
     - navigation.tabs
     - navigation.sections
@@ -14,7 +16,24 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascript/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
 
 nav:
   - Home: index.md
-  - Arrays: arrays.md
+  - Arrays & Hashing: 
+    - Introduction: arrays/00_arrays.md
+    - Easy problems:
+      - Contains Duplicate: arrays/01_arrays.md
+      - Is Anagram: arrays/02_arrays.md
+    - Medium problems:
+      - Group Anagrams: arrays/03_arrays.md
+      - Product of Array Except Self: arrays/04_arrays.md

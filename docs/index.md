@@ -1,17 +1,35 @@
-# Welcome to MkDocs
+# Welcome to Coding Interview Diary
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## What's this?
 
-## Commands
+This page is nothing more than a diary about the Coding Interview Preparation I'm currently doing.
+The approach is following [NeetCode](https://neetcode.io/roadmap) Roadmap, especially *NeetCode 150*:
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+![alt text](/images/roadmap.png "Title")
 
-## Project layout
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+The different sections contain:
+
+- topic explanation and most useful functions/methods/algorithms
+
+And for each problem:
+
+- problem statements
+- initial analysis and explanation
+- Java and Python solutions
+- time and space complexity estimations
+
+## Why NeetCode?
+
+## Why this page?
+
+## My Approach
+- 2 easy
+- 2 medium
+- 2 hard
+
+Analyze first, think about edge cases or clarifications
+
+Naive solution, think about weaknesses, identify pattern, draft optimal solution
+
+No hints, no solutions, no AI for 10 minutes (easy), 30 minutes (medium), 60 minutes (hard)
