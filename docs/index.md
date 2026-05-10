@@ -1,35 +1,61 @@
-# Welcome to Coding Interview Diary
+# Coding Interview Diary
 
-## What's this?
+## What's This?
 
-This page is nothing more than a diary about the Coding Interview Preparation I'm currently doing.
-The approach is following [NeetCode](https://neetcode.io/roadmap) Roadmap, especially *NeetCode 150*:
+This is a structured diary documenting my **Coding Interview Preparation**, following the proven [NeetCode](https://neetcode.io/roadmap) Roadmap methodology. Each topic and problem is analyzed systematically with detailed explanations and solutions.
 
-![alt text](/images/roadmap.png "Title")
+![NeetCode Roadmap](images/roadmap.png)
 
+---
 
-The different sections contain:
+## What You'll Find Here
 
-- topic explanation and most useful functions/methods/algorithms
+Each section includes comprehensive coverage:
 
-And for each problem:
+- **Topic Explanations** - Core concepts and foundational algorithms
+- **Useful Methods** - Essential functions and techniques for each pattern
+- **Problem Statements** - Clear problem descriptions and requirements
+- **Initial Analysis** - Deep-dive analysis before coding
+- **Python & Java Solutions** - Multiple language implementations
+- **Complexity Analysis** - Time and space complexity estimations
 
-- problem statements
-- initial analysis and explanation
-- Java and Python solutions
-- time and space complexity estimations
+---
 
 ## Why NeetCode?
 
-## Why this page?
+NeetCode focuses on **patterns** rather than random problems. This approach:
 
-## My Approach
-- 2 easy
-- 2 medium
-- 2 hard
+- Builds systematic problem-solving skills
+- Reduces randomness in interview prep
+- Emphasizes reusable patterns across multiple problems
+- Focuses on the most frequently asked interview topics
 
-Analyze first, think about edge cases or clarifications
+---
 
-Naive solution, think about weaknesses, identify pattern, draft optimal solution
+## My Structured Approach
 
-No hints, no solutions, no AI for 10 minutes (easy), 30 minutes (medium), 60 minutes (hard)
+### Problem-Solving Strategy
+
+For each problem, I follow this Three-Step Process:
+
+**Step 1: Analyze First**
+
+- Identify problem type and constraints
+- Think about edge cases
+- Think about possible clarifying questions
+
+**Step 2: Naive to Optimal**
+
+- Walk through the naive solution
+- Identify weaknesses
+- Recognize the pattern
+- Draft optimal solution
+
+**Step 3: Pure Problem Solving**
+
+- No hints, no solutions, no AI to implement the solution (checking sytax is fine)
+- Implement the solution from scratch in around 10 minutes (easy), 30 minutes (medium), 60 minutes (hard)
+- If I'm stuck after this time, gradually check hints and solutions
+---
+
+*Last updated: May 2026*

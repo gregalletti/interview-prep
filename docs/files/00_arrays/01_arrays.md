@@ -1,19 +1,16 @@
 # [Contains Duplicate](https://neetcode.io/problems/duplicate-integer)
 
 ## Statement
->Given an integer array nums, return true if any value appears more than once in the array, otherwise return false.
->
->Example 1:
->
->`Input: nums = [1, 2, 3, 3]`
->
->`Output: true`
->
->Example 2:
->
->`Input: nums = [1, 2, 3, 4]`
->
->`Output: false`
+
+!!! note ""
+    Given an integer array `nums`, return `true` if any value appears more than once in the array, otherwise return `false`.
+
+    ### Examples
+
+    | Example | Input | Output |
+    | --- | --- | --- |
+    | 1 | `[1, 2, 3, 3]` | `true` |
+    | 2 | `[1, 2, 3, 4]` | `false` |
 
 ## Analysis
 
@@ -39,7 +36,7 @@
     }
     ```
 
-## Complexity
+### Complexity
 $O(n)$ time complexity as the built-in functions need to iterate through the array
 
 $O(n)$ space complexity as we are storing a copy of the initial array

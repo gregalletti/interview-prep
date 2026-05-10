@@ -1,30 +1,25 @@
 # [Group Anagrams](https://neetcode.io/problems/anagram-groups/question?list=neetcode150)
 
 ## Statement
->Given an array of strings strs, group all anagrams together into sublists. You may return the output in any order.
->
->An anagram is a string that contains the exact same characters as another string, but the order of the characters can be different.
->
->Example 1:
->
->Input: strs = ["act","pots","tops","cat","stop","hat"]
->
->Output: [["hat"],["act", "cat"],["stop", "pots", "tops"]]
->Example 2:
->
->Input: strs = ["x"]
->
->Output: [["x"]]
->Example 3:
->
->Input: strs = [""]
->
->Output: [[""]]
->Constraints:
->
->1 <= strs.length <= 1000.
->0 <= strs[i].length <= 100
->strs[i] is made up of lowercase English letters.
+
+!!! note ""
+    Given an array of strings `strs`, group all anagrams together into sublists. You may return the output in any order.
+
+    An anagram is a string that contains the exact same characters as another string, but the order of the characters can be different.
+
+    ### Examples
+
+    | Example | Input | Output |
+    | --- | --- | --- |
+    | 1 | `["act","pots","tops","cat","stop","hat"]` | `[["hat"],["act", "cat"],["stop", "pots", "tops"]]` |
+    | 2 | `["x"]` | `[["x"]]` |
+    | 3 | `[""]` | `[[""]]` |
+
+    ### Constraints
+
+    - 1 <= strs.length <= 1000
+    - 0 <= strs[i].length <= 100
+    - strs[i] is made up of lowercase English letters
 
 ## Analysis
 Most intuitive solution is to iterate through the strings and check if isAnagram. This would need O(n) for the loop, to be multiplied by the complexity of executing the isAnagram. This is way too much.
@@ -90,7 +85,7 @@ If two words are anagrams, they share the same frequency count (as we did for th
     }
     ```
 
-## Complexity
+### Complexity
 $O(n * m)$ time complexity as we iterate once through the strings (len n) and for each string we iterate through its characters (len m)
 
 $O(1)$ space complexity as we are storing at most all the English characters in the hashmap, hence 26

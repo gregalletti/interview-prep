@@ -286,11 +286,3 @@ list.add(element);
 | Count frequencies | `Counter(arr)` | `map.merge(elem, 1, Integer::sum)` |
 | Lazy initialization | dict comprehension | `computeIfAbsent(key, k -> newValue)` |
 | Quick membership test | `if x in set` | `set.contains(x)` |
-
----
-
-## TODO
-- Add practice problems beyond the scope of NeetCode 150
-- Create interactive examples with different array sizes for performance comparison
-- Add visual diagrams for collision handling in hash tables
-- Include best/worst case analysis for hash table operations

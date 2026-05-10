@@ -21,19 +21,33 @@ markdown_extensions:
 
 extra_javascript:
   - javascript/katex.js
+  - javascript/animations.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 
 extra_css:
   - https://unpkg.com/katex@0/dist/katex.min.css
+  - stylesheets/animations.css
 
 nav:
   - Home: index.md
   - Arrays & Hashing: 
-    - Introduction: arrays/00_arrays.md
+    - Introduction: files/00_arrays/00_arrays.md
     - Easy problems:
-      - Contains Duplicate: arrays/01_arrays.md
-      - Is Anagram: arrays/02_arrays.md
+      - Contains Duplicate: files/00_arrays/01_arrays.md
+      - Is Anagram: files/00_arrays/02_arrays.md
     - Medium problems:
-      - Group Anagrams: arrays/03_arrays.md
-      - Product of Array Except Self: arrays/04_arrays.md
+      - Group Anagrams: files/00_arrays/03_arrays.md
+      - Product of Array Except Self: files/00_arrays/04_arrays.md
+  - Two Pointers:
+    - Introduction: files/01_two_pointers/00_two_pointers.md
+  - Stack:
+    - Introduction: files/02_stack/00_stack.md
+  - Binary Search:
+    - Introduction: files/03_binary_search/00_binary_search.md
+  - Sliding Window:
+    - Introduction: files/04_sliding_window/00_sliding_window.md
+  - Linked List:
+    - Introduction: files/05_linked_list/00_linked_list.md
+  - Trees:
+    - Introduction: files/06_trees/00_trees.md
