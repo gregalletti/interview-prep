@@ -1,0 +1,2474 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Algorithms, patterns, and interview prep">
+      
+      
+      
+      
+        <link rel="prev" href="../../..">
+      
+      
+        <link rel="next" href="../01_arrays/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Introduction - Coding Interview Diary</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/animations.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#arrays-hashing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Coding Interview Diary" class="md-header__button md-logo" aria-label="Coding Interview Diary" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Coding Interview Diary
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Arrays & Hashing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01_two_pointers/00_two_pointers/" class="md-tabs__link">
+          
+  
+  
+  Two Pointers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02_stack/00_stack/" class="md-tabs__link">
+          
+  
+  
+  Stack
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03_binary_search/00_binary_search/" class="md-tabs__link">
+          
+  
+  
+  Binary Search
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04_sliding_window/00_sliding_window/" class="md-tabs__link">
+          
+  
+  
+  Sliding Window
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05_linked_list/00_linked_list/" class="md-tabs__link">
+          
+  
+  
+  Linked List
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06_trees/00_trees/" class="md-tabs__link">
+          
+  
+  
+  Trees
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Coding Interview Diary" class="md-nav__button md-logo" aria-label="Coding Interview Diary" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Coding Interview Diary
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays & Hashing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arrays & Hashing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-concepts-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Concepts &amp; Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Concepts &amp; Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arrays
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hashing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-methods-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Methods &amp; Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-interview-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Interview Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Interview Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-frequency-counting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Frequency Counting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-two-pointers-sliding-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Two Pointers / Sliding Window
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-hash-set-for-existence-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Hash Set for Existence Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hash-map-for-value-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Hash Map for Value Lookup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-sorting-for-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sorting for Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-space-complexity-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time &amp; Space Complexity Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-optimization-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Optimization Tips
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Optimization Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Improvements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Improvements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-using-defaultdict-to-avoid-if-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Using defaultdict to Avoid "If" Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-using-counter-for-frequency-counting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Using Counter for Frequency Counting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-using-dictget-with-default-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Using dict.get() with Default Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-set-operations-for-quick-membership" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Set Operations for Quick Membership
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-dictionary-comprehension-for-initial-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Dictionary Comprehension for Initial Maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Java Improvements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Java Improvements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-using-putifabsent-to-simplify-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Using putIfAbsent() to Simplify Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-using-getordefault-for-safe-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Using getOrDefault() for Safe Retrieval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-using-computeifabsent-for-lazy-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Using computeIfAbsent() for Lazy Initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-using-computeifpresent-for-conditional-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Using computeIfPresent() for Conditional Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-using-merge-for-frequency-counting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Using merge() for Frequency Counting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-using-arraysaslist-with-arraylist-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Using Arrays.asList() with ArrayList Constructor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy problems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Easy problems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contains Duplicate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Is Anagram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Medium problems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Medium problems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Group Anagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product of Array Except Self
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Two Pointers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Two Pointers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_two_pointers/00_two_pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy problems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Easy problems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_two_pointers/01_two_pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Valid Palindrome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stack
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stack
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_stack/00_stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Binary Search
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Binary Search
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_binary_search/00_binary_search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sliding Window
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sliding Window
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_sliding_window/00_sliding_window/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linked List
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linked List
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_linked_list/00_linked_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trees
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Trees
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_trees/00_trees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-concepts-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Concepts &amp; Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Concepts &amp; Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arrays
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hashing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-methods-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Methods &amp; Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-interview-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Interview Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Interview Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-frequency-counting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Frequency Counting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-two-pointers-sliding-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Two Pointers / Sliding Window
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-hash-set-for-existence-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Hash Set for Existence Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hash-map-for-value-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Hash Map for Value Lookup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-sorting-for-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sorting for Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-space-complexity-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time &amp; Space Complexity Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-optimization-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Optimization Tips
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Optimization Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Improvements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Improvements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-using-defaultdict-to-avoid-if-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Using defaultdict to Avoid "If" Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-using-counter-for-frequency-counting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Using Counter for Frequency Counting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-using-dictget-with-default-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Using dict.get() with Default Values
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-set-operations-for-quick-membership" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Set Operations for Quick Membership
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-dictionary-comprehension-for-initial-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Dictionary Comprehension for Initial Maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Java Improvements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Java Improvements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-using-putifabsent-to-simplify-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Using putIfAbsent() to Simplify Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-using-getordefault-for-safe-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Using getOrDefault() for Safe Retrieval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-using-computeifabsent-for-lazy-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Using computeIfAbsent() for Lazy Initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-using-computeifpresent-for-conditional-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Using computeIfPresent() for Conditional Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-using-merge-for-frequency-counting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Using merge() for Frequency Counting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-using-arraysaslist-with-arraylist-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Using Arrays.asList() with ArrayList Constructor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="arrays-hashing">Arrays &amp; Hashing</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Arrays and hashing are among the <strong>most fundamental data structures</strong> in coding interviews. Understanding these concepts deeply is essential because they form the foundation for more advanced algorithms and problem-solving techniques.</p>
+<p>An <strong>array</strong> is a contiguous collection of elements stored in memory, providing <span class="arithmatex">\(O(1)\)</span> random access by index. <strong>Hashing</strong> leverages hash tables (dictionaries/maps) to achieve near-constant time lookups, insertions, and deletions.</p>
+<p>Many interview problems combine these two concepts: using hash tables to track array elements, count frequencies, or quickly check for element existence. This synergy makes the Arrays &amp; Hashing section a critical starting point for technical interviews.</p>
+<h2 id="key-concepts-operations">Key Concepts &amp; Operations</h2>
+<h3 id="arrays">Arrays</h3>
+<ul>
+<li><strong>Random Access</strong>: Access element at index <span class="arithmatex">\(i\)</span> in <span class="arithmatex">\(O(1)\)</span> time using <code>arr[i]</code></li>
+<li><strong>Linear Search</strong>: Finding an element without additional structure takes <span class="arithmatex">\(O(n)\)</span> time</li>
+<li><strong>Dynamic Arrays</strong>: Lists/ArrayLists grow automatically (amortized <span class="arithmatex">\(O(1)\)</span> for append)</li>
+<li><strong>Subarrays</strong>: Contiguous sequences of elements (useful for sliding window patterns)</li>
+</ul>
+<h3 id="hashing">Hashing</h3>
+<ul>
+<li><strong>Hash Tables</strong>: Store key-value pairs with average <span class="arithmatex">\(O(1)\)</span> lookup, insert, delete</li>
+<li><strong>Sets</strong>: Hash-based collections to track unique elements with <span class="arithmatex">\(O(1)\)</span> operations</li>
+<li><strong>Frequency Maps</strong>: Count occurrences of elements in <span class="arithmatex">\(O(n)\)</span> time, then analyze in <span class="arithmatex">\(O(1)\)</span> per lookup</li>
+<li><strong>Collision Handling</strong>: Hash tables handle collisions internally (implementation detail, but good to understand conceptually)</li>
+</ul>
+<h3 id="common-methods-operations">Common Methods &amp; Operations</h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Python</th>
+<th>Java</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create</td>
+<td><code>arr = [1,2,3]</code></td>
+<td><code>int[] arr = {1,2,3}</code></td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
+</tr>
+<tr>
+<td>Access</td>
+<td><code>arr[i]</code></td>
+<td><code>arr[i]</code></td>
+<td><span class="arithmatex">\(O(1)\)</span></td>
+</tr>
+<tr>
+<td>Search (unsorted)</td>
+<td><code>elem in arr</code></td>
+<td><code>Arrays.binarySearch()</code></td>
+<td><span class="arithmatex">\(O(n)\)</span> or <span class="arithmatex">\(O(\log n)\)</span></td>
+</tr>
+<tr>
+<td>Append</td>
+<td><code>arr.append(x)</code></td>
+<td><code>list.add(x)</code></td>
+<td><span class="arithmatex">\(O(1)\)</span> amortized</td>
+</tr>
+<tr>
+<td>Insert at index</td>
+<td><code>arr.insert(i, x)</code></td>
+<td><code>list.add(i, x)</code></td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
+</tr>
+<tr>
+<td>Delete</td>
+<td><code>arr.remove(x)</code></td>
+<td><code>list.remove(x)</code></td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
+</tr>
+<tr>
+<td>Count</td>
+<td><code>arr.count(x)</code></td>
+<td><code>Collections.frequency()</code></td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
+</tr>
+<tr>
+<td>Hash Table</td>
+<td><code>dict = {}</code> or <code>set()</code></td>
+<td><code>HashMap&lt;K,V&gt;</code> or <code>HashSet&lt;E&gt;</code></td>
+<td><span class="arithmatex">\(O(1)\)</span> avg</td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-interview-patterns">Common Interview Patterns</h2>
+<h3 id="1-frequency-counting">1. <strong>Frequency Counting</strong></h3>
+<p><strong>Pattern</strong>: Use a hash table to count element occurrences, then analyze the counts.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example: Count frequencies</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="c1"># Now check properties like: max frequency, duplicates, etc.</span>
+</code></pre></div>
+<p><strong>Use cases</strong>:
+- Detecting duplicate elements
+- Finding most/least common elements
+- Anagram detection (same characters, different order)</p>
+<p><strong>Complexity</strong>: <span class="arithmatex">\(O(n)\)</span> time to build frequency map, <span class="arithmatex">\(O(1)\)</span> to lookup counts</p>
+<hr />
+<h3 id="2-two-pointers-sliding-window">2. <strong>Two Pointers / Sliding Window</strong></h3>
+<p><strong>Pattern</strong>: Use two indices or a window to process subarrays efficiently.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example: Two pointers for sorted array</span>
+<span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+    <span class="c1"># Process arr[left] and arr[right]</span>
+    <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># or right -= 1</span>
+</code></pre></div>
+<p><strong>Use cases</strong>:
+- Finding pairs that sum to target
+- Removing duplicates while maintaining order
+- Container with most water</p>
+<p><strong>Complexity</strong>: Often converts <span class="arithmatex">\(O(n^2)\)</span> brute force to <span class="arithmatex">\(O(n)\)</span> optimized solution</p>
+<hr />
+<h3 id="3-hash-set-for-existence-checks">3. <strong>Hash Set for Existence Checks</strong></h3>
+<p><strong>Pattern</strong>: Store elements in a set, then check membership in <span class="arithmatex">\(O(1)\)</span> time.</p>
+<div class="highlight"><pre><span></span><code><span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+    <span class="c1"># Found it!</span>
+</code></pre></div>
+<p><strong>Use cases</strong>:
+- Detecting duplicates in array
+- Finding intersection/union of arrays
+- Complement operations (elements not in array)</p>
+<p><strong>Complexity</strong>: <span class="arithmatex">\(O(n)\)</span> space to store set, <span class="arithmatex">\(O(1)\)</span> per membership test</p>
+<hr />
+<h3 id="4-hash-map-for-value-lookup">4. <strong>Hash Map for Value Lookup</strong></h3>
+<p><strong>Pattern</strong>: Map each element to useful information (count, index, etc.)</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Index mapping</span>
+<span class="n">index_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">))}</span>
+
+<span class="c1"># Frequency mapping</span>
+<span class="n">freq_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">elem</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">}</span>
+</code></pre></div>
+<p><strong>Use cases</strong>:
+- Two Sum (find pair with target sum)
+- Anagram grouping (same character frequency = same group)
+- Element position tracking</p>
+<p><strong>Complexity</strong>: <span class="arithmatex">\(O(n)\)</span> to build map, <span class="arithmatex">\(O(1)\)</span> per lookup</p>
+<hr />
+<h3 id="5-sorting-for-comparison">5. <strong>Sorting for Comparison</strong></h3>
+<p><strong>Pattern</strong>: Sort array to enable efficient comparisons and eliminate duplicates.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sorted_arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="c1"># Now can use binary search, two pointers, etc.</span>
+</code></pre></div>
+<p><strong>Use cases</strong>:
+- Anagram detection (sort characters and compare)
+- Duplicate elimination
+- Efficient range queries</p>
+<p><strong>Complexity</strong>: <span class="arithmatex">\(O(n \log n)\)</span> time, can save repeated lookups</p>
+<h2 id="time-space-complexity-reference">Time &amp; Space Complexity Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Brute Force</th>
+<th>Optimized</th>
+<th>Technique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Find duplicate</td>
+<td><span class="arithmatex">\(O(n^2)\)</span></td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
+<td>Hash set</td>
+</tr>
+<tr>
+<td>Check if anagrams</td>
+<td><span class="arithmatex">\(O(n \log n)\)</span> sort + compare</td>
+<td><span class="arithmatex">\(O(n)\)</span></td>
+<td>Frequency map or sorted strings</td>
+</tr>
+<tr>
+<td>Group anagrams</td>
+<td><span class="arithmatex">\(O(n^2 \log n)\)</span></td>
+<td><span class="arithmatex">\(O(n k \log k)\)</span></td>
+<td>Hash map + sorting</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Insight</strong>: Hash tables typically trade <span class="arithmatex">\(O(1)\)</span> lookup for <span class="arithmatex">\(O(n)\)</span> space, making them ideal for reducing nested loops.</p>
+<h2 id="code-optimization-tips">Code Optimization Tips</h2>
+<h3 id="python-improvements">Python Improvements</h3>
+<h4 id="1-using-defaultdict-to-avoid-if-checks">1. <strong>Using <code>defaultdict</code> to Avoid "If" Checks</strong></h4>
+<p>Instead of checking if a key exists before accessing it:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Verbose</span>
+<span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">:</span>
+    <span class="nb">map</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">map</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="c1"># Clean with defaultdict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="nb">map</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="nb">map</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># Automatically creates empty list if missing</span>
+</code></pre></div>
+<p><strong>Use cases</strong>: Grouping elements, building adjacency lists, frequency maps</p>
+<h4 id="2-using-counter-for-frequency-counting">2. <strong>Using <code>Counter</code> for Frequency Counting</strong></h4>
+<p>Instead of manually counting elements:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Manual counting</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+    <span class="n">freq</span><span class="p">[</span><span class="n">elem</span><span class="p">]</span> <span class="o">=</span> <span class="n">freq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># Using Counter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="n">freq</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>  <span class="c1"># Get count of &#39;a&#39;</span>
+<span class="n">freq</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Get top 3 elements</span>
+</code></pre></div>
+<h4 id="3-using-dictget-with-default-values">3. <strong>Using <code>dict.get()</code> with Default Values</strong></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Verbose</span>
+<span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">default_val</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">map</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+<span class="c1"># One-liner</span>
+<span class="n">value</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">default_val</span><span class="p">)</span>
+
+<span class="c1"># Example: Increment count</span>
+<span class="n">freq</span><span class="p">[</span><span class="n">elem</span><span class="p">]</span> <span class="o">=</span> <span class="n">freq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div>
+<h4 id="4-set-operations-for-quick-membership">4. <strong>Set Operations for Quick Membership</strong></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># O(1) lookup instead of O(n) list search</span>
+<span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+    <span class="c1"># Found</span>
+</code></pre></div>
+<h4 id="5-dictionary-comprehension-for-initial-maps">5. <strong>Dictionary Comprehension for Initial Maps</strong></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Build frequency map in one line</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span><span class="p">}</span>
+
+<span class="c1"># Build index map in one line</span>
+<span class="n">index_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">))}</span>
+</code></pre></div>
+<hr />
+<h3 id="java-improvements">Java Improvements</h3>
+<h4 id="1-using-putifabsent-to-simplify-logic">1. <strong>Using <code>putIfAbsent()</code> to Simplify Logic</strong></h4>
+<p>Instead of checking if a key exists:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Verbose with get() check</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">map</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">key</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">());</span>
+<span class="p">}</span>
+<span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">).</span><span class="na">add</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+
+<span class="c1">// Clean with putIfAbsent()</span>
+<span class="n">map</span><span class="p">.</span><span class="na">putIfAbsent</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">());</span>
+<span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">key</span><span class="p">).</span><span class="na">add</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="2-using-getordefault-for-safe-retrieval">2. <strong>Using <code>getOrDefault()</code> for Safe Retrieval</strong></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// Verbose null checking</span>
+<span class="n">Integer</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">elem</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">count</span><span class="o">++</span><span class="p">;</span>
+
+<span class="c1">// One-liner</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="3-using-computeifabsent-for-lazy-initialization">3. <strong>Using <code>computeIfAbsent()</code> for Lazy Initialization</strong></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// Manual check and creation</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">map</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">key</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="c1">// Compute and create only if absent</span>
+<span class="n">map</span><span class="p">.</span><span class="na">computeIfAbsent</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">()).</span><span class="na">add</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="4-using-computeifpresent-for-conditional-updates">4. <strong>Using <code>computeIfPresent()</code> for Conditional Updates</strong></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// Update value only if key exists</span>
+<span class="n">map</span><span class="p">.</span><span class="na">computeIfPresent</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="5-using-merge-for-frequency-counting">5. <strong>Using <code>merge()</code> for Frequency Counting</strong></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// Manual frequency update</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">getOrDefault</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// Using merge (more readable for simple operations)</span>
+<span class="n">map</span><span class="p">.</span><span class="na">merge</span><span class="p">(</span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">::</span><span class="n">sum</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="6-using-arraysaslist-with-arraylist-constructor">6. <strong>Using <code>Arrays.asList()</code> with ArrayList Constructor</strong></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// Create ArrayList with initial element</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">element</span><span class="p">));</span>
+
+<span class="c1">// Or equivalently:</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+</code></pre></div>
+<hr />
+<h3 id="quick-comparison-table">Quick Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Python</th>
+<th>Java</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Avoid "key exists" check</td>
+<td><code>defaultdict(type)</code></td>
+<td><code>putIfAbsent(key, value)</code></td>
+</tr>
+<tr>
+<td>Get with default</td>
+<td><code>dict.get(key, default)</code></td>
+<td><code>map.getOrDefault(key, default)</code></td>
+</tr>
+<tr>
+<td>Count frequencies</td>
+<td><code>Counter(arr)</code></td>
+<td><code>map.merge(elem, 1, Integer::sum)</code></td>
+</tr>
+<tr>
+<td>Lazy initialization</td>
+<td>dict comprehension</td>
+<td><code>computeIfAbsent(key, k -&gt; newValue)</code></td>
+</tr>
+<tr>
+<td>Quick membership test</td>
+<td><code>if x in set</code></td>
+<td><code>set.contains(x)</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascript/katex.js"></script>
+      
+        <script src="../../../javascript/animations.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
