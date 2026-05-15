@@ -26,19 +26,20 @@ Most intuitive solution is to iterate through the strings and check if isAnagram
 
 We can instead work on the smallest constraint we're given, which is the English letters count (26). Let's try to build a hashmap based on this.
 
-If two words are anagrams, they share the same frequency count (as we did for the previous problem). This means we can **skip the comparison** (-1 to the frequency), but just use the frequency map as key/index. _We don't compare, we group._
+If two words are anagrams, they share the same frequency count (as we did for the previous problem). This means we can **skip the comparison** and use the frequency vector as the grouping key.
 
-<span style="color:#4ec9b0">[1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0] act</span>
+For example:
 
-<span style="color:#ce9178">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0] pots</span>
+| Word | Frequency vector |
+| --- | --- |
+| <span style="color:#4ec9b0">act</span> | <span style="color:#4ec9b0">[1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]</span> |
+| <span style="color:#ce9178">pots</span> | <span style="color:#ce9178">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0]</span> |
+| <span style="color:#ce9178">tops</span> | <span style="color:#ce9178">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0]</span> |
+| <span style="color:#4ec9b0">cat</span> | <span style="color:#4ec9b0">[1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]</span> |
+| <span style="color:#ce9178">stop</span> | <span style="color:#ce9178">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0]</span> |
+| hat | [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0] |
 
-<span style="color:#ce9178">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0] tops</span>
-
-<span style="color:#4ec9b0">[1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0] cat</span>
-
-<span style="color:#ce9178">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0] stop</span>
-
-[1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0] hat
+Words with the same vector are anagrams of each other.
 
 ## Solution
 === "Python"

@@ -1,5 +1,9 @@
 # Project Description
 
+## Setup
+Install mkdocs and material plugin.
+`pip install mkdocs mkdocs-material`
+
 ## Usage
 ### Commands
 * `mkdocs new [dir-name]` - Create a new project.
@@ -14,6 +18,11 @@ or
 
 will expose the documentation at http://127.0.0.1:8000/
 
-You can deploy from local to GH pages by executing `mkdocs gh-deploy`.
+### Pages deployment
+You can deploy from local to GH pages by executing:
+`mkdocs gh-deploy`.
+or
+`python -m mkdocs gh-deploy`.
+
 ### Github Pages deployment
-TODO
+TODO, or maybe not
