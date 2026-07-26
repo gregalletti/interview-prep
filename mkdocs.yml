@@ -43,6 +43,10 @@ nav:
     - Introduction: files/01_two_pointers/00_two_pointers.md
     - Easy problems:
       - Valid Palindrome: files/01_two_pointers/01_two_pointers.md
+    - Medium problems:
+      - Container With Most Water: files/01_two_pointers/02_two_pointers.md
+    - Hard problems:
+      - Trapping Rain Water: files/01_two_pointers/03_two_pointers.md
   - Stack:
     - Introduction: files/02_stack/00_stack.md
   - Binary Search:
