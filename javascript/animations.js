@@ -15,9 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Observe content elements (excluding tables)
   const selectors = [
+    '.md-typeset .admonition',
+    'code',
     '.md-content h1',
     '.md-content h2',
     '.md-content h3',
+    '.md-content h4',
     '.md-content p',
     '.md-content ul',
     '.md-content ol',

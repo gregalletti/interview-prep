@@ -11,21 +11,13 @@
   }
 }
 
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 /* Initial state - hidden */
+.md-typeset .admonition,
+code,
 .md-content h1,
 .md-content h2,
 .md-content h3,
+.md-content h4,
 .md-content p,
 .md-content ul,
 .md-content ol,
@@ -35,9 +27,12 @@
 }
 
 /* Apply transition only to these elements */
+.md-typeset .admonition,
+code,
 .md-content h1,
 .md-content h2,
 .md-content h3,
+.md-content h4,
 .md-content p,
 .md-content ul,
 .md-content ol,
@@ -46,8 +41,11 @@
 }
 
 /* Fade in when visible */
+.md-typeset .admonition.visible,
+code.visible,
 .md-content h1.visible,
 .md-content h3.visible,
+.md-content h4.visible,
 .md-content p.visible,
 .md-content ul.visible,
 .md-content ol.visible,
@@ -56,15 +54,15 @@
 }
 
 .md-content h2.visible {
-  animation: fadeInLeft 0.7s ease-out forwards;
-  border-left: 4px solid rgba(33, 150, 243, 0.7);
+  animation: fadeInUp 0.7s ease-out forwards;
+  border-left: 4px solid rgba(0, 148, 133, 0.7);
   padding-left: 12px;
 }
 
 /* List items - subtle cascade */
 .md-content ul.visible li,
 .md-content ol.visible li {
-  animation: fadeInUp 0.6s ease-out backwards;
+  animation: fadeInUp 0.5s ease-out backwards;
 }
 
 .md-content ul.visible li:nth-child(1),
@@ -108,4 +106,10 @@
   .md-content h2:hover {
     transform: none;
   }
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-width: 0;
+  background-color: rgb(20, 21, 26);
 }
