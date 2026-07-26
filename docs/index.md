@@ -53,9 +53,10 @@ For each problem, I follow this Three-Step Process:
 
 **Step 3: Pure Problem Solving**
 
-- No hints, no solutions, no AI to implement the solution (checking sytax is fine)
+- No hints, no solutions, no AI to implement the solution
+- Checking common commands or syntax is fine as I'm going back and forth between Python and Java
 - Implement the solution from scratch in around 10 minutes (easy), 30 minutes (medium), 60 minutes (hard)
 - If I'm stuck after this time, gradually check hints and solutions
 ---
 
-*Last updated: May 2026*
+*Last updated: July 2026*

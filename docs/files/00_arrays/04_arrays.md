@@ -1,7 +1,5 @@
 # [Products of Array Except Self](https://neetcode.io/problems/products-of-array-discluding-self/question?list=neetcode150)
 
-## Statement
-
 !!! note ""
     Given an integer array `nums`, return an array `output` where `output[i]` is the product of all the elements of `nums` except `nums[i]`.
 

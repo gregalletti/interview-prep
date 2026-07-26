@@ -1,7 +1,5 @@
 # [Valid Palindrome](https://neetcode.io/problems/is-palindrome/question?list=neetcode150)
 
-## Statement
-
 !!! note ""
     Given a string `s`, return `true` if it is a palindrome, otherwise return `false`.
 

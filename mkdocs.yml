@@ -5,6 +5,8 @@ theme:
   name: material
   palette:
     scheme: slate
+    primary: black
+    accent: teal
   features:
     - navigation.tabs
     - navigation.sections
@@ -13,6 +15,7 @@ theme:
 
 markdown_extensions:
   - admonition
+  - pymdownx.details
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
@@ -33,22 +36,24 @@ nav:
   - Home: index.md
   - Arrays & Hashing: 
     - Introduction: files/00_arrays/00_arrays.md
-    - Easy problems:
+    - 🟢 Easy problems:
       - Contains Duplicate: files/00_arrays/01_arrays.md
       - Is Anagram: files/00_arrays/02_arrays.md
-    - Medium problems:
+    - 🟡 Medium problems:
       - Group Anagrams: files/00_arrays/03_arrays.md
       - Product of Array Except Self: files/00_arrays/04_arrays.md
   - Two Pointers:
     - Introduction: files/01_two_pointers/00_two_pointers.md
-    - Easy problems:
+    - 🟢 Easy problems:
       - Valid Palindrome: files/01_two_pointers/01_two_pointers.md
-    - Medium problems:
+    - 🟡 Medium problems:
       - Container With Most Water: files/01_two_pointers/02_two_pointers.md
-    - Hard problems:
+    - 🔴 Hard problems:
       - Trapping Rain Water: files/01_two_pointers/03_two_pointers.md
   - Stack:
     - Introduction: files/02_stack/00_stack.md
+    - 🟢 Easy problems:
+      - Problem Name: files/02_stack/01_stack.md
   - Binary Search:
     - Introduction: files/03_binary_search/00_binary_search.md
   - Sliding Window:

@@ -1,22 +1,19 @@
 # [Trapping Rain Water](https://neetcode.io/problems/trapping-rain-water/question?list=neetcode150)
 
-## Statement
-
 !!! note ""
     You are given an array of non-negative integers height which represent an elevation map. Each value height[i] represents the height of a bar, which has a width of 1.
 
     Return the maximum area of water that can be trapped between the bars.
 
     ### Examples
-    Example 1:
-    Input: height = [0,2,0,3,1,0,1,3,2,1]
 
-    Output: 9
+    | Example | Input | Output | Explanation |
+    | --- | --- | --- | --- |
+    | 1 | `[0,2,0,3,1,0,1,3,2,1]` | `9` | The water can be trapped between the bars at index 1 and index 7. |
 
     ### Constraints
-
-    1 <= height.length <= 1000
-    0 <= height[i] <= 1000
+    - `1 <= height.length <= 1000`
+    - `0 <= height[i] <= 1000`
 
 ## Analysis
 Even if it looks similar to the previous problem, it's a bit more complex. Mainly because in the previous problem we had to choose any two bars and get the area, while here we have to consider all the bars and how much water can be trapped between them.
@@ -34,7 +31,7 @@ I'm not gonna lie, I drafted my solution and submitted it just to get a negative
 
 I personally think that for understanding the problem, my version is more intuitive. You can go to a position, look to the left and right, and see how much water can be trapped at that position. Including the current index in the prefix/suffix arrays is a bit counter-intuitive when running through the example, but it is technically more efficient as we don't have to check for negatives.
 
-[!img](03_two_pointers.png)
+![img](03_example.png)
 
 My version
 left:  [0, 0, 2, 2, 3, 3, 3, 3, 3, 3]

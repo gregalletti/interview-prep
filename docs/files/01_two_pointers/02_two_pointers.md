@@ -1,27 +1,20 @@
 # [Container With Most Water](https://neetcode.io/problems/max-water-container/question?list=neetcode150)
 
-## Statement
-
 !!! note ""
     You are given an integer array heights where heights[i] represents the height of the i-th bar.
 
     You may choose any two bars to form a container. Return the maximum amount of water a container can store.
 
     ### Examples
-    Example 1:
-    Input: height = [1,7,2,5,4,7,3,6]
-
-    Output: 36
-    Example 2:
-
-    Input: height = [2,2,2]
-
-    Output: 4
+    
+    | Example | Input | Output | Explanation |
+    | --- | --- | --- | --- |
+    | 1 | `[1,7,2,5,4,7,3,6]` | `36` | The container formed by the bars at index 1 and index 5 can store the most water. |
+    | 2 | `[2,2,2]` | `4` | The container formed by the bars at index 0 and index 2 can store the most water. |
 
     ### Constraints
-
-    2 <= height.length <= 1000
-    0 <= height[i] <= 1000
+    - `2 <= height.length <= 1000`
+    - `0 <= height[i] <= 1000`
 
 ## Analysis
 Naive solution is quite intuitive, we can iterate through all the bars pairs and calculate the area, keeping track of the maximum. However, this would be O(n^2) time complexity, which is not optimal.
