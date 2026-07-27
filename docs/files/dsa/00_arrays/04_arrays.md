@@ -20,8 +20,8 @@ hide:
 
     ### Constraints
 
-    - 2 <= nums.length <= 1000
-    - -20 <= nums[i] <= 20
+    - `2 <= nums.length <= 1000`
+    - `-20 <= nums[i] <= 20`
 
 
 ## Analysis
@@ -48,8 +48,7 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
 
 **Extra optimization**: we can calculate the prefix and suffix on the fly, without needing to store them in separate arrays. We do so by calculating the prefix in the ans array, and then calculating the suffix in reverse order while updating the ans array. This is however a bit tricky as we have to keep track of the suffix in a separate variable, can't rely on the ans array for that as we are updating it in place.
 
-## Solution
-### Division approach
+## Solution - Division approach
 === "Python"
 
     ```python
@@ -114,11 +113,14 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
     ```
 
 ### Complexity
-$O(n)$ time complexity as we iterate twice through the array
+- Time Complexity: $O(n)$ _as we iterate twice through the array_
 
-$O(n)$ space complexity as we are storing the result in a separate array of length n
+- Space Complexity: $O(n)$ _as we are storing the result, prefix and suffix in separate arrays of length $n$_
 
-### Prefix and Suffix approach
+!!! info ""
+    where $n$ is the length of the input array
+
+## Solution - Prefix and Suffix approach
 === "Python"
 
     ```python
@@ -169,11 +171,14 @@ $O(n)$ space complexity as we are storing the result in a separate array of leng
     ```
 
 ### Complexity
-$O(n)$ time complexity as we iterate twice through the array
+- Time Complexity: $O(n)$ _as we iterate twice through the array_
 
-$O(n)$ space complexity as we are storing the result, prefix and suffix in separate arrays of length n
+- Space Complexity: $O(n)$ _as we are storing the result, prefix and suffix in separate arrays of length $n$_
 
-### Prefix and Suffix (optimized) approach
+!!! info ""
+    where $n$ is the length of the input array
+
+## Solution - Prefix and Suffix (optimized) approach
 === "Python"
 
     ```python
@@ -221,10 +226,13 @@ $O(n)$ space complexity as we are storing the result, prefix and suffix in separ
     }  
     ```
 
-## Complexity
-$O(n)$ time complexity as we iterate twice through the array
+### Complexity
+- Time Complexity: $O(n)$ _as we iterate twice through the array_
 
-$O(n)$ space complexity as we are storing the result in a separate array of length n
+- Space Complexity: $O(n)$ _as we are storing the result in a separate array of length $n$_
+
+!!! info ""
+    where $n$ is the length of the input array
 
 ## TODO
 - Optimize Java solution using computeIfAbsent() instead of putIfAbsent() + get()

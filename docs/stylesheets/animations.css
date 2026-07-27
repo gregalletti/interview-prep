@@ -133,10 +133,16 @@ hr.visible {
   }
 }
 
-.md-typeset .admonition,
+.md-typeset .admonition.note,
 .md-typeset details {
   border-width: 0;
   background-color: rgb(20, 21, 26);
+}
+
+.md-typeset .admonition.info,
+.md-typeset details {
+  border-width: 0;
+  background-color: rgba(20, 21, 26, 0.4);
 }
 
 .md-nav--primary > .md-nav__list > .md-nav__item

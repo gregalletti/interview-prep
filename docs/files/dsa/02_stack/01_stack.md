@@ -5,7 +5,7 @@ hide:
 # [Valid Parentheses](https://neetcode.io/problems/valid-parentheses)
 
 !!! note ""
-    You are given a string s consisting of the following characters: '(', ')', '{', '}', '[' and ']'.
+    You are given a string s consisting of the following characters: `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`.
 
     The input string s is valid if and only if:
 

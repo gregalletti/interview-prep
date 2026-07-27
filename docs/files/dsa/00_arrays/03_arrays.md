@@ -19,9 +19,9 @@ hide:
 
     ### Constraints
 
-    - 1 <= strs.length <= 1000
-    - 0 <= strs[i].length <= 100
-    - strs[i] is made up of lowercase English letters
+    - `1 <= strs.length <= 1000`
+    - `0 <= strs[i].length <= 100`
+    - `strs[i]` is made up of lowercase English letters
 
 ## Analysis
 Most intuitive solution is to iterate through the strings and check if isAnagram. This would need O(n) for the loop, to be multiplied by the complexity of executing the isAnagram. This is way too much.
