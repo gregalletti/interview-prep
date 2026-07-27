@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 # [Trapping Rain Water](https://neetcode.io/problems/trapping-rain-water/question?list=neetcode150)
 
 !!! note ""

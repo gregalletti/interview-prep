@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 # [Contains Duplicate](https://neetcode.io/problems/duplicate-integer)
 
 !!! note ""

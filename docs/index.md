@@ -10,7 +10,13 @@ This is a structured diary documenting my **Coding Interview Preparation**, foll
 
 ## What You'll Find Here
 
-Each section includes comprehensive coverage:
+This diary is organized by major topics for Software Engineering interviews, including:
+- **Data Structures & Algorithms** - Arrays, Strings, Linked Lists, Trees, Graphs, Heaps, Hash Tables, etc.
+- **System Design** - High-level design, scalability, and architecture and most important concepts like load balancing, caching, database sharding, etc.
+- **AI & ML** - Machine Learning, Deep Learning, and AI Agents. How to use them effectively in real-world applications.
+- **Frontend Engineering** - React, Angular, Vue, and other frontend frameworks.
+
+Each section of DSA topic includes comprehensive coverage:
 
 - **Topic Explanations** - Core concepts and foundational algorithms
 - **Useful Methods** - Essential functions and techniques for each pattern
@@ -57,6 +63,12 @@ For each problem, I follow this Three-Step Process:
 - Checking common commands or syntax is fine as I'm going back and forth between Python and Java
 - Implement the solution from scratch in around 10 minutes (easy), 30 minutes (medium), 60 minutes (hard)
 - If I'm stuck after this time, gradually check hints and solutions
+
+**Step 4: Look back and analyze**
+- What made me struggle the most?
+- Can the solution be improved further?
+- Which follow-up questions can be asked?
+- Here, AI can be used to answer these questions and provide additional insights
 ---
 
 *Last updated: July 2026*

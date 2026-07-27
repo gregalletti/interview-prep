@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 # [Problem Name](https://neetcode.io/problems/<problem-name>)
 
 ## Statement

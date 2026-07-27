@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 # [Is Anagram](https://neetcode.io/problems/is-anagram/solution)
 
 !!! note ""

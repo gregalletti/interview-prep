@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 # [Group Anagrams](https://neetcode.io/problems/anagram-groups/question?list=neetcode150)
 
 !!! note ""

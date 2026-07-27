@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 # [Valid Parentheses](https://neetcode.io/problems/valid-parentheses)
 
 !!! note ""
