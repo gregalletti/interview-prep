@@ -23,6 +23,7 @@ hide:
 ## Analysis
 
 ## Solution
+
 === "Python"
 
     ```python
