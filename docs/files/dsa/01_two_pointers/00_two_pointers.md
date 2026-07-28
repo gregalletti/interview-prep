@@ -1,6 +1,7 @@
 # Two Pointers
 
 ## Introduction
+
 The **two pointers** technique is a fundamental algorithmic pattern that significantly optimizes solutions for many problems involving arrays, strings, and linked lists. By maintaining two indices (pointers) that move through data structures, we can solve problems that might otherwise require nested loops in $O(n^2)$ time.
 
 Two pointers works exceptionally well when dealing with **sorted arrays**, **palindromes**, **pairs/triplets**, and **partitioning** problems. The key insight is that by moving pointers strategically (often from opposite ends or at different speeds), we can process data in a single or linear pass rather than multiple nested iterations.
@@ -8,6 +9,7 @@ Two pointers works exceptionally well when dealing with **sorted arrays**, **pal
 ## Key Concepts & Operations
 
 ### Core Strategy
+
 - **Opposite Ends**: Start with one pointer at the beginning and one at the end, moving toward the center
 - **Same Direction**: Both pointers move in the same direction but at different speeds (e.g., slow and fast pointers)
 - **Sorted Array Advantage**: Two pointers are most powerful on sorted data where decisions can be made based on comparisons
@@ -23,6 +25,7 @@ Two pointers works exceptionally well when dealing with **sorted arrays**, **pal
 | **Different Speed** | Linked lists | Find nth node from end |
 
 ### Common Methods & Operations
+
 | Operation | Pattern | Time | Space |
 | --- | --- | --- | --- |
 | Sum pair in sorted array | Converging pointers | $O(n)$ | $O(1)$ |
@@ -35,6 +38,7 @@ Two pointers works exceptionally well when dealing with **sorted arrays**, **pal
 ## Common Interview Patterns
 
 ### 1. **Converging Pointers on Sorted Array**
+
 **Pattern**: Start at opposite ends and move toward center based on comparisons.
 
 ```python
@@ -53,6 +57,7 @@ def twoSum(arr, target):
 ```
 
 **Use cases**:
+
 - Two Sum II (sorted array)
 - Three Sum (with nested loop)
 - Closest sum to target
@@ -63,6 +68,7 @@ def twoSum(arr, target):
 ---
 
 ### 2. **In-place Array Modification**
+
 **Pattern**: Use pointers to iterate through and modify array without extra space.
 
 ```python
@@ -79,6 +85,7 @@ def removeDuplicates(arr):
 ```
 
 **Use cases**:
+
 - Remove duplicates
 - Move zeros to end
 - Partition array (move elements by value)
@@ -89,6 +96,7 @@ def removeDuplicates(arr):
 ---
 
 ### 3. **Opposite Direction Pointers (Partition)**
+
 **Pattern**: Two pointers moving toward each other to partition array by condition.
 
 ```python
@@ -102,6 +110,7 @@ def moveZeroes(arr):
 ```
 
 **Use cases**:
+
 - Move zeros to end
 - Sort colors (0s, 1s, 2s)
 - Partition by pivot value
@@ -112,6 +121,7 @@ def moveZeroes(arr):
 ---
 
 ### 4. **Linked List Two Pointers**
+
 **Pattern**: Use fast and slow pointers moving at different speeds through linked list.
 
 ```python
@@ -125,6 +135,7 @@ def findMiddle(head):
 ```
 
 **Use cases**:
+
 - Find middle node
 - Detect cycle in linked list
 - Find nth node from end
@@ -135,6 +146,7 @@ def findMiddle(head):
 ---
 
 ### 5. **Checking Palindromes**
+
 **Pattern**: Compare characters from both ends moving toward center.
 
 ```python
@@ -150,6 +162,7 @@ def isPalindrome(s):
 ```
 
 **Use cases**:
+
 - Palindrome validation
 - Almost palindrome (allow one deletion)
 - Longest palindromic substring

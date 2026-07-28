@@ -17,6 +17,7 @@ hide:
 ## Analysis
 
 ## Solution
+
 === "Python"
 
     ```python
@@ -39,6 +40,7 @@ hide:
     ```
 
 ### Complexity
+
 - Time Complexity: $O(n)$ _as the built-in functions need to iterate through the array_
 - Space Complexity: $O(n)$ _as we are storing a copy of the initial array_
 
@@ -46,5 +48,6 @@ hide:
     where $n$ is the length of the input array
 
 ## TODO
+
 - Add Analysis section with explanation of the approach
 - Optimize Python solution using more Pythonic approach

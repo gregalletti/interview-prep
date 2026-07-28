@@ -1,6 +1,7 @@
 # Arrays & Hashing
 
 ## Introduction
+
 Arrays and hashing are among the **most fundamental data structures** in coding interviews. Understanding these concepts deeply is essential because they form the foundation for more advanced algorithms and problem-solving techniques.
 
 An **array** is a contiguous collection of elements stored in memory, providing $O(1)$ random access by index. **Hashing** leverages hash tables (dictionaries/maps) to achieve near-constant time lookups, insertions, and deletions.
@@ -10,18 +11,21 @@ Many interview problems combine these two concepts: using hash tables to track a
 ## Key Concepts & Operations
 
 ### Arrays
+
 - **Random Access**: Access element at index $i$ in $O(1)$ time using `arr[i]`
 - **Linear Search**: Finding an element without additional structure takes $O(n)$ time
 - **Dynamic Arrays**: Lists/ArrayLists grow automatically (amortized $O(1)$ for append)
 - **Subarrays**: Contiguous sequences of elements (useful for sliding window patterns)
 
 ### Hashing
+
 - **Hash Tables**: Store key-value pairs with average $O(1)$ lookup, insert, delete
 - **Sets**: Hash-based collections to track unique elements with $O(1)$ operations
 - **Frequency Maps**: Count occurrences of elements in $O(n)$ time, then analyze in $O(1)$ per lookup
 - **Collision Handling**: Hash tables handle collisions internally (implementation detail, but good to understand conceptually)
 
 ### Common Methods & Operations
+
 | Operation | Python | Java | Time |
 | --- | --- | --- | --- |
 | Create | `arr = [1,2,3]` | `int[] arr = {1,2,3}` | $O(n)$ |
@@ -36,6 +40,7 @@ Many interview problems combine these two concepts: using hash tables to track a
 ## Common Interview Patterns
 
 ### 1. **Frequency Counting**
+
 **Pattern**: Use a hash table to count element occurrences, then analyze the counts.
 
 ```python
@@ -46,6 +51,7 @@ freq = Counter(arr)
 ```
 
 **Use cases**:
+
 - Detecting duplicate elements
 - Finding most/least common elements
 - Anagram detection (same characters, different order)
@@ -55,6 +61,7 @@ freq = Counter(arr)
 ---
 
 ### 2. **Two Pointers / Sliding Window**
+
 **Pattern**: Use two indices or a window to process subarrays efficiently.
 
 ```python
@@ -66,6 +73,7 @@ while left < right:
 ```
 
 **Use cases**:
+
 - Finding pairs that sum to target
 - Removing duplicates while maintaining order
 - Container with most water
@@ -75,6 +83,7 @@ while left < right:
 ---
 
 ### 3. **Hash Set for Existence Checks**
+
 **Pattern**: Store elements in a set, then check membership in $O(1)$ time.
 
 ```python
@@ -84,6 +93,7 @@ if target in seen:
 ```
 
 **Use cases**:
+
 - Detecting duplicates in array
 - Finding intersection/union of arrays
 - Complement operations (elements not in array)
@@ -93,6 +103,7 @@ if target in seen:
 ---
 
 ### 4. **Hash Map for Value Lookup**
+
 **Pattern**: Map each element to useful information (count, index, etc.)
 
 ```python
@@ -104,6 +115,7 @@ freq_map = {elem: 0 for elem in arr}
 ```
 
 **Use cases**:
+
 - Two Sum (find pair with target sum)
 - Anagram grouping (same character frequency = same group)
 - Element position tracking
@@ -113,6 +125,7 @@ freq_map = {elem: 0 for elem in arr}
 ---
 
 ### 5. **Sorting for Comparison**
+
 **Pattern**: Sort array to enable efficient comparisons and eliminate duplicates.
 
 ```python
@@ -121,6 +134,7 @@ sorted_arr = sorted(arr)
 ```
 
 **Use cases**:
+
 - Anagram detection (sort characters and compare)
 - Duplicate elimination
 - Efficient range queries
@@ -142,6 +156,7 @@ sorted_arr = sorted(arr)
 ### Python Improvements
 
 #### 1. **Using `defaultdict` to Avoid "If" Checks**
+
 Instead of checking if a key exists before accessing it:
 
 ```python
@@ -159,6 +174,7 @@ map[key].append(value)  # Automatically creates empty list if missing
 **Use cases**: Grouping elements, building adjacency lists, frequency maps
 
 #### 2. **Using `Counter` for Frequency Counting**
+
 Instead of manually counting elements:
 
 ```python
@@ -175,6 +191,7 @@ freq.most_common(3)  # Get top 3 elements
 ```
 
 #### 3. **Using `dict.get()` with Default Values**
+
 ```python
 # Verbose
 if key not in map:
@@ -190,6 +207,7 @@ freq[elem] = freq.get(elem, 0) + 1
 ```
 
 #### 4. **Set Operations for Quick Membership**
+
 ```python
 # O(1) lookup instead of O(n) list search
 seen = set(arr)
@@ -198,6 +216,7 @@ if target in seen:
 ```
 
 #### 5. **Dictionary Comprehension for Initial Maps**
+
 ```python
 # Build frequency map in one line
 freq = {c: 0 for c in "abcdefghijklmnopqrstuvwxyz"}
@@ -211,6 +230,7 @@ index_map = {arr[i]: i for i in range(len(arr))}
 ### Java Improvements
 
 #### 1. **Using `putIfAbsent()` to Simplify Logic**
+
 Instead of checking if a key exists:
 
 ```java
@@ -226,6 +246,7 @@ map.get(key).add(value);
 ```
 
 #### 2. **Using `getOrDefault()` for Safe Retrieval**
+
 ```java
 // Verbose null checking
 Integer count = map.get(elem);
@@ -240,6 +261,7 @@ map.put(elem, count);
 ```
 
 #### 3. **Using `computeIfAbsent()` for Lazy Initialization**
+
 ```java
 // Manual check and creation
 if (!map.containsKey(key)) {
@@ -251,12 +273,14 @@ map.computeIfAbsent(key, k -> new ArrayList<>()).add(value);
 ```
 
 #### 4. **Using `computeIfPresent()` for Conditional Updates**
+
 ```java
 // Update value only if key exists
 map.computeIfPresent(key, (k, v) -> v + 1);
 ```
 
 #### 5. **Using `merge()` for Frequency Counting**
+
 ```java
 // Manual frequency update
 map.put(elem, map.getOrDefault(elem, 0) + 1);
@@ -266,6 +290,7 @@ map.merge(elem, 1, Integer::sum);
 ```
 
 #### 6. **Using `Arrays.asList()` with ArrayList Constructor**
+
 ```java
 // Create ArrayList with initial element
 List<String> list = new ArrayList<>(Arrays.asList(element));

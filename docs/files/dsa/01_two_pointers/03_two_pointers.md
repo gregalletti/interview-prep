@@ -20,6 +20,7 @@ hide:
     - `0 <= height[i] <= 1000`
 
 ## Analysis
+
 Even if it looks similar to the previous problem, it's a bit more complex. Mainly because in the previous problem we had to choose any two bars and get the area, while here we have to consider all the bars and how much water can be trapped between them.
 
 We can start from 0 and 1, and try to use some sort for raycasting (by projecting the left bar onto the right bar), but it would be O(n^2) time complexity as we would still have to calculate the area for each pair and subtract the heights, not optimal. We can do better.
@@ -46,6 +47,7 @@ left:  [0, 2, 2, 3, 3, 3, 3, 3, 3, 3]
 right: [3, 3, 3, 3, 3, 3, 3, 3, 2, 1]
 
 ## Solution
+
 === "Python"
 
     ```python
@@ -109,6 +111,7 @@ right: [3, 3, 3, 3, 3, 3, 3, 3, 2, 1]
     ```
 
 ### Complexity
+
 - Time Complexity: $O(n)$ _as we iterate the 3 times: once to calculate the prefix, once to calculate the suffix, and once to calculate the water_
 - Space Complexity: $O(n)$ _as we are storing 2 arrays of length $n$ (prefix and suffix)_
 

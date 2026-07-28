@@ -21,11 +21,13 @@ hide:
     - `0 <= height[i] <= 1000`
 
 ## Analysis
+
 Naive solution is quite intuitive, we can iterate through all the bars pairs and calculate the area, keeping track of the maximum. However, this would be O(n^2) time complexity, which is not optimal.
 
 We can instead think about a different approach, and the category it's in is a hint. We can pick left and right bars, calculate the area, and move to the left or right depending on which bar is smaller (the smaller bar is limiting how much water we can store). This is now a trivial two pointers with O(n) time complexity solution, as we are iterating through the array only once.
 
 ## Solution
+
 === "Python"
 
     ```python
@@ -69,6 +71,7 @@ We can instead think about a different approach, and the category it's in is a h
     ```
 
 ### Complexity
+
 - Time Complexity: $O(n)$ _as we iterate the array once ("half" from left and "half" from right)_
 - Space Complexity: $O(1)$ _as we are not storing anything_
 

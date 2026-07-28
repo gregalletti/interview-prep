@@ -23,9 +23,9 @@ hide:
     - `2 <= nums.length <= 1000`
     - `-20 <= nums[i] <= 20`
 
-
 ## Analysis
-Let's play along the problem statement and try to solve it with division first (we exclude the naive approach). We can calculate the total product of the array, and then for each element, divide the total product by that element to get the result. 
+
+Let's play along the problem statement and try to solve it with division first (we exclude the naive approach). We can calculate the total product of the array, and then for each element, divide the total product by that element to get the result.
 
 However, we need to be careful with zeros, as they would make the total product zero and lead to division by zero errors. We can count the number of zeros in the array. If there are more than one zero, then all products will be zero. If there is exactly one zero, then all products except the one corresponding to the zero will be zero, and the product for the zero will be the total product of the non-zero elements. If there are no zeros, we can simply divide the total product by each element.
 
@@ -49,6 +49,7 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
 **Extra optimization**: we can calculate the prefix and suffix on the fly, without needing to store them in separate arrays. We do so by calculating the prefix in the ans array, and then calculating the suffix in reverse order while updating the ans array. This is however a bit tricky as we have to keep track of the suffix in a separate variable, can't rely on the ans array for that as we are updating it in place.
 
 ## Solution - Division approach
+
 === "Python"
 
     ```python
@@ -113,14 +114,15 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
     ```
 
 ### Complexity
-- Time Complexity: $O(n)$ _as we iterate twice through the array_
 
+- Time Complexity: $O(n)$ _as we iterate twice through the array_
 - Space Complexity: $O(n)$ _as we are storing the result, prefix and suffix in separate arrays of length $n$_
 
 !!! info ""
     where $n$ is the length of the input array
 
 ## Solution - Prefix and Suffix approach
+
 === "Python"
 
     ```python
@@ -171,6 +173,7 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
     ```
 
 ### Complexity
+
 - Time Complexity: $O(n)$ _as we iterate twice through the array_
 
 - Space Complexity: $O(n)$ _as we are storing the result, prefix and suffix in separate arrays of length $n$_
@@ -179,6 +182,7 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
     where $n$ is the length of the input array
 
 ## Solution - Prefix and Suffix (optimized) approach
+
 === "Python"
 
     ```python
@@ -198,8 +202,6 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
 
             return ans
     ```
-
-
 
 === "Java"
 
@@ -227,14 +229,15 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
     ```
 
 ### Complexity
-- Time Complexity: $O(n)$ _as we iterate twice through the array_
 
+- Time Complexity: $O(n)$ _as we iterate twice through the array_
 - Space Complexity: $O(n)$ _as we are storing the result in a separate array of length $n$_
 
 !!! info ""
     where $n$ is the length of the input array
 
 ## TODO
+
 - Optimize Java solution using computeIfAbsent() instead of putIfAbsent() + get()
 - Update complexity analysis to reflect accurate O(n * k log k) where n = number of strings, k = average string length
 - Add Analysis section explaining the grouping strategy

@@ -26,9 +26,11 @@ hide:
     - `1 <= s.length <= 1000`
 
 ## Analysis
+
 Not much to say here, it's the classic textbook stack problem. We can use a stack to keep track of the opening brackets, and when we encounter a closing bracket, we check if it matches the last opening bracket in the stack. If it does, we pop the opening bracket from the stack; if it doesn't, we return false. At the end, if the stack is empty, it means all brackets were matched correctly, and we return true.
 
 ## Solution
+
 === "Python"
 
     ```python
@@ -84,6 +86,7 @@ Not much to say here, it's the classic textbook stack problem. We can use a stac
     ```
 
 ### Complexity
+
 - Time Complexity: $O(n)$ _as we iterate through the string once_
 - Space Complexity: $O(n)$ _as we store opening brackets in the stack (in the worst case, all characters are opening brackets)_
 

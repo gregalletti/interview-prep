@@ -24,13 +24,15 @@ hide:
     - `s` consists only of printable ASCII characters.
 
 ## Analysis
+
 I didn't even think about the naive solution this time, but worth mentioning. It would consist in cleaning the original string and then creating an extra (reversed) string and comparing them. However, this would come with extra space.
 
-This is a simple example of two pointers and it's difficult not to think about this pattern immediately. It's clear we have to check if the start of the string is the same as the end, and so on. 
+This is a simple example of two pointers and it's difficult not to think about this pattern immediately. It's clear we have to check if the start of the string is the same as the end, and so on.
 
 Just use one start/left pointer and one end/right pointer and move them accordingly. If chars are not alphanumeric we skip them _but we need to make sure to check if left and right pointers are still, respectively, left and right_.
 
 ## Solution
+
 === "Python"
 
     ```python
@@ -87,6 +89,7 @@ Just use one start/left pointer and one end/right pointer and move them accordin
     ```
 
 ### Complexity
+
 - Time Complexity: $O(n)$ _as we iterate the string once ("half" from left and "half" from right)_
 - Space Complexity: $O(1)$ _as we are not storing anything_
 

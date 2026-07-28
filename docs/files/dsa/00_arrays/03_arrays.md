@@ -24,6 +24,7 @@ hide:
     - `strs[i]` is made up of lowercase English letters
 
 ## Analysis
+
 Most intuitive solution is to iterate through the strings and check if isAnagram. This would need O(n) for the loop, to be multiplied by the complexity of executing the isAnagram. This is way too much.
 
 We can instead work on the smallest constraint we're given, which is the English letters count (26). Let's try to build a hashmap based on this.
@@ -44,6 +45,7 @@ For example:
 Words with the same vector are anagrams of each other.
 
 ## Solution
+
 === "Python"
 
     ```python
@@ -89,6 +91,7 @@ Words with the same vector are anagrams of each other.
     ```
 
 ### Complexity
+
 - Time Complexity: $O(n * m)$ _as we iterate once through the strings (len $n$) and for each string we iterate through its characters (len $m$)_
 - Space Complexity: $O(1)$ _as we are storing at most all the English characters in the hashmap, hence 26_
 
@@ -96,6 +99,7 @@ Words with the same vector are anagrams of each other.
     where $n$ is the length of the input array and $m$ is the average length of the strings
 
 ## TODO
+
 - Optimize Java solution using computeIfAbsent() instead of putIfAbsent() + get()
 - Update complexity analysis to reflect accurate O(n * k log k) where n = number of strings, k = average string length
 - Add Analysis section explaining the grouping strategy
