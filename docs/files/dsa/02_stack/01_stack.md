@@ -5,14 +5,14 @@ hide:
 # [Valid Parentheses](https://neetcode.io/problems/valid-parentheses)
 
 !!! note ""
-    You are given a string s consisting of the following characters: `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`.
+    You are given a string `s` consisting of the following characters: `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`.
 
-    The input string s is valid if and only if:
+    The input string `s` is valid if and only if:
 
     - Every open bracket is closed by the same type of close bracket.
     - Open brackets are closed in the correct order.
     - Every close bracket has a corresponding open bracket of the same type.
-    Return true if s is a valid string, and false otherwise.
+    Return true if `s` is a valid string, and false otherwise.
 
     ### Examples
 
@@ -84,6 +84,8 @@ Not much to say here, it's the classic textbook stack problem. We can use a stac
     ```
 
 ### Complexity
-$O(n)$ time complexity as we iterate through the string once
+- Time Complexity: $O(n)$ _as we iterate through the string once_
+- Space Complexity: $O(n)$ _as we store opening brackets in the stack (in the worst case, all characters are opening brackets)_
 
-$O(n)$ space complexity as we store opening brackets in the stack (in the worst case, all characters are opening brackets)
+!!! info ""
+    where $n$ is the length of the input string

@@ -39,9 +39,11 @@ hide:
     ```
 
 ### Complexity
-$O(n)$ time complexity as the built-in functions need to iterate through the array
+- Time Complexity: $O(n)$ _as the built-in functions need to iterate through the array_
+- Space Complexity: $O(n)$ _as we are storing a copy of the initial array_
 
-$O(n)$ space complexity as we are storing a copy of the initial array
+!!! info ""
+    where $n$ is the length of the input array
 
 ## TODO
 - Add Analysis section with explanation of the approach

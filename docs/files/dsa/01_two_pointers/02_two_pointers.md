@@ -5,7 +5,7 @@ hide:
 # [Container With Most Water](https://neetcode.io/problems/max-water-container/question?list=neetcode150)
 
 !!! note ""
-    You are given an integer array heights where heights[i] represents the height of the i-th bar.
+    You are given an integer array `heights` where `heights[i]` represents the height of the i-th bar.
 
     You may choose any two bars to form a container. Return the maximum amount of water a container can store.
 
@@ -69,6 +69,8 @@ We can instead think about a different approach, and the category it's in is a h
     ```
 
 ### Complexity
-$O(n)$ time complexity as we iterate the string once ("half" from left and "half" from right)
+- Time Complexity: $O(n)$ _as we iterate the array once ("half" from left and "half" from right)_
+- Space Complexity: $O(1)$ _as we are not storing anything_
 
-$O(1)$ space complexity as we are not storing anything
+!!! info ""
+    where $n$ is the length of the input array

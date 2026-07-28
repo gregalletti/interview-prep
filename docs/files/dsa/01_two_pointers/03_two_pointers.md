@@ -109,6 +109,8 @@ right: [3, 3, 3, 3, 3, 3, 3, 3, 2, 1]
     ```
 
 ### Complexity
-$O(n)$ time complexity as we iterate the 3 times: once to calculate the prefix, once to calculate the suffix, and once to calculate the water
+- Time Complexity: $O(n)$ _as we iterate the 3 times: once to calculate the prefix, once to calculate the suffix, and once to calculate the water_
+- Space Complexity: $O(n)$ _as we are storing 2 arrays of length $n$ (prefix and suffix)_
 
-$O(n)$ space complexity as we are storing 2 arrays of length n (prefix and suffix)
+!!! info ""
+    where $n$ is the length of the input array
