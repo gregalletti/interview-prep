@@ -1,5 +1,7 @@
 # Project Description
 
+See the live [diary](https://gregalletti.github.io/interview-prep/) on Pages.
+
 ## Setup
 
 Install mkdocs and material plugin.
