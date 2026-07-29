@@ -3,9 +3,9 @@
     "prefix": "dsa",
     "body": [
       "---",
-      "title: Placeholder",
+      "title: \"Placeholder\"",
       "external_links:",
-      "    NeetCode: https://neetcode.io/problems/is-palindrome",
+      "    Placeholder: https://neetcode.io/problems/is-palindrome",
       "---",
       "!!! note \"\"",
       "    ### Examples",
