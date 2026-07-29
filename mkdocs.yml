@@ -12,6 +12,7 @@ theme:
     - navigation.sections
     - search.highlight
     - content.code.copy
+    - navigation.footer
 
 markdown_extensions:
   - admonition
@@ -29,8 +30,9 @@ extra_javascript:
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 
 extra_css:
-  - https://unpkg.com/katex@0/dist/katex.min.css
   - stylesheets/animations.css
+  - https://unpkg.com/katex@0/dist/katex.min.css
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css
 
 nav:
   - Home: index.md
@@ -100,8 +102,8 @@ nav:
     - Deep Learning:
       - Introduction: files/ai_ml/02_deep_learning/00_deep_learning.md
   - Frontend Engineering:
-    - Introduction: files/frontend/00_frontend.md
     - JavaScript / TypeScript:
-      - Introduction: files/frontend/01_javascript/00_javascript.md
+      - Introduction: files/frontend/00_javascript/00_javascript.md
+      - Reduce: files/frontend/00_javascript/01_reduce.md
     - React:
       - Introduction: files/frontend/01_react/00_react.md
