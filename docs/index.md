@@ -8,19 +8,8 @@ I'm personally using this diary to track my progress, but I hope it can also ser
 
 I'm a Software Engineer and Architect mostly focused on **Backend Development** and **System Design**. However, I think I haven't found my true calling yet, and I want to explore other areas of Software Engineering, including **Frontend Development** and **AI/ML**. That's why you'll find a mix of topics here.
 
-For frontend I found [GFE75](https://www.greatfrontend.com/interviews/gfe75) to be a great resource for interview preparation.
-
-!!! note ""
-    **Kudos to the creators:**
-
-    <a href="https://www.linkedin.com/in/navdeep-singh-3aaa14161/" target="_blank" rel="noopener">
-    <i class="fa-brands fa-linkedin"></i> NeetCode
-    </a>
-
-    <a href="https://www.linkedin.com/company/greatfrontend/" target="_blank" rel="noopener">
-    <i class="fa-brands fa-linkedin"></i> GreatFrontEnd
-    </a>
----
+For Frontend topics I found myself frequently using GreatFrontEnd [GFE75](https://www.greatfrontend.com/interviews/gfe75), a great resource for interview preparation.
+> Kudos to the creators, thanks guys!
 
 ## What You'll Find Here
 
@@ -33,14 +22,12 @@ This diary is organized by major topics for Software Engineering interviews, inc
 
 Each section of DSA topic includes comprehensive coverage:
 
-- **Topic Explanations** - Core concepts and foundational algorithms
-- **Useful Methods** - Essential functions and techniques for each pattern
-- **Problem Statements** - Clear problem descriptions and requirements
-- **Initial Analysis** - Deep-dive analysis before coding
-- **Python & Java Solutions** - Multiple language implementations
-- **Complexity Analysis** - Time and space complexity estimations
-
----
+- **Topic Explanations** - Core concepts and foundational algorithms.
+- **Useful Methods** - Essential functions and techniques for each pattern.
+- **Problem Statements** - Clear problem descriptions and requirements.
+- **Initial Analysis** - Deep-dive analysis before coding.
+- **Python & Java Solutions** - Multiple language implementations.
+- **Complexity Analysis** - Time and space complexity estimations.
 
 ## But Why?
 
@@ -49,8 +36,6 @@ I personally started preparing for coding interviews using [LeetCode](https://le
 After solving 250+ problems (landing a job in the meanwhile), I realized that I was still missing the real understanding of patterns, and of course deep knowledge of the most complex topics like Graphs, Trees, and Dynamic Programming.
 
 I then decided to switch to a more structured approach and started with NeetCode's Roadmap.
-
----
 
 ## My Structured Approach
 
@@ -84,7 +69,3 @@ For each problem, I follow this Three-Step Process:
 - Can the solution be improved further?
 - Which follow-up questions can be asked?
 - Here, AI can be used to answer these questions and provide additional insights
-
----
-
-*Last updated: July 2026*
