@@ -27,6 +27,14 @@ Luckily, saving the original context was not an issue since I used the arrow fun
 
 And why do we need to preserve `this`? Because the debounced function can be calld from both an Object or not (spoiler, tests of course have both).
 
+### Follow-ups
+
+**Cancel and Flush** functionalities
+
+**Throttling** is a different concept. Instead of increasing the delay, we basically just ignore successive calls if there's already one scheduled. Technically we can also queue the calls, but let's keep it simple.
+
+The idea here is that we don't need the `existingTimer` anymore, but just one variable that tells us if there's a `throttling` happening: if yes, we return immediately. If not, we schedule the call and then we set the `throttling` to true.
+
 ## Solution
 
 === "JavaScript #1"
@@ -53,6 +61,71 @@ And why do we need to preserve `this`? Because the debounced function can be cal
         return debouncedFunc;
         }
 
+## Solution - Cancel and Flush
+
+=== "JavaScript #2"
+
+        :::javascript
+        /**
+        * @param {(...args: Array<unknown>) => unknown} func
+        * @param {number} wait
+        * @returns {(...args: Array<unknown>) => void}
+        */
+        export default function throttle(func, wait) {
+
+        let throttling = false;
+
+        function throttledFunc(...args) {
+
+            // ignore every call if there's already one scheduled
+            if(throttling)
+                return;
+
+            throttling = true;
+
+            setTimeout(() => {
+                func.apply(this, args);
+                throttling = false;
+            }, wait);
+
+        };
+
+        return throttledFunc;
+        }
+
+
+## Solution - Throttling
+
+=== "JavaScript #3"
+
+        :::javascript
+        /**
+        * @param {(...args: Array<unknown>) => unknown} func
+        * @param {number} wait
+        * @returns {(...args: Array<unknown>) => void}
+        */
+        export default function throttle(func, wait) {
+
+        let throttling = false;
+
+        function throttledFunc(...args) {
+
+            // ignore every call if there's already one scheduled
+            if(throttling)
+                return;
+
+            throttling = true;
+
+            setTimeout(() => {
+                func.apply(this, args);
+                throttling = false;
+            }, wait);
+
+        };
+
+        return throttledFunc;
+        }
+
 ## Key Takeaways
 
 - `func.apply(this, args)` calls `func` with the given `this` value and spreads the array elements as arguments.
@@ -61,3 +134,7 @@ And why do we need to preserve `this`? Because the debounced function can be cal
 - `setTimeout` delays the execution of the original function, not the call to the debounced wrapper itself.
 - `clearTimeout` cancels the previous pending execution.
 - The `existingTimer` variable persists because of a **closure**, allowing multiple calls to share the same timer reference.
+
+## TODO
+
+- implement first follow-up
