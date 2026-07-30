@@ -78,7 +78,7 @@ external_links:
 - Time Complexity: $O(n + m)$ _as we iterate once through the 2 strings_
 - Space Complexity: $O(1)$ _as we are storing at most all the English characters in the hashmap, hence 26_
 
-!!! info ""
+!!! note ""
     where $n$ and $m$ are the lengths of the input strings
 
 ## TODO

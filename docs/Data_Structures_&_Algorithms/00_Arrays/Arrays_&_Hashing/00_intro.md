@@ -1,5 +1,6 @@
 ---
 title: Overview
+summary: Explanation and cheatsheet
 ---
 Arrays and hashing are among the **most fundamental data structures** in coding interviews. Understanding these concepts deeply is essential because they form the foundation for more advanced algorithms and problem-solving techniques.
 
@@ -57,8 +58,6 @@ freq = Counter(arr)
 
 **Complexity**: $O(n)$ time to build frequency map, $O(1)$ to lookup counts
 
----
-
 ### 2. **Two Pointers / Sliding Window**
 
 **Pattern**: Use two indices or a window to process subarrays efficiently.
@@ -79,8 +78,6 @@ while left < right:
 
 **Complexity**: Often converts $O(n^2)$ brute force to $O(n)$ optimized solution
 
----
-
 ### 3. **Hash Set for Existence Checks**
 
 **Pattern**: Store elements in a set, then check membership in $O(1)$ time.
@@ -98,8 +95,6 @@ if target in seen:
 - Complement operations (elements not in array)
 
 **Complexity**: $O(n)$ space to store set, $O(1)$ per membership test
-
----
 
 ### 4. **Hash Map for Value Lookup**
 
@@ -120,8 +115,6 @@ freq_map = {elem: 0 for elem in arr}
 - Element position tracking
 
 **Complexity**: $O(n)$ to build map, $O(1)$ per lookup
-
----
 
 ### 5. **Sorting for Comparison**
 
@@ -224,8 +217,6 @@ freq = {c: 0 for c in "abcdefghijklmnopqrstuvwxyz"}
 index_map = {arr[i]: i for i in range(len(arr))}
 ```
 
----
-
 ### Java Improvements
 
 #### 1. **Using `putIfAbsent()` to Simplify Logic**
@@ -298,8 +289,6 @@ List<String> list = new ArrayList<>(Arrays.asList(element));
 List<String> list = new ArrayList<>();
 list.add(element);
 ```
-
----
 
 ### Quick Comparison Table
 

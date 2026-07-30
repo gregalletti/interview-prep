@@ -116,7 +116,7 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
 - Time Complexity: $O(n)$ _as we iterate twice through the array_
 - Space Complexity: $O(n)$ _as we are storing the result, prefix and suffix in separate arrays of length $n$_
 
-!!! info ""
+!!! note ""
     where $n$ is the length of the input array
 
 ## Solution - Prefix and Suffix approach
@@ -176,7 +176,7 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
 
 - Space Complexity: $O(n)$ _as we are storing the result, prefix and suffix in separate arrays of length $n$_
 
-!!! info ""
+!!! note ""
     where $n$ is the length of the input array
 
 ## Solution - Prefix and Suffix (optimized) approach
@@ -231,7 +231,7 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
 - Time Complexity: $O(n)$ _as we iterate twice through the array_
 - Space Complexity: $O(n)$ _as we are storing the result in a separate array of length $n$_
 
-!!! info ""
+!!! note ""
     where $n$ is the length of the input array
 
 ## TODO

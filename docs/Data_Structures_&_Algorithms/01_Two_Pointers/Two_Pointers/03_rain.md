@@ -35,7 +35,7 @@ I'm not gonna lie, I drafted my solution and submitted it just to get a negative
 
 I personally think that for understanding the problem, my version is more intuitive. You can go to a position, look to the left and right, and see how much water can be trapped at that position. Including the current index in the prefix/suffix arrays is a bit counter-intuitive when running through the example, but it is technically more efficient as we don't have to check for negatives.
 
-![img](03_example.png)
+![img](03_rain.png)
 
 My version
 left:  [0, 0, 2, 2, 3, 3, 3, 3, 3, 3]
@@ -112,5 +112,5 @@ right: [3, 3, 3, 3, 3, 3, 3, 3, 2, 1]
 - Time Complexity: $O(n)$ _as we iterate the 3 times: once to calculate the prefix, once to calculate the suffix, and once to calculate the water_
 - Space Complexity: $O(n)$ _as we are storing 2 arrays of length $n$ (prefix and suffix)_
 
-!!! info ""
+!!! note ""
     where $n$ is the length of the input array

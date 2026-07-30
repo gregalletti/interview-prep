@@ -1,5 +1,6 @@
 ---
 title: Overview
+summary: Explanation and cheatsheet
 ---
 The **two pointers** technique is a fundamental algorithmic pattern that significantly optimizes solutions for many problems involving arrays, strings, and linked lists. By maintaining two indices (pointers) that move through data structures, we can solve problems that might otherwise require nested loops in $O(n^2)$ time.
 
@@ -64,8 +65,6 @@ def twoSum(arr, target):
 
 **Complexity**: $O(n)$ time after sorting, $O(1)$ space for movement
 
----
-
 ### 2. **In-place Array Modification**
 
 **Pattern**: Use pointers to iterate through and modify array without extra space.
@@ -92,8 +91,6 @@ def removeDuplicates(arr):
 
 **Complexity**: $O(n)$ time, $O(1)$ space (modifications in-place)
 
----
-
 ### 3. **Opposite Direction Pointers (Partition)**
 
 **Pattern**: Two pointers moving toward each other to partition array by condition.
@@ -117,8 +114,6 @@ def moveZeroes(arr):
 
 **Complexity**: $O(n)$ time, $O(1)$ space
 
----
-
 ### 4. **Linked List Two Pointers**
 
 **Pattern**: Use fast and slow pointers moving at different speeds through linked list.
@@ -141,8 +136,6 @@ def findMiddle(head):
 - Rotate linked list
 
 **Complexity**: $O(n)$ time, $O(1)$ space (fast pointers don't require storage)
-
----
 
 ### 5. **Checking Palindromes**
 

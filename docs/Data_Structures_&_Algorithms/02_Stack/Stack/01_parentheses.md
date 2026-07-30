@@ -87,5 +87,5 @@ Not much to say here, it's the classic textbook stack problem. We can use a stac
 - Time Complexity: $O(n)$ _as we iterate through the string once_
 - Space Complexity: $O(n)$ _as we store opening brackets in the stack (in the worst case, all characters are opening brackets)_
 
-!!! info ""
+!!! note ""
     where $n$ is the length of the input string
