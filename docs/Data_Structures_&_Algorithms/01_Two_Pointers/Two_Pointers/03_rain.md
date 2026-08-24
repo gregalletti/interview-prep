@@ -12,7 +12,7 @@ external_links:
 
     | Example | Input | Output | Explanation |
     | --- | --- | --- | --- |
-    | 1 | `[0,2,0,3,1,0,1,3,2,1]` | `9` | The water can be trapped between the bars at index 1 and index 7. |
+    | 1 | `[0,2,0,3,1,0,1,3,2,1]` | `9` | ![img](03_rain.png) The water can be trapped between the bars at index 1 and index 7. |
 
     ### Constraints
     - `1 <= height.length <= 1000`

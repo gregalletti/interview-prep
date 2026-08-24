@@ -1,126 +1,37 @@
 ---
 title: Overview
-summary: Explanation and cheatsheet
+summary: Two pointers and fast-slow patterns
 ---
-The **two pointers** technique is a fundamental algorithmic pattern that significantly optimizes solutions for many problems involving arrays, strings, and linked lists. By maintaining two indices (pointers) that move through data structures, we can solve problems that might otherwise require nested loops in $O(n^2)$ time.
+Two pointers are one of the most useful patterns in interviews because they often turn a brute-force $O(n^2)$ solution into a clean $O(n)$ solution. They work especially well on sorted arrays, strings, and linked lists.
 
-Two pointers works exceptionally well when dealing with **sorted arrays**, **palindromes**, **pairs/triplets**, and **partitioning** problems. The key insight is that by moving pointers strategically (often from opposite ends or at different speeds), we can process data in a single or linear pass rather than multiple nested iterations.
+The core idea is simple: keep two indices and move them in a controlled way. In many problems, that means comparing both ends of the array, scanning with a write pointer, or using a fast pointer to skip ahead.
 
-## Key Concepts & Operations
+## Core Patterns
 
-### Core Strategy
+### 1. Converging Pointers
 
-- **Opposite Ends**: Start with one pointer at the beginning and one at the end, moving toward the center
-- **Same Direction**: Both pointers move in the same direction but at different speeds (e.g., slow and fast pointers)
-- **Sorted Array Advantage**: Two pointers are most powerful on sorted data where decisions can be made based on comparisons
-- **In-place Modification**: Often modifies arrays in-place, achieving $O(1)$ space complexity
-
-### Common Pointer Movement Patterns
-
-| Pattern | Use Case | Example |
-| --- | --- | --- |
-| **Converging** | Pairs, sums, palindromes | Find two elements summing to target |
-| **Diverging** | Inversions, swaps | Partition array, remove duplicates |
-| **Same Speed** | Linked lists, cycles | Detect cycle, find middle node |
-| **Different Speed** | Linked lists | Find nth node from end |
-
-### Common Methods & Operations
-
-| Operation | Pattern | Time | Space |
-| --- | --- | --- | --- |
-| Sum pair in sorted array | Converging pointers | $O(n)$ | $O(1)$ |
-| Remove duplicates | Converging/Same direction | $O(n)$ | $O(1)$ |
-| Container with most water | Converging pointers | $O(n)$ | $O(1)$ |
-| Palindrome check | Converging pointers | $O(n)$ | $O(1)$ |
-| Merge sorted arrays | Two pointers forward | $O(n + m)$ | $O(n + m)$ |
-| Partition array | Diverging pointers | $O(n)$ | $O(1)$ |
-
-## Common Interview Patterns
-
-### 1. **Converging Pointers on Sorted Array**
-
-**Pattern**: Start at opposite ends and move toward center based on comparisons.
+Use two pointers from opposite ends when the array is sorted or when you want to compare extremes.
 
 ```python
-# Example: Find two numbers that sum to target
-def twoSum(arr, target):
-    left, right = 0, len(arr) - 1
+def two_sum_sorted(nums, target):
+    left, right = 0, len(nums) - 1
     while left < right:
-        current_sum = arr[left] + arr[right]
-        if current_sum == target:
-            return [arr[left], arr[right]]
-        elif current_sum < target:
-            left += 1  # Need larger sum
+        total = nums[left] + nums[right]
+        if total == target:
+            return [left, right]
+        if total < target:
+            left += 1
         else:
-            right -= 1  # Need smaller sum
+            right -= 1
     return []
 ```
 
-**Use cases**:
+### 2. Fast and Slow Pointers
 
-- Two Sum II (sorted array)
-- Three Sum (with nested loop)
-- Closest sum to target
-- Valid palindrome detection
-
-**Complexity**: $O(n)$ time after sorting, $O(1)$ space for movement
-
-### 2. **In-place Array Modification**
-
-**Pattern**: Use pointers to iterate through and modify array without extra space.
+Use a fast pointer to move ahead quickly and a slow pointer to track the current position. This is common for linked lists and in-place array problems.
 
 ```python
-# Example: Remove duplicates from sorted array
-def removeDuplicates(arr):
-    if not arr:
-        return 0
-    write = 0  # Position to write unique elements
-    for read in range(1, len(arr)):
-        if arr[read] != arr[write]:
-            write += 1
-            arr[write] = arr[read]
-    return write + 1
-```
-
-**Use cases**:
-
-- Remove duplicates
-- Move zeros to end
-- Partition array (move elements by value)
-- Reverse string/array
-
-**Complexity**: $O(n)$ time, $O(1)$ space (modifications in-place)
-
-### 3. **Opposite Direction Pointers (Partition)**
-
-**Pattern**: Two pointers moving toward each other to partition array by condition.
-
-```python
-# Example: Move all zeros to the end
-def moveZeroes(arr):
-    left = 0
-    for right in range(len(arr)):
-        if arr[right] != 0:
-            arr[left], arr[right] = arr[right], arr[left]
-            left += 1
-```
-
-**Use cases**:
-
-- Move zeros to end
-- Sort colors (0s, 1s, 2s)
-- Partition by pivot value
-- Separate negatives and positives
-
-**Complexity**: $O(n)$ time, $O(1)$ space
-
-### 4. **Linked List Two Pointers**
-
-**Pattern**: Use fast and slow pointers moving at different speeds through linked list.
-
-```python
-# Example: Find middle of linked list
-def findMiddle(head):
+def middle_node(head):
     slow = fast = head
     while fast and fast.next:
         slow = slow.next
@@ -128,36 +39,55 @@ def findMiddle(head):
     return slow
 ```
 
-**Use cases**:
+### 3. Write Pointer + Read Pointer
 
-- Find middle node
-- Detect cycle in linked list
-- Find nth node from end
-- Rotate linked list
-
-**Complexity**: $O(n)$ time, $O(1)$ space (fast pointers don't require storage)
-
-### 5. **Checking Palindromes**
-
-**Pattern**: Compare characters from both ends moving toward center.
+This pattern is perfect for removing duplicates or partitioning data without extra space.
 
 ```python
-# Example: Valid palindrome check
-def isPalindrome(s):
-    left, right = 0, len(s) - 1
-    while left < right:
-        if s[left] != s[right]:
-            return False
-        left += 1
-        right -= 1
-    return True
+def remove_duplicates(nums):
+    write = 0
+    for read in range(len(nums)):
+        if read == 0 or nums[read] != nums[write]:
+            nums[write] = nums[read]
+            write += 1
+    return write
 ```
 
-**Use cases**:
+## Common Interview Questions
 
-- Palindrome validation
-- Almost palindrome (allow one deletion)
-- Longest palindromic substring
-- Palindrome permutation
+- Valid Palindrome
+- Two Sum II
+- Three Sum
+- Container With Most Water
+- Remove Duplicates from Sorted Array
+- Merge Two Sorted Arrays
 
-**Complexity**: $O(n)$ time, $O(1)$ space for comparison
+## Common Methods and Implementation Notes
+
+### Python
+
+- Use `left` and `right` indices directly
+- Prefer `while left < right` when shrinking a search space
+- Use `len(arr)` and index access for quick comparisons
+
+### Java
+
+- Start with `int left = 0; int right = nums.length - 1;`
+- Use `while (left < right)` for standard two-pointer loops
+- Arrays are often modified in place, so avoid creating extra arrays unless required
+
+## Quick Tips
+
+- If the array is sorted, two pointers is often the first thing to try.
+- If the problem asks for “in-place” or “constant extra space”, two pointers is a strong signal.
+- For linked lists, fast-slow pointers are usually the right pattern.
+
+## Time and Space Complexity
+
+| Common operation | Typical time | Extra space | Notes |
+| --- | --- | --- | --- |
+| Initialize two pointers | $O(1)$ | $O(1)$ | Usually just two indices |
+| Move pointers through an array | $O(n)$ | $O(1)$ | One linear pass |
+| Compare from both ends | $O(1)$ per step | $O(1)$ | Used in palindrome checks |
+| In-place write with a second pointer | $O(n)$ | $O(1)$ | Common for deduplication |
+| Fast/slow pointer traversal | $O(n)$ | $O(1)$ | Typical for linked lists |
