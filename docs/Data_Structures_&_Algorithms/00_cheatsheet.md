@@ -48,4 +48,3 @@ This page collects the small details that come up in almost every coding problem
 - If you see repeated counting, think about a map or counter
 - If the array is sorted, try binary search or two pointers before more complex approaches
 - If the problem involves nesting, parentheses, or reverse order, a stack is often the right structure
-

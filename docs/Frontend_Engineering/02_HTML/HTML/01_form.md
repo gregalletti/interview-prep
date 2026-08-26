@@ -41,10 +41,10 @@ In the improved version there's a proper implementation using `div` and `label` 
                 // Ignore the onSubmit prop, it's used by GFE to
                 // intercept the form submit event to check your solution.
                 onSubmit={submitForm}>
-                <input type="text" id="name" name="name" required/>
-                <input type="text" id="email" name="email" required/>
-                <textarea type="text" id="message" name="message" required/>
-                <input type="submit" value="Send" />
+                    <input type="text" id="name" name="name" required/>
+                    <input type="text" id="email" name="email" required/>
+                    <textarea type="text" id="message" name="message" required/>
+                    <input type="submit" value="Send" />
                 </form>
             );
         }
@@ -62,19 +62,19 @@ In the improved version there's a proper implementation using `div` and `label` 
                 // Ignore the onSubmit prop, it's used by GFE to
                 // intercept the form submit event to check your solution.
                 onSubmit={submitForm}>
-                <div>
-                    <label htmlFor="name-input">Name</label>
-                    <input type="text" id="name-input" name="name" required/>
-                </div>
-                <div>
-                    <label htmlFor="email-input">Name</label>
-                    <input type="text" id="email-input" name="email" required/>
-                </div>
-                <div>
-                    <label htmlFor="message-input">Name</label>
-                    <textarea type="text" id="message-input" name="message" required/>
-                </div>
-                <button>Send</button>
+                    <div>
+                        <label htmlFor="name-input">Name</label>
+                        <input type="text" id="name-input" name="name" required/>
+                    </div>
+                    <div>
+                        <label htmlFor="email-input">Name</label>
+                        <input type="text" id="email-input" name="email" required/>
+                    </div>
+                    <div>
+                        <label htmlFor="message-input">Name</label>
+                        <textarea type="text" id="message-input" name="message" required/>
+                    </div>
+                    <button>Send</button>
                 </form>
             );
         }

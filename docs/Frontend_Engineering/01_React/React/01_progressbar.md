@@ -62,14 +62,14 @@ This is a premium problem so no solution available, but judging by the end resul
                 ]);
             }
 
-        return (
-            <div>
-            <button onClick={addProgressBar}>Add</button>
-            {bars.map((bar) => (
-                <ProgressBar key={bar.id}/>
-            ))}
-            </div>
-        );
+            return (
+                <div>
+                <button onClick={addProgressBar}>Add</button>
+                {bars.map((bar) => (
+                    <ProgressBar key={bar.id}/>
+                ))}
+                </div>
+            );
         }
 
 === "styles.css"
@@ -108,12 +108,12 @@ This is a premium problem so no solution available, but judging by the end resul
             useEffect(() => {
                 const interval = setInterval(() => {
                     setProgress((currentProgress) => {
-                    if (currentProgress >= 100) {
-                        clearInterval(interval);
-                        return 100;
-                    }
+                        if (currentProgress >= 100) {
+                            clearInterval(interval);
+                            return 100;
+                        }
 
-                    return currentProgress + 1;
+                        return currentProgress + 1;
                     });
                 }, 20);
 
@@ -131,10 +131,10 @@ This is a premium problem so no solution available, but judging by the end resul
             const [bars, setBars] = useState([]);
 
             function addProgressBar() {
-            setBars((currentBars) => [
-                ...currentBars,
-                { id: crypto.randomUUID() },
-            ]);
+                setBars((currentBars) => [
+                    ...currentBars,
+                    { id: crypto.randomUUID() },
+                ]);
             }
 
             return (
