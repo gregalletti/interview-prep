@@ -32,55 +32,55 @@ Not much to say here, it's the classic textbook stack problem. We can use a stac
 
 === "Python"
 
-    :::python
-    class Solution:
-        def isValid(self, s: str) -> bool:
-            pars = {
-                '(': ')',
-                '[': ']',
-                '{': '}',
-            }
+        :::python
+        class Solution:
+            def isValid(self, s: str) -> bool:
+                pars = {
+                    '(': ')',
+                    '[': ']',
+                    '{': '}',
+                }
 
-            stack = []
-            for c in s:
-                if c in pars:
-                    stack.append(c)
-                else:
-                    if not stack:
-                        return False
-                    opened = stack.pop()
-                    if pars[opened] != c:
-                        return False
-            return True if not stack else False
+                stack = []
+                for c in s:
+                    if c in pars:
+                        stack.append(c)
+                    else:
+                        if not stack:
+                            return False
+                        opened = stack.pop()
+                        if pars[opened] != c:
+                            return False
+                return True if not stack else False
 
 === "Java"
 
-    :::java
-    class Solution {
-        public boolean isValid(String s) {
-            Map<Character, Character> pars = new HashMap<>();
-            pars.put('(', ')');
-            pars.put('[', ']');
-            pars.put('{', '}');
+        :::java
+        class Solution {
+            public boolean isValid(String s) {
+                Map<Character, Character> pars = new HashMap<>();
+                pars.put('(', ')');
+                pars.put('[', ']');
+                pars.put('{', '}');
 
-            Stack<Character> stack = new Stack<>();
+                Stack<Character> stack = new Stack<>();
 
-            for (char c: s.toCharArray()) {
-                if (pars.containsKey(c)) {
-                    stack.push(c);
-                } else {
-                    if (stack.isEmpty()) {
-                        return false;
-                    }
-                    char opened = stack.pop();
-                    if (pars.get(opened) != c) {
-                        return false;
+                for (char c: s.toCharArray()) {
+                    if (pars.containsKey(c)) {
+                        stack.push(c);
+                    } else {
+                        if (stack.isEmpty()) {
+                            return false;
+                        }
+                        char opened = stack.pop();
+                        if (pars.get(opened) != c) {
+                            return false;
+                        }
                     }
                 }
+                return stack.isEmpty();
             }
-            return stack.isEmpty();
         }
-    }
 
 ### Complexity
 
