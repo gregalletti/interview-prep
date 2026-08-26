@@ -26,20 +26,75 @@ external_links:
 
 ## Analysis
 
+To be fair, I already solved this problem in the past. Let's just state the naive solution, which would consist on following the linked list, storing the "seen" nodes and return false as soon as we have a match, true if not.
+
+Of course this has extra space complexity, so we need to think about a better solution. Two pointers come in handy now, so we can use the slow/fast pointer approach (commonly used to detect cycles). We follow the linked list with two pointers, one moving one step at a time and one moving two steps at a time.
+
+> Just found out this algorithm is called _Floyd's cycle finding algorithm_ or _Hare-Tortoise algorithm_
+
 ## Solution
 
 === "Python"
 
         :::python
+        # Definition for singly-linked list.
+        # class ListNode:
+        #     def __init__(self, val=0, next=None):
+        #         self.val = val
+        #         self.next = next
+
+        class Solution:
+            def hasCycle(self, head: Optional[ListNode]) -> bool:
+                slow, fast = head, head
+
+                while fast and fast.next:
+                    slow = slow.next
+                    fast = fast.next.next
+                    if slow == fast:
+                        return True
+                return False
 
 === "Java"
 
         :::java
+        /**
+        * Definition for singly-linked list.
+        * public class ListNode {
+        *     int val;
+        *     ListNode next;
+        *     ListNode() {}
+        *     ListNode(int val) { this.val = val; }
+        *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+        * }
+        */
+
+        class Solution {
+            public boolean hasCycle(ListNode head) {
+                ListNode slow = head;
+                ListNode fast = head;
+
+                while (fast != null && fast.next != null) {
+                    slow = slow.next;
+                    fast = fast.next.next;
+                    if (slow == fast) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
 
 ## Complexity
 
-- Time Complexity: $O()$ time complexity _as we _
-- Space Complexity: $O()$ space complexity _as we _
+- Time Complexity: $O(n)$ time complexity _as we only iterate until the end of the list or until a loop is found. In the worst case the cycle has the same length of the entire list. Easy way to think about it is 2 cars in the same circuit (entire list), one moving twice as fast -> the fast car will lap the slow car in 1 single lap_
+- Space Complexity: $O(1)$ space complexity _as we don't store anything_
 
 !!! note ""
-    where $n$ is 
+    where $n$ is the length of the linked list.
+
+## Key Takeaways
+
+- `==` is a reference comparison, i.e. both objects refer to the same object
+- `.equals()` evaluates to the comparison of _values_ in the objects
+- Always remember the `.equals()` meaninig: if no parent classes have provided an override, then it defaults to the method from the ultimate parent class, `Object`. Per the Object API this is the same as `==`
+- In this problem we are good with both, but using `==` is more coherent and explicit
