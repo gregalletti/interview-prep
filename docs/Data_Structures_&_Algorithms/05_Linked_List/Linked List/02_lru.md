@@ -155,6 +155,78 @@ Removing the node directly is a much better solution than moving it around. Firs
 === "Java"
 
         :::java
+        public class Node {
+
+            private int key;
+            private int value;
+            private Node prev;
+            private Node next;
+
+            public Node(int key, int value) {
+                this.key = key;
+                this.value = value;
+                this.prev = null;
+                this.next = null;
+            }
+        }
+
+        public class LRUCache {
+
+            private int capacity;
+            private Map<Integer, Node> entries; 
+            private Node head;
+            private Node tail;
+
+            public LRUCache(int capacity) {
+                this.capacity = capacity;
+                this.entries = new HashMap<>();
+                this.head = new Node(-1, -1);
+                this.tail = new Node(-1, -1);
+
+                this.head.next = tail;
+                this.tail.prev = head;
+            }
+
+            public Node insert(int key, int value) {
+                Node newNode = new Node(key, value);
+
+                head.next.prev = newNode;
+                newNode.prev = head;
+                newNode.next = head.next;
+                head.next = newNode;
+
+                return newNode;
+            }
+
+            public void evict(Node node) {
+                node.prev.next = node.next;
+                node.next.prev = node.prev;
+            }
+            
+            public int get(int key) {
+                if (entries.containsKey(key)) {
+                    int value = entries.get(key).value;
+                    evict(entries.get(key));
+                    entries.put(key, insert(key, value));
+                    return value;
+                } else {
+                    return -1;
+                }
+            }
+            
+            public void put(int key, int value) {
+                if (entries.containsKey(key)) {
+                    evict(entries.get(key));
+                }
+                entries.put(key, insert(key, value));
+
+                if (entries.size() > capacity) {
+                    Node lru = tail.prev;
+                    evict(lru);
+                    entries.remove(lru.key);
+                }
+            }
+        }
 
 ## Complexity
 
@@ -163,3 +235,12 @@ Removing the node directly is a much better solution than moving it around. Firs
 
 !!! note ""
     where $n$ is the cache capacity
+
+## Key Takeaways
+
+- `map.remove(key)` is conceptually equivalent to Python's `del map[key]` for deleting an entry in a hashmap
+- `this.` in Java is optional almost everywhere. The compiler auto-resolves a bare identifier to an instance field if nothing else shadows it. `this.` is only required when a local/parameter name collides with a field name
+- `self.` in Python is never optional, ever. Python has no implicit fallback from a bare name to an instance attribut, a bare `x` inside a method only looks in: local scope -> enclosing scope -> module (global) scope -> builtins. In fact, `self` isn't even a keyword in Python, just a convention. The interpreter doesn't care what you call the first parameter of an instance method, it just binds whatever object the method was called on to that first parameter position
+- in theory, the Java code should throw compile errors, for example at `this.head.next = tail;` -> we're accessing a private field `next` of class `Node` from class `LRUCache`, 2 top-level classes. In a real-world case, we would need to implement getters and setters in class `Node` and use `this.head.setNext(tail);`
+- compile errors should also be thrown for missing imports, but LeetCode/NeetCode judges normally import all the most common libraries
+- I can't really say with 100% confidence why the first compile error is not thrown, but for now we can assume it follows the same logic as for the missing imports. Best guess is that judges most likely strip access modifiers before compiling. Actually handy so we don't deal with boilerplate code
