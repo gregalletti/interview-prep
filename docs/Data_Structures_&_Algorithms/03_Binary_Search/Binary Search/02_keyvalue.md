@@ -119,8 +119,8 @@ This means we can use a classic binary search algorithm with a slight modificati
 
 ## Complexity
 
-- Time Complexity: $O(1)$ time complexity for `set` _as it's a simple dictionary insertion_ and $O(\log n)$ for `get` _as we perform binary search on the list of entries for a specific key_
-- Space Complexity: $O(n * m)$ space complexity _as for each key we store a list of entries_
+- **Time**: $O(1)$ for `set` _as it's a simple dictionary insertion_ and $O(\log n)$ for `get` _as we perform binary search on the list of entries for a specific key_
+- **Space**: $O(n * m)$ _as for each key we store a list of entries_
 
 !!! note ""
     where $n$ is the number of entries for a given key and $m$ is the number of keys.

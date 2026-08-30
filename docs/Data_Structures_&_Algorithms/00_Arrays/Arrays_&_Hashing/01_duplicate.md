@@ -38,8 +38,8 @@ external_links:
 
 ### Complexity
 
-- Time Complexity: $O(n)$ _as the built-in functions need to iterate through the array_
-- Space Complexity: $O(n)$ _as we are storing a copy of the initial array_
+- **Time**: $O(n)$ _as the built-in functions need to iterate through the array_
+- **Space**: $O(n)$ _as we are storing a copy of the initial array_
 
 !!! note ""
     where $n$ is the length of the input array

@@ -69,8 +69,8 @@ We can instead think about a different approach, and the category it's in is a h
 
 ### Complexity
 
-- Time Complexity: $O(n)$ _as we iterate the array once ("half" from left and "half" from right)_
-- Space Complexity: $O(1)$ _as we are not storing anything_
+- **Time**: $O(n)$ _as we iterate the array once ("half" from left and "half" from right)_
+- **Space**: $O(1)$ _as we are not storing anything_
 
 !!! note ""
     where $n$ is the length of the input array

@@ -125,8 +125,8 @@ But trying to validate this brought me to the solution tab and the NeetCode YT v
 
 ### Complexity
 
-- Time Complexity: $O(n * m)$ time complexity _as we iterate through the string once and compute the current max frequency at every iteration_
-- Space Complexity: $O(m)$ space complexity _as we store the frequencies_
+- **Time**: $O(n * m)$ _as we iterate through the string once and compute the current max frequency at every iteration_
+- **Space**: $O(m)$ _as we store the frequencies_
 
 !!! note ""
     where $n$ is the length of the input string `s` and $m$ is the number of unique chars in `s` (at most 26, can be considered constant).
@@ -184,8 +184,8 @@ But trying to validate this brought me to the solution tab and the NeetCode YT v
 
 ### Complexity
 
-- Time Complexity: $O(n)$ time complexity _as we iterate through the string once but we don't compute max frequency_
-- Space Complexity: $O(m)$ space complexity _as we store the frequencies_
+- **Time**: $O(n)$ _as we iterate through the string once but we don't compute max frequency_
+- **Space**: $O(m)$ _as we store the frequencies_
 
 !!! note ""
     where $n$ is the length of the input string `s` and $m$ is the number of unique chars in `s` (at most 26, can be considered constant).

@@ -35,8 +35,8 @@ TODO
 
 ## Complexity
 
-- Time Complexity: $O()$ time complexity _as we _
-- Space Complexity: $O()$ space complexity _as we _
+- **Time**: $O()$ _as we _
+- **Space**: $O()$ _as we _
 
 !!! note ""
     where $n$ is 

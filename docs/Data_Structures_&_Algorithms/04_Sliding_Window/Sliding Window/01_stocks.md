@@ -64,8 +64,8 @@ We iterate the prices and always store the lowest. We also calculate the _curren
 
 ## Complexity
 
-- Time Complexity: $O(n)$ time complexity _as we iterate the array once_
-- Space Complexity: $O(1)$ space complexity _as we do not store anything_
+- **Time**: $O(n)$ _as we iterate the array once_
+- **Space**: $O(1)$ _as we do not store anything_
 
 !!! note ""
     where $n$ is the length of the input array `prices`.

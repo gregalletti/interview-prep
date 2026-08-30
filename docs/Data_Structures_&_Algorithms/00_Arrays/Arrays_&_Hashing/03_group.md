@@ -89,8 +89,8 @@ Words with the same vector are anagrams of each other.
 
 ### Complexity
 
-- Time Complexity: $O(n * m)$ _as we iterate once through the strings (len $n$) and for each string we iterate through its characters (len $m$)_
-- Space Complexity: $O(1)$ _as we are storing at most all the English characters in the hashmap, hence 26_
+- **Time**: $O(n * m)$ _as we iterate once through the strings (len $n$) and for each string we iterate through its characters (len $m$)_
+- **Space**: $O(1)$ _as we are storing at most all the English characters in the hashmap, hence 26_
 
 !!! note ""
     where $n$ is the length of the input array and $m$ is the average length of the strings

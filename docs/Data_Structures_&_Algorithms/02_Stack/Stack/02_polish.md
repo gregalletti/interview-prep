@@ -123,8 +123,8 @@ I've cleaned up the code to remove the need for the OPERANDS list, as we can jus
 
 ## Complexity
 
-- Time Complexity: $O(n)$ time complexity _as we iterate the list once and pop some values out of the stack in $O(1)$_
-- Space Complexity: $O(n)$ space complexity _as we store the operands and partial results in the stack_
+- **Time**: $O(n)$ _as we iterate the list once and pop some values out of the stack in $O(1)$_
+- **Space**: $O(n)$ _as we store the operands and partial results in the stack_
 
 !!! note ""
     where $n$ is the length of the input list `tokens`.

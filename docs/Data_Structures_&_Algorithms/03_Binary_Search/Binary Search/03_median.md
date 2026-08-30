@@ -279,8 +279,8 @@ Why are we searching on the smaller array? First of all it makes the search fast
 
 ## Complexity
 
-- Time Complexity: $O(log(min(m, n)))$ time complexity _as we perform binary search on the smaller array_
-- Space Complexity: $O()$ space complexity _as we don't use any extra space_
+- **Time**: $O(log(min(m, n)))$ _as we perform binary search on the smaller array_
+- **Space**: $O()$ _as we don't use any extra space_
 
 !!! note ""
     where $n$ is the length of $nums1$ and $m$ is the length of $nums2$

@@ -86,8 +86,8 @@ Of course this has extra space complexity, so we need to think about a better so
 
 ## Complexity
 
-- Time Complexity: $O(n)$ time complexity _as we only iterate until the end of the list or until a loop is found. In the worst case the cycle has the same length of the entire list. Easy way to think about it is 2 cars in the same circuit (entire list), one moving twice as fast -> the fast car will lap the slow car in 1 single lap_
-- Space Complexity: $O(1)$ space complexity _as we don't store anything_
+- **Time**: $O(n)$ _as we only iterate until the end of the list or until a loop is found. In the worst case the cycle has the same length of the entire list. Easy way to think about it is 2 cars in the same circuit (entire list), one moving twice as fast -> the fast car will lap the slow car in 1 single lap_
+- **Space**: $O(1)$ _as we don't store anything_
 
 !!! note ""
     where $n$ is the length of the linked list.

@@ -108,8 +108,8 @@ So we can rewrite this as $\dfrac{n}{2^k} = 1$ and solve for $k$. $n = 2^k$ -> t
 
 ### Complexity
 
-- Time Complexity: $O(log n)$ time complexity _as we keep dividing the search space in half_
-- Space Complexity: $O(1)$ space complexity _as we don't store any additional data_
+- **Time**: $O(log n)$ _as we keep dividing the search space in half_
+- **Space**: $O(1)$ _as we don't store any additional data_
 
 !!! note ""
     where $n$ is the length of the input array `nums`.
@@ -160,8 +160,8 @@ So we can rewrite this as $\dfrac{n}{2^k} = 1$ and solve for $k$. $n = 2^k$ -> t
 
 ### Complexity
 
-- Time Complexity: $O(log n)$ time complexity _as we keep dividing the search space in half_
-- Space Complexity: $O(log n)$ space complexity _as we don't store additional data, but we need to count the recursive stack memory used (one call per level)_
+- **Time**: $O(log n)$ _as we keep dividing the search space in half_
+- **Space**: $O(log n)$ _as we don't store additional data, but we need to count the recursive stack memory used (one call per level)_
 
 !!! note ""
     where $n$ is the length of the input array `nums`.

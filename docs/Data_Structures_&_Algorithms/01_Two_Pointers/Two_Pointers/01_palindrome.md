@@ -87,8 +87,8 @@ Just use one start/left pointer and one end/right pointer and move them accordin
 
 ### Complexity
 
-- Time Complexity: $O(n)$ _as we iterate the string once ("half" from left and "half" from right)_
-- Space Complexity: $O(1)$ _as we are not storing anything_
+- **Time**: $O(n)$ _as we iterate the string once ("half" from left and "half" from right)_
+- **Space**: $O(1)$ _as we are not storing anything_
 
 !!! note ""
     where $n$ is the length of the input string

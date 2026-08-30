@@ -54,7 +54,7 @@ Therefore, given our prior knowledge and the complexity requirement, we know tha
 
 First problem: how do we make `get` a constant-time function? In a standard LL, this operation would require $O(n)$ (worst case it's not found). This immediately tells us that we should probably use an additional data structure -> the main optimization is on time complexity, not space.
 
-The most intuitive data structure would be an hashmap/dictionary. We can store key-node pairs. In this way we have just solved the `get` in $O(1)$ time, and $O(n)$ space since we store at max `capacity` entries.
+The most intuitive data structure would be an hashmap/dictionary. We can store key-node pairs. In this way we have just solved the `get` in $O(1)$ time, and $O(n)$ **space** since we store at max `capacity` entries.
 
 ### Solving the updates
 
@@ -230,8 +230,8 @@ Removing the node directly is a much better solution than moving it around. Firs
 
 ## Complexity
 
-- Time Complexity: $O(1)$ time complexity _as we designed constant time operations_
-- Space Complexity: $O(n)$ space complexity _as we store at max capacity elements_
+- **Time**: $O(1)$ _as we designed constant time operations_
+- **Space**: $O(n)$ _as we store at max capacity elements_
 
 !!! note ""
     where $n$ is the cache capacity
