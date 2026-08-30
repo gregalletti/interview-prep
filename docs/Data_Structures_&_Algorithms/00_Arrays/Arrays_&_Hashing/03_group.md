@@ -41,7 +41,9 @@ For example:
 | <span style="color:#ce9178">stop</span> | <span style="color:#ce9178">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0]</span> |
 | hat | [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0] |
 
-Words with the same vector are anagrams of each other.
+Words with the same vector are anagrams of each other. For each string we compute character frequencies, and directly append the strings to the result hashmap using the frequency array as key. We need to be careful when doing that as the key of an hashmap must be hashable, of course. In Python we can do that by converting it in a string with `key = str(freq)`. We could also achieve the same by converting it in a tuple, but let's be consistent with the Java solution.
+
+This is more or less the same concept we apply for the Java solution with `String key = Arrays.toString(freq);`, evem if Java does not enforce it so strictly.
 
 ## Solution
 
@@ -55,11 +57,11 @@ Words with the same vector are anagrams of each other.
                     freq = [0] * 26
                     for c in s:
                         freq[ord(c) - ord('a')] += 1
-                    index = tuple(freq)
-                    if index not in ans:
-                        ans[index] = [s]
+                    key = str(freq)
+                    if key not in ans:
+                        ans[key] = [s]
                     else:
-                        ans[index].append(s)
+                        ans[key].append(s)
                 return list(ans.values())
 
 === "Java"
@@ -74,13 +76,10 @@ Words with the same vector are anagrams of each other.
                         freq[c - 'a']++;
                     }
                     
-                    String index = Arrays.toString(freq);
+                    String key = Arrays.toString(freq);
                     
-                    if (ans.containsKey(index)) {
-                        ans.get(index).add(s);
-                    } else {
-                        ans.put(index, new ArrayList<>(Arrays.asList(s)));
-                    }
+                    ans.putIfAbsent(key, new ArrayList<>());
+                    ans.get(key).add(s);
                 }
                 
                 return new ArrayList<>(ans.values());
@@ -97,6 +96,4 @@ Words with the same vector are anagrams of each other.
 
 ## TODO
 
-- Optimize Java solution using computeIfAbsent() instead of putIfAbsent() + get()
 - Update complexity analysis to reflect accurate O(n * k log k) where n = number of strings, k = average string length
-- Add Analysis section explaining the grouping strategy

@@ -15,6 +15,10 @@ external_links:
 
 ## Analysis
 
+Quite an easy one: the idea is tha we can just count the number of unique elements and compare it to the length of the original array. If they differ (unique < original) it means we have duplicates.
+
+Compact versions just show the same logic with two different flavours.
+
 ## Solution
 
 === "Python"
@@ -24,6 +28,13 @@ external_links:
             def hasDuplicate(self, nums: List[int]) -> bool:
                 unique = set(nums)
                 return len(unique) != len(nums)
+
+=== "Python (compact)"
+
+        :::python
+        class Solution:
+            def hasDuplicate(self, nums: List[int]) -> bool:
+                return len(set(nums)) != len(nums)
 
 === "Java"
 
@@ -36,6 +47,15 @@ external_links:
             }
         }
 
+=== "Java (compact)"
+
+        :::java
+        class Solution {
+            public boolean hasDuplicate(int[] nums) {
+                return Arrays.stream(nums).distinct().count() != nums.length;
+            }
+        }
+
 ### Complexity
 
 - **Time**: $O(n)$ _as the built-in functions need to iterate through the array_
@@ -43,8 +63,3 @@ external_links:
 
 !!! note ""
     where $n$ is the length of the input array
-
-## TODO
-
-- Add Analysis section with explanation of the approach
-- Optimize Python solution using more Pythonic approach

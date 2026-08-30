@@ -21,6 +21,12 @@ external_links:
 
 ## Analysis
 
+Quick and easy, again based on frequencies.
+
+My idea is slightly different from the official solution which uses 2 different hashmaps. We can simply use one single hashmap, count the frequencies of characters in the first string, and the subtract the ones from the second string. If there's a mismatch or frequency count is already 0, we immediately return False.
+
+The time complexity is the same, but my solution fails earlier in some cases (without iterating the whole second string). Probably negligible, but still worth to mention.
+
 ## Solution
 
 === "Python"
@@ -32,10 +38,7 @@ external_links:
                     return False
                 freq = {}
                 for c in s:
-                    if c not in freq:
-                        freq[c] = 1
-                    else:
-                        freq[c] += 1
+                    freq[c] = freq.get(c, 0) + 1
                 for c in t:
                     if c not in freq:
                         return False
@@ -54,11 +57,7 @@ external_links:
                     return false;
                 Map<Character, Integer> freq = new HashMap<>();
                 for (int i = 0; i < s.length(); i++) {
-                    if (!freq.containsKey(s.charAt(i))) {
-                        freq.put(s.charAt(i), 1);
-                    } else {
-                        freq.put(s.charAt(i), freq.get(s.charAt(i)) + 1);
-                    }
+                    freq.put(s.charAt(i), freq.getOrDefault(s.charAt(i), 0) + 1);
                 }
                 for (int i = 0; i < t.length(); i++) {
                     if (!freq.containsKey(t.charAt(i))) {
@@ -79,11 +78,4 @@ external_links:
 - **Space**: $O(1)$ _as we are storing at most all the English characters in the hashmap, hence 26_
 
 !!! note ""
-    where $n$ and $m$ are the lengths of the input strings
-
-## TODO
-
-- Optimize Python solution using `Counter` from collections instead of manual dictionary
-- Optimize Java solution using `getOrDefault()` and `merge()` instead of manual if checks
-- Add Analysis section explaining the frequency counting approach
-- Consider edge cases: empty strings, single character strings
+    where $n$ and $m$ are the lengths of the two input strings
