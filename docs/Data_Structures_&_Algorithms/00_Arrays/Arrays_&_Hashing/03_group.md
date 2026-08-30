@@ -88,12 +88,8 @@ This is more or less the same concept we apply for the Java solution with `Strin
 
 ### Complexity
 
-- **Time**: $O(n * m)$ _as we iterate once through the strings (len $n$) and for each string we iterate through its characters (len $m$)_
-- **Space**: $O(1)$ _as we are storing at most all the English characters in the hashmap, hence 26_
+- **Time**: $O(n * m)$ _as we iterate once through the strings $n$ and for each string we iterate through its characters ($m$ in the worst case)_
+- **Space**: $O(n * m)$ _as we are storing at most all the English characters in the hashmap (26 so $O(1)$), times the number of strings $n$. Auxiliary space is therefore $O(n)$. For total space, we have to also include what we store in the output (all the input strings), so $O(n * k)$. Sum those two and we get the total space (still $O(n * k)$)_
 
 !!! note ""
-    where $n$ is the length of the input array and $m$ is the average length of the strings
-
-## TODO
-
-- Update complexity analysis to reflect accurate O(n * k log k) where n = number of strings, k = average string length
+    where $n$ is the number of strings and $m$ is the length of the longest string.

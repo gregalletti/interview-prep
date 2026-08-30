@@ -26,6 +26,8 @@ external_links:
 
 ## Analysis
 
+TODO
+
 ## Solution
 
 === "Python"

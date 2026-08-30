@@ -228,13 +228,7 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
 ### Complexity
 
 - **Time**: $O(n)$ _as we iterate twice through the array_
-- **Space**: $O(n)$ _as we are storing the result in a separate array of length $n$_
+- **Space**: $O(n)$ _as we are storing the result in a separate array of length $n$. Auxiliary space would be $O(1)$ since we don't need any extra space apart from the output_
 
 !!! note ""
     where $n$ is the length of the input array
-
-## TODO
-
-- Optimize Java solution using computeIfAbsent() instead of putIfAbsent() + get()
-- Update complexity analysis to reflect accurate O(n * k log k) where n = number of strings, k = average string length
-- Add Analysis section explaining the grouping strategy

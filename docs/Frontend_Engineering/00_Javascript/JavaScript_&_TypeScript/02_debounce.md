@@ -93,7 +93,6 @@ The idea here is that we don't need the `existingTimer` anymore, but just one va
         return throttledFunc;
         }
 
-
 ## Solution - Throttling
 
 === "JavaScript #3"
