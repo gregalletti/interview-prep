@@ -16,8 +16,8 @@ external_links:
 
     | Input | Output |
     | --- | --- |
-    | ![alt text](03_reverse_nodes_1.png) `head = [1,2,3,4,5,6]`, `k = 3` | `[3,2,1,6,5,4]` |
-    | ![alt text](03_reverse_nodes_2.png) `head = [1,2,3,4,5]`, `k = 3` | `[3,2,1,4,5]` |
+    | `head = [1,2,3,4,5,6]`, `k = 3` <br/><br/> ![alt text](03_reverse_nodes_1.png) | `[3,2,1,6,5,4]` |
+    | `head = [1,2,3,4,5]`, `k = 3` <br/><br/> ![alt text](03_reverse_nodes_2.png) | `[3,2,1,4,5]` |
 
     ### Constraints
     - The length of the linked list is `n`
@@ -26,7 +26,7 @@ external_links:
 
 ## Analysis
 
-TODO
+Before we dive into the implementation, let's focus on what we are actually supposed to do and how the indices should change.
 
 ## Solution
 
