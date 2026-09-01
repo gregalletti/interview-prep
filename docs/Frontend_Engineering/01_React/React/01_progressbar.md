@@ -90,7 +90,6 @@ This is a premium problem so no solution available, but judging by the end resul
             background-color: rgb(0, 153, 8);
             width: 50%;
             height: 10px;
-            margin-top: 10px;
             transition: width 2s ease;
         }
 
@@ -145,6 +144,25 @@ This is a premium problem so no solution available, but judging by the end resul
                 ))}
                 </div>
             );
+        }
+
+=== "styles.css"
+
+        :::css
+        body {
+            font-family: sans-serif;
+        }
+
+        .progress-bar {
+            background-color: rgb(189, 189, 189);
+            width: 100%;
+            height: 10px;
+            margin-top: 10px;
+        }
+
+        .progress-bar-fill {
+            background-color: rgb(0, 153, 8);
+            height: 10px;
         }
 
 ## Key Takeaways

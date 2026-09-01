@@ -5,7 +5,7 @@
       "---",
       "title: \"Placeholder\"",
       "external_links:",
-      "    Placeholder: https://neetcode.io/problems/is-palindrome",
+      "    NeetCode: https://neetcode.io/problems/is-palindrome",
       "---",
       "!!! note \"\"",
       "",
@@ -37,7 +37,35 @@
       "",
       "!!! note \"\"",
       "    where \\$n\\$ is ",
-      ""
+      "",
+      "## Key Takeaways",
+      "",
+    ]
+  },
+
+    "Frontend Problem": {
+    "prefix": "fe",
+    "body": [
+      "---",
+      "title: \"Placeholder\"",
+      "external_links:",
+      "    GreatFrontEnd: https://www.greatfrontend.com/interviews/study/gfe75/questions/user-interface/accordion",
+      "---",
+      "",
+      "## Analysis",
+      "",
+      "## Solution",
+      "",
+      "=== \"App.js\"",
+      "",
+      "        :::javascript",
+      "",
+      "=== \"styles.css\"",
+      "",
+      "        :::css",
+      "",
+      "## Key Takeaways",
+      "",
     ]
   },
 
