@@ -18,7 +18,7 @@ external_links:
 
 Not my fist time dealing with accordion / collapsible elements, so this was already a good starting point. It was immediately clear what to do: we need a proper state that holds info regarding which section should be extended and which one collapsed.
 
-Since we had a simple example with 3 items only, I initially started with a different state `expanded`: an array of booleans with the same length of the sections. Every time we click on a section header, we toggle the state and expand / collapse accordingly. However, I soon realized this in not really expandable: better to use a different logic: `expanded` will only contain, guess what, the expanded sections. We toggle this by just adding / removing the section `id` from the state. *This is a better solution as it has variable length based on whichever sections we are dealing with.*
+Since we had a simple example with 3 items only, I initially started with a different state `expanded`: an array of booleans with the same length of the sections. Every time we click on a section header, we toggle the state and expand / collapse accordingly. However, I soon realized this was not really flexible: better to use a different logic: `expanded` will only contain, guess what, the expanded sections. We toggle this by just adding / removing the section `id` from the state. *This is a better solution as it has variable length based on whichever sections we are dealing with.*
 
 Let's check the core logic now: we map each section to a parent `<div>` with a `key`, the section id. `key` gives React a stable way to identify each list item between renders so it can update the UI correctly. In this specific case, no changes happen on `sections` (which would cause a re-render), but it's always a good thing to include.
 
@@ -27,23 +27,6 @@ We immediately check if the specific section id `s.id` is in the `expanded` stat
 Nothing much is left now, just some small CSS changes: to be fair I think I spent something like 30 seconds for the styling - do not expect anything fancy here.
 
 Last point, think about reusability, even if it's not real-world code we still want our accordion component to be reusable with different section values, different length, etc. This is the reason why I then implemented a **polished solution with props** that defines sections in `App.js` and passes down the `sections` object to the `Accordion` component props. Of course, we would normally not even have this scenario (data is fetched from an API, a database,...) but I think it shows the core idea of component reusability.
-
-### Continuation
-
-One note from the problem statement caught my attention:
-> You may want to think about ways to improve the user experience of the application and implement them (you get bonus credit for doing that during interviews).
-
-What we should consider:
-
-- **Clear visual feedback** — obvious open/closed state and smooth transitions.
-- **Accessibility** — aria-expanded, aria-controls, keyboard interaction, etc.
-- **Good focus behavior** — users should always know where they are when navigating with the keyboard.
-- **Responsive design** — comfortable interaction on mobile.
-- **Animation** — subtle expand/collapse animation, if it doesn't hurt accessibility.
-- **Content readability** — spacing, typography, and sensible panel width.
-- **Potentially an “Expand all / Collapse all”** action if there are many sections.
-
-TODO: implement some because why not
 
 ## Solution
 
@@ -178,7 +161,6 @@ TODO: implement some because why not
 
         }
 
-
 === "Accordion.js"
 
         :::javascript
@@ -266,5 +248,23 @@ TODO: implement some because why not
 - Use the native **`hidden`** attribute when the collapsed panel should remain in the DOM but be hidden.
 - Arrow functions with `{}` need an explicit **`return`** when used with `.map()`.
 - Use stable React **`key`** values such as an item's ID rather than the array index.
-- Conditional classes can be driven from the same derived state, e.g. `isExpanded ? "active" : ""`.
-- In JSX, use `{}` to evaluate JavaScript expressions; use backticks/template literals when building dynamic strings, such as conditional className values: ``className={`accordion-icon ${isExpanded ? "rotated" : ""}`}``.
+- Conditional classes can be driven from the same derived state, e.g. `isExpanded ? "accordion-icon--rotated" : ""`.
+- In JSX, use `{}` to evaluate JavaScript expressions; use backticks/template literals when building dynamic strings, such as conditional className values: ``className={`accordion-icon ${isExpanded ? "accordion-icon--rotated" : ""}`}``.
+
+### Note on *accessibility*
+
+One note from the problem statement caught my attention:
+
+> You may want to think about ways to improve the user experience of the application and implement them (you get bonus credit for doing that during interviews).
+
+What we should consider:
+
+- **Clear visual feedback** — obvious open/closed state and smooth transitions.
+- **Accessibility** — aria-expanded, aria-controls, keyboard interaction, etc.
+- **Good focus behavior** — users should always know where they are when navigating with the keyboard.
+- **Responsive design** — comfortable interaction on mobile.
+- **Animation** — subtle expand/collapse animation, if it doesn't hurt accessibility.
+- **Content readability** — spacing, typography, and sensible panel width.
+- **Potentially an “Expand all / Collapse all”** action if there are many sections.
+
+TODO: implement some because why not

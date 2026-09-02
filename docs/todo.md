@@ -16,8 +16,7 @@ summary: A list of TODO items for this project
 - [Javascript > Debounce](`..\Frontend_Engineering\Javascript\JavaScript_%26_TypeScript\debounce\`) -> implement follow up
 - [Javascript > Function call](`..\Frontend_Engineering\Javascript\JavaScript_%26_TypeScript\call\`) -> solve
 - [Javascript > Type Utilities II](`..\Frontend_Engineering\Javascript\JavaScript_%26_TypeScript\type_utilities\`) -> solve
-- [React > Tabs](`..\Frontend_Engineering\React\React\Tabs\`) -> solve
-- [HTML > Holy Grail](`..\Frontend_Engineering\HTML\HTML_%26_CSS\holy_grail\`) -> solve
+- [HTML > Holy Grail](`..\Frontend_Engineering\HTML\HTML_%26_CSS\holy_grail\`) -> solved, write solution here
 
 ## System Design
 

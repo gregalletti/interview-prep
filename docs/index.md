@@ -37,6 +37,10 @@ After solving 250+ problems (landing a job in the meanwhile), I realized that I 
 
 I then decided to switch to a more structured approach and started with NeetCode's Roadmap.
 
+And why not, at some point I wanted to explore a bit more about Frontend Development and landed on GreatFrontEnd.
+
+Small disclaimer: more advanced or complex questions are limited to the Premium version, but the free version is already a great resource. I believe that if you have Free access only, those questions are not even accessible so I will respect that and not include them here.
+
 ## My Structured Approach
 
 ### Problem-Solving Strategy

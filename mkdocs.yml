@@ -20,6 +20,12 @@ theme:
   show_datetime: true 
   accent: "oklch(64.5% 0.246 16.439)" # NEW!
 
+exclude_docs: |
+  *_premium.md
+
+not_in_nav: |
+  *_premium.md
+
 markdown_extensions:
   - admonition
   - pymdownx.details
