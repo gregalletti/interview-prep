@@ -10,6 +10,7 @@ summary: A list of TODO items for this project
 
 - Javascript > Function call -> solve
 - Javascript > Type Utilities II -> solve
+- React > Tabs -> solve
 - HTML > Holy Grail -> solve
 - [Stack > Rectangle](`..\Data_Structures_%26_Algorithms\Stack\Stack\rectangle\`) -> solve
 - [Linked List > Reverse Nodes](`..\Data_Structures_%26_Algorithms\Linked_List\Linked%20List\reverse_nodes\`) -> solve
