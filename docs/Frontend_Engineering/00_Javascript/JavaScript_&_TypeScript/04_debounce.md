@@ -1,5 +1,5 @@
 ---
-title: "🟢 Debounce"
+title: "🟠 Debounce"
 external_links:
     GreatFrontEnd: https://www.greatfrontend.com/interviews/study/gfe75/questions/javascript/debounce
 ---

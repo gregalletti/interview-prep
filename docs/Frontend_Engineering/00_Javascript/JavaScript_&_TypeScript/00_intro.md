@@ -72,27 +72,27 @@ Concretely, this:
 
     :::javascript
     async function getData() {
-    try {
-        const res = await fetch(url);
-        const json = await res.json();
-        return json;
-    } catch (err) {
-        console.error(err);
-        return null;
-    }
+        try {
+            const res = await fetch(url);
+            const json = await res.json();
+            return json;
+        } catch (err) {
+            console.error(err);
+            return null;
+        }
     }
 
 can be seen as:
 
     :::javascript
     function getData() {
-    return fetch(url)
-        .then(res => res.json())
-        .then(json => json)
-        .catch(err => {
-        console.error(err);
-        return null;
-        });
+        return fetch(url)
+            .then(res => res.json())
+            .then(json => json)
+            .catch(err => {
+                console.error(err);
+                return null;
+            });
     }
 
 ## Closures

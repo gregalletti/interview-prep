@@ -3,7 +3,7 @@
     "prefix": "dsa",
     "body": [
       "---",
-      "title: \"Placeholder\"",
+      "title: \"🟢🟠🔴 Placeholder\"",
       "external_links:",
       "    NeetCode: https://neetcode.io/problems/is-palindrome",
       "---",
@@ -47,10 +47,13 @@
     "prefix": "fe",
     "body": [
       "---",
-      "title: \"Placeholder\"",
+      "title: \"🟢🟠🔴 Placeholder\"",
       "external_links:",
       "    GreatFrontEnd: https://www.greatfrontend.com/interviews/study/gfe75/questions/user-interface/accordion",
       "---",
+      "!!! note \"\"",
+      "",
+      "    ### Requirements",
       "",
       "## Analysis",
       "",

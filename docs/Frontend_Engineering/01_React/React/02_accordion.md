@@ -3,6 +3,16 @@ title: "🟢 Accordion"
 external_links:
     GreatFrontEnd: https://www.greatfrontend.com/interviews/study/gfe75/questions/user-interface/accordion
 ---
+!!! note ""
+    Build an Accordion component that displays a list of vertically stacked sections that each contain a title and content snippet. Some HTML is provided for you as example content along with a chevron icon.
+
+    ### Requirements
+
+    - By default, all sections are collapsed and are hidden from view.
+    - Clicking a section title toggles the contents.
+    - If the section is collapsed, the section will be expanded and the contents will be displayed.
+    - If the section is expanded, the section will be collapsed and the contents will be hidden.
+    - The sections are independent of each other.
 
 ## Analysis
 
@@ -17,6 +27,23 @@ We immediately check if the specific section id `s.id` is in the `expanded` stat
 Nothing much is left now, just some small CSS changes: to be fair I think I spent something like 30 seconds for the styling - do not expect anything fancy here.
 
 Last point, think about reusability, even if it's not real-world code we still want our accordion component to be reusable with different section values, different length, etc. This is the reason why I then implemented a **polished solution with props** that defines sections in `App.js` and passes down the `sections` object to the `Accordion` component props. Of course, we would normally not even have this scenario (data is fetched from an API, a database,...) but I think it shows the core idea of component reusability.
+
+### Continuation
+
+One note from the problem statement caught my attention:
+> You may want to think about ways to improve the user experience of the application and implement them (you get bonus credit for doing that during interviews).
+
+What we should consider:
+
+- **Clear visual feedback** — obvious open/closed state and smooth transitions.
+- **Accessibility** — aria-expanded, aria-controls, keyboard interaction, etc.
+- **Good focus behavior** — users should always know where they are when navigating with the keyboard.
+- **Responsive design** — comfortable interaction on mobile.
+- **Animation** — subtle expand/collapse animation, if it doesn't hurt accessibility.
+- **Content readability** — spacing, typography, and sensible panel width.
+- **Potentially an “Expand all / Collapse all”** action if there are many sections.
+
+TODO: implement some because why not
 
 ## Solution
 
@@ -67,22 +94,22 @@ Last point, think about reusability, even if it's not real-world code we still w
 
             return (
                 <div>
-                {
-                sections.map((s) => {
-                    const isExpanded = expanded.includes(s.id);
+                    {
+                    sections.map((s) => {
+                        const isExpanded = expanded.includes(s.id);
 
-                    return (
-                        <div key={s.id}>
-                            <button aria-expanded={isExpanded} className="accordion-item" onClick={() => toggleAccordion(s.id)}>
-                                {s.title} <span aria-hidden={true} className={`accordion-icon ${isExpanded ? "accordion-icon--rotated" : ""}`}/>
-                            </button>
-                            <div hidden={!isExpanded}>
-                                {s.text}
+                        return (
+                            <div key={s.id}>
+                                <button aria-expanded={isExpanded} className="accordion-item" onClick={() => toggleAccordion(s.id)}>
+                                    {s.title} <span aria-hidden={true} className={`accordion-icon ${isExpanded ? "accordion-icon--rotated" : ""}`}/>
+                                </button>
+                                <div hidden={!isExpanded}>
+                                    {s.text}
+                                </div>
                             </div>
-                        </div>
-                    )
-                })
-                }
+                        )
+                    })
+                    }
                 </div>
             );
         }
@@ -173,22 +200,22 @@ Last point, think about reusability, even if it's not real-world code we still w
 
             return (
                 <div>
-                {
-                sections.map((s) => {
-                    const isExpanded = expanded.includes(s.id);
+                    {
+                    sections.map((s) => {
+                        const isExpanded = expanded.includes(s.id);
 
-                    return (
-                    <div key={s.id}>
-                        <button aria-expanded={isExpanded} className="accordion-item" onClick={() => toggleAccordion(s.id)}>
-                            {s.title} <span aria-hidden={true} className={`accordion-icon ${isExpanded ? "accordion-icon--rotated" : ""}`}/>
-                        </button>
-                        <div hidden={!isExpanded}>
-                            {s.text}
+                        return (
+                        <div key={s.id}>
+                            <button aria-expanded={isExpanded} className="accordion-item" onClick={() => toggleAccordion(s.id)}>
+                                {s.title} <span aria-hidden={true} className={`accordion-icon ${isExpanded ? "accordion-icon--rotated" : ""}`}/>
+                            </button>
+                            <div hidden={!isExpanded}>
+                                {s.text}
+                            </div>
                         </div>
-                    </div>
-                    )
-                })
-                }
+                        )
+                    })
+                    }
                 </div>
             );
         }
