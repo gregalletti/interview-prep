@@ -23,9 +23,6 @@ theme:
 exclude_docs: |
   *_premium.md
 
-not_in_nav: |
-  *_premium.md
-
 markdown_extensions:
   - admonition
   - pymdownx.details

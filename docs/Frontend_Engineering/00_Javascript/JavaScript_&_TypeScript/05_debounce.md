@@ -47,18 +47,18 @@ The idea here is that we don't need the `existingTimer` anymore, but just one va
         */
         export default function debounce(func, wait) {
 
-        let existingTimer = null;
+            let existingTimer = null;
 
-        function debouncedFunc(...args) {
+            function debouncedFunc(...args) {
 
-            clearTimeout(existingTimer);
+                clearTimeout(existingTimer);
 
-            existingTimer = setTimeout(() => {
-                func.apply(this, args);
-            }, wait);
-        };
+                existingTimer = setTimeout(() => {
+                    func.apply(this, args);
+                }, wait);
+            };
 
-        return debouncedFunc;
+            return debouncedFunc;
         }
 
 ## Solution - Cancel and Flush
@@ -69,28 +69,53 @@ The idea here is that we don't need the `existingTimer` anymore, but just one va
         /**
         * @param {(...args: Array<unknown>) => unknown} func
         * @param {number} wait
-        * @returns {(...args: Array<unknown>) => void}
+        * @returns {((...args: Array<unknown>) => void) & {
+        *   cancel: () => void,
+        *   flush: () => void
+        * }}
         */
-        export default function throttle(func, wait) {
+        export default function debounce(func, wait) {
+            
+            let lastExecution = null;
+            let lastThis = null;
+            let lastArgs = null;
 
-        let throttling = false;
+            function debouncedFunc(...args) {
+                lastThis = this;
+                lastArgs = args;
 
-        function throttledFunc(...args) {
+                clearTimeout(lastExecution);
 
-            // ignore every call if there's already one scheduled
-            if(throttling)
-                return;
+                lastExecution = setTimeout(() => {
+                    func.apply(lastThis, lastArgs);
 
-            throttling = true;
+                    lastExecution = null;
+                    lastThis = null;
+                    lastArgs = null;
+                }, wait);
+            }
 
-            setTimeout(() => {
-                func.apply(this, args);
-                throttling = false;
-            }, wait);
+            debouncedFunc.cancel = function () {
+                clearTimeout(lastExecution);
 
-        };
+                lastExecution = null;
+                lastThis = null;
+                lastArgs = null;
+            };
 
-        return throttledFunc;
+            debouncedFunc.flush = function () {
+                if (lastExecution === null) return;
+
+                clearTimeout(lastExecution);
+
+                func.apply(lastThis, lastArgs);
+
+                lastExecution = null;
+                lastThis = null;
+                lastArgs = null;
+            };
+
+            return debouncedFunc;
         }
 
 ## Solution - Throttling
@@ -105,24 +130,24 @@ The idea here is that we don't need the `existingTimer` anymore, but just one va
         */
         export default function throttle(func, wait) {
 
-        let throttling = false;
+            let throttling = false;
 
-        function throttledFunc(...args) {
+            function throttledFunc(...args) {
 
-            // ignore every call if there's already one scheduled
-            if(throttling)
-                return;
+                // ignore every call if there's already one scheduled
+                if(throttling)
+                    return;
 
-            throttling = true;
+                throttling = true;
 
-            setTimeout(() => {
-                func.apply(this, args);
-                throttling = false;
-            }, wait);
+                setTimeout(() => {
+                    func.apply(this, args);
+                    throttling = false;
+                }, wait);
 
-        };
+            };
 
-        return throttledFunc;
+            return throttledFunc;
         }
 
 ## Key Takeaways
