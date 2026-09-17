@@ -1,5 +1,5 @@
 ---
-title: Summary
+title: Cheatsheet
 summary: Quick tips for generic interview problems
 ---
 This page collects the small details that come up in almost every coding problem, regardless of the specific data structure. The goal is not to replace a full language reference, but to keep a short list of habits and syntax reminders that save time during interviews.

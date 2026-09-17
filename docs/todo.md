@@ -12,6 +12,7 @@ summary: A list of TODO items for this project
 - [Linked List > Reverse Nodes](`..\Data_Structures_%26_Algorithms\Linked_List\Linked%20List\reverse_nodes\`) -> solve
 
 ## Frontend Engineering
+PAUSED
 
 - [React > Type Utilities II](`..\Frontend_Engineering\React\React\todo_list\`) -> solved, add analysis
 - Javascript > Map -> solve

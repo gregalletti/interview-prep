@@ -1,5 +1,5 @@
 ---
-title: "🟢 Diameter of Binary Tree"
+title: "🟢🟠 Diameter of Binary Tree"
 external_links:
     NeetCode: https://neetcode.io/problems/binary-tree-diameter
 ---
@@ -23,6 +23,8 @@ external_links:
 
 ## Analysis
 
+> Why 🟢🟠? This problem mixes standard DFS and recursion with a global variable management - it can be tricky.
+
 Let's try to break down the definition of diameter and how we can compute it: for a given node, we can consider the diameter passing by it as the longest path on the left side plus the longest path on the right side.
 
 Conveniently, the path lenght is the height of the (sub)tree starting from the current node.
@@ -43,7 +45,7 @@ while the height returned to the parent is:
 
     1 + max(height(left), height(right))
 
-> That's an important pattern to recognize. You'll see the same post-order DFS + return information upward + update a global answer pattern in many tree problems.
+**That's an important pattern to recognize**. You'll see the same post-order DFS + return information upward + update a global answer pattern in many tree problems.
 
 ## Solution
 

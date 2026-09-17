@@ -1,5 +1,5 @@
 ---
-title: "🟢 Subtree of Another Tree"
+title: "🟢🟠 Subtree of Another Tree"
 external_links:
     NeetCode: https://neetcode.io/problems/subtree-of-a-binary-tree
 ---
@@ -23,6 +23,8 @@ external_links:
 
 ## Analysis
 
+> Why 🟢🟠? This is a continuation of a different easy problem - it's inherently harder and even has an alternative completely different solution.
+
 Understanding the solution was quite straightforward: iterate the `root` first until we find a match with the `subRoot`, and if that's the case then start comparing the nodes to check the exact matching.
 
 Implementing it, however, was the challenging part. I intially started with a DFS implementation which checked the `root.val == subRoot.val` condition, and called a `isSame` function to continue. This turned out to be more complex than I thought, so I had to step back, much easier to use the initial function as the initial recursion.
@@ -37,6 +39,24 @@ Pay extra attention to edge cases:
 - if `root` is `null` (and `subRoot` is not), we can consider it as never included and return `False` immediately
 
 ### Serialization Approach
+
+I won't pretend I thought about it on my own. Yes, the basic concept is kinda easy, but getting there is not.
+
+The core idea is that, instead of going through the actual trees, we can serialize them (as strings in this case) and transform the problem in a substring problem.
+
+Take this as an example:
+
+        3
+       / \
+      4   5
+     / \
+    1   2
+
+it can be serialized as:
+
+    3,4,1,#,#,2,#,#,5,#,#
+
+TODO continue
 
 ## Solution
 
