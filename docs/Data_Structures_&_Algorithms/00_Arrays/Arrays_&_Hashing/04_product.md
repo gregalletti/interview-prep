@@ -123,7 +123,7 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
 
 === "Python"
 
-    ```python
+    :::python
     class Solution:
         def productExceptSelf(self, nums: List[int]) -> List[int]:
             n = len(nums)
@@ -139,11 +139,10 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
             for i in range(n):
                 ans[i] = left[i] * right[i]
             return ans
-    ```
 
 === "Java"
 
-    ```java
+    :::java
     class Solution {
         public int[] productExceptSelf(int[] nums) {
             int n = nums.length;
@@ -168,7 +167,6 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
             return ans;
         }
     }  
-    ```
 
 ### Complexity
 
