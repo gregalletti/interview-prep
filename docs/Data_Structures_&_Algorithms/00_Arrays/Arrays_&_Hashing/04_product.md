@@ -123,50 +123,50 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
 
 === "Python"
 
-    :::python
-    class Solution:
-        def productExceptSelf(self, nums: List[int]) -> List[int]:
-            n = len(nums)
-            left, right, ans = [0] * n, [0] * n, [0] * n
-            left[0], right[n - 1] = 1, 1
+        :::python
+        class Solution:
+            def productExceptSelf(self, nums: List[int]) -> List[int]:
+                n = len(nums)
+                left, right, ans = [0] * n, [0] * n, [0] * n
+                left[0], right[n - 1] = 1, 1
 
-            for i in range(1, n):
-                left[i] = left[i - 1] * nums[i - 1]
+                for i in range(1, n):
+                    left[i] = left[i - 1] * nums[i - 1]
 
-            for i in range(n - 2, -1, -1):
-                right[i] = right[i + 1] * nums[i + 1]
+                for i in range(n - 2, -1, -1):
+                    right[i] = right[i + 1] * nums[i + 1]
 
-            for i in range(n):
-                ans[i] = left[i] * right[i]
-            return ans
+                for i in range(n):
+                    ans[i] = left[i] * right[i]
+                return ans
 
 === "Java"
 
-    :::java
-    class Solution {
-        public int[] productExceptSelf(int[] nums) {
-            int n = nums.length;
-            int[] ans = new int[n];
-            int[] left = new int[n];
-            int[] right = new int[n];
+        :::java
+        class Solution {
+            public int[] productExceptSelf(int[] nums) {
+                int n = nums.length;
+                int[] ans = new int[n];
+                int[] left = new int[n];
+                int[] right = new int[n];
 
-            left[0] = 1;
-            right[n - 1] = 1;
+                left[0] = 1;
+                right[n - 1] = 1;
 
-            for (int i = 1; i < nums.length; i++) {
-                left[i] = left[i - 1] * nums[i - 1];
+                for (int i = 1; i < nums.length; i++) {
+                    left[i] = left[i - 1] * nums[i - 1];
+                }
+
+                for (int i = n - 2; i > -1 ; i--) {
+                    right[i] = right[i + 1] * nums[i + 1];
+                }
+
+                for (int i = 0; i < nums.length; i++) {
+                    ans[i] = left[i] * right[i];
+                }
+                return ans;
             }
-
-            for (int i = n - 2; i > -1 ; i--) {
-                right[i] = right[i + 1] * nums[i + 1];
-            }
-
-            for (int i = 0; i < nums.length; i++) {
-                ans[i] = left[i] * right[i];
-            }
-            return ans;
-        }
-    }  
+        }  
 
 ### Complexity
 
@@ -180,48 +180,46 @@ Best way to do this is to pre-calculate the prefix and suffix and then just mult
 
 === "Python"
 
-    ```python
-    class Solution:
-        def productExceptSelf(self, nums: List[int]) -> List[int]:
-            n = len(nums)
-            ans = [0] * n
-            ans[0] = 1
+        :::python
+        class Solution:
+            def productExceptSelf(self, nums: List[int]) -> List[int]:
+                n = len(nums)
+                ans = [0] * n
+                ans[0] = 1
 
-            for i in range(1, n):
-                ans[i] = ans[i - 1] * nums[i - 1]
+                for i in range(1, n):
+                    ans[i] = ans[i - 1] * nums[i - 1]
 
-            suffix = 1
-            for i in range(n - 2, -1, -1):
-                suffix *= nums[i + 1]
-                ans[i] *= suffix
+                suffix = 1
+                for i in range(n - 2, -1, -1):
+                    suffix *= nums[i + 1]
+                    ans[i] *= suffix
 
-            return ans
-    ```
+                return ans
 
 === "Java"
 
-    ```java
-    class Solution {
-        public int[] productExceptSelf(int[] nums) {
-            int n = nums.length;
-            int[] ans = new int[n];
+        :::java
+        class Solution {
+            public int[] productExceptSelf(int[] nums) {
+                int n = nums.length;
+                int[] ans = new int[n];
 
-            ans[0] = 1;
+                ans[0] = 1;
 
-            for (int i = 1; i < nums.length; i++) {
-                ans[i] = ans[i - 1] * nums[i - 1];
+                for (int i = 1; i < nums.length; i++) {
+                    ans[i] = ans[i - 1] * nums[i - 1];
+                }
+
+                int suffix = 1;
+                for (int i = n - 2; i > -1 ; i--) {
+                    suffix *= nums[i + 1];
+                    ans[i] *= suffix;
+                }
+
+                return ans;
             }
-
-            int suffix = 1;
-            for (int i = n - 2; i > -1 ; i--) {
-                suffix *= nums[i + 1];
-                ans[i] *= suffix;
-            }
-
-            return ans;
-        }
-    }  
-    ```
+        }  
 
 ### Complexity
 
