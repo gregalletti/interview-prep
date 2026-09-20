@@ -16,17 +16,23 @@ The most common stack problems are about matching delimiters, tracking previous 
 
 ### Python
 
+- `stack = []`: a list exposes all the necessary stack methods
+- `stack = deque()` (`from collections import deque`): not so different if we talk about stack usage, is often faster than a list
 - `stack.append(x)` to push
 - `stack.pop()` to pop
-- `stack[-1]` or `stack[-1]` for peek
-- `collections.deque` is often faster than a list for queue-like operations
+- `stack[-1]` to inspect the top without removing it
+
+In Python **a simple `list` is good enough** in 99% of the cases.
 
 ### Java
 
-- `Deque<Integer> stack = new ArrayDeque<>();`
+- `Stack<Integer> stack = new Stack<>();`: legacy way, not wrong but uses old Java classes
+- `Deque<Integer> stack = new ArrayDeque<>();`: modern way, not synchronized and faster
 - `stack.push(x)` to add
 - `stack.pop()` to remove
 - `stack.peek()` to inspect the top without removing it
+
+In Java **a `Deque` is better overall**, prefer this.
 
 ## Common Interview Questions
 

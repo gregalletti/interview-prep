@@ -93,7 +93,7 @@ I've cleaned up the code to remove the need for the OPERANDS list, as we can jus
         :::java
         class Solution {
             public int evalRPN(String[] tokens) {
-                Stack<Integer> stack = new Stack<>();
+                Deque<Integer> stack = new ArrayDeque<>();
 
                 for (String n : tokens) {
                     if (n.equals("+")) {

@@ -74,7 +74,7 @@ Worth to also implement recursive and iterative DFS, but not today.
 
         class Solution {
             public TreeNode invertTree(TreeNode root) {
-                Stack<TreeNode> stack = new Stack<>();
+                Deque<TreeNode> stack = new ArrayDeque<>();
                 stack.push(root);
 
                 while (!stack.empty()) {

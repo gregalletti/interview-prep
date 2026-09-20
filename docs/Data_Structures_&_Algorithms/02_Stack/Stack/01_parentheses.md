@@ -64,7 +64,7 @@ Not much to say here, it's the classic textbook stack problem. We can use a stac
                 pars.put('[', ']');
                 pars.put('{', '}');
 
-                Stack<Character> stack = new Stack<>();
+                Deque<Character> stack = new ArrayDeque<>();
 
                 for (char c: s.toCharArray()) {
                     if (pars.containsKey(c)) {
