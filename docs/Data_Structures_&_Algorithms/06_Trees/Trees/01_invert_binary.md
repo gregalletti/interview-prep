@@ -4,7 +4,6 @@ external_links:
     NeetCode: https://neetcode.io/problems/invert-a-binary-tree
 ---
 !!! note ""
-
     You are given the root of a binary tree `root`. Invert the binary tree and return its root.
 
     ### Examples

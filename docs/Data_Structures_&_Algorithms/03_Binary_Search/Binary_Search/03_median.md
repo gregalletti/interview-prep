@@ -6,6 +6,8 @@ external_links:
 !!! note ""
     You are given two integer arrays `nums1` and `nums2` of size `m` and `n` respectively, where each is sorted in ascending order. Return the [median](https://en.wikipedia.org/wiki/Median) value among all elements of the two arrays.
 
+    <span/>
+
     Your solution should run in $O(log(m+n))$ time.
 
     ### Examples

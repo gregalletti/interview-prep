@@ -6,6 +6,8 @@ external_links:
 !!! note ""
     You are given a string `s` consisting of the following characters: `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`.
 
+    <span/>
+
     The input string `s` is valid if and only if:
 
     - Every open bracket is closed by the same type of close bracket.

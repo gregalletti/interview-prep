@@ -6,6 +6,8 @@ external_links:
 !!! note ""
     Design a time-based key-value data structure that can store multiple values for the same key at different time stamps and retrieve the key's value at a certain timestamp.
 
+    <span/>
+
     Implement the `TimeMap` class:
 
     - `TimeMap()` Initializes the object of the data structure.

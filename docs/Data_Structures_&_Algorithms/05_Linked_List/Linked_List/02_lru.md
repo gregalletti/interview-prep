@@ -4,7 +4,11 @@ external_links:
     NeetCode: https://neetcode.io/problems/lru-cache
 ---
 !!! note ""
-    Implement the [Least Recently Used (LRU)](https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU) cache class `LRUCache`. The class should support the following operations:
+    Implement the [Least Recently Used (LRU)](https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU) cache class `LRUCache`. 
+    
+    <span/>
+
+    The class should support the following operations:
 
     - `LRUCache(int capacity)` Initialize the LRU cache of size `capacity`.
     - `int get(int key)` Return the value corresponding to the `key` if the `key` exists, otherwise return `-1`.

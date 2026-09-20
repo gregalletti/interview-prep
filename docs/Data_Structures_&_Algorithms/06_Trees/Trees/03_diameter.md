@@ -4,8 +4,9 @@ external_links:
     NeetCode: https://neetcode.io/problems/binary-tree-diameter
 ---
 !!! note ""
-
     The **diameter** of a binary tree is defined as **the length of the longest path between any two nodes within the tree**. 
+
+    <span/>
     
     The path does not necessarily have to pass through the root.
 

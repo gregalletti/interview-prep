@@ -6,6 +6,8 @@ external_links:
 !!! note ""
     Given a string `s`, return `true` if it is a palindrome, otherwise return `false`.
 
+    <span/>
+    
     A palindrome reads the same forward and backward. This check is case-insensitive and ignores all non-alphanumeric characters.
 
     Note: alphanumeric characters consist of letters (`A-Z`, `a-z`) and numbers (`0-9`).

@@ -6,6 +6,8 @@ external_links:
 !!! note ""
     You are given an array of strings `tokens` that represents a valid arithmetic expression in [Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation).
 
+    <span/>
+
     Return the integer that represents the evaluation of the expression.
 
     - The operands may be integers or the results of other operations.

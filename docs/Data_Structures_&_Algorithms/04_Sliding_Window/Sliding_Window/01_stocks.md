@@ -4,8 +4,9 @@ external_links:
     NeetCode: https://neetcode.io/problems/buy-and-sell-crypto
 ---
 !!! note ""
-
     You are given an integer array `prices` where `prices[i]` is the price of NeetCoin on the `ith` day.
+
+    <span/>
 
     You may choose a single day to buy one NeetCoin and choose a different day in the future to sell it.
 
