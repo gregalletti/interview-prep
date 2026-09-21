@@ -6,6 +6,7 @@ A **heap** is a *complete binary tree* that satisfies the **heap property**:
  
 - **Min-heap:** every node is ≤ its children, so the root is the minimum.
 - **Max-heap:** every node is ≥ its children, so the root is the maximum.
+
 A **priority queue** is the *abstract data type*: insert elements with a priority, and always remove the one with the highest priority (smallest or largest key). A heap is the standard way to implement it. The two terms are not interchangeable: the priority queue is the interface, the heap is one implementation of it.
  
 ```
@@ -30,6 +31,7 @@ Min-heap (tree view)          Array view (0-indexed)
 - **Heapsort** is $O(n\log n)$ time and $O(1)$ extra space, but not stable and less cache-friendly than quicksort or mergesort in practice.
 - Ties are broken arbitrarily. If FIFO order among equal priorities matters, add an insertion counter to the key.
 - **No efficient decrease-key or remove in the standard libraries** (Python `heapq`, Java `PriorityQueue`). The usual workaround is **lazy deletion**: push a new entry and skip stale ones when popping.
+
 #### Common Patterns
  
 | Pattern | Idea | Cost |
@@ -55,6 +57,7 @@ An array `a` of size `n`, with the heap property maintained by two primitives:
  
 - **Sift-up:** move an element up while it is smaller than its parent (min-heap).
 - **Sift-down:** move an element down, swapping with the *smaller* child, while it is larger than that child.
+
 | Operation | Steps |
 |---|---|
 | `peek` | Return `a[0]` |
