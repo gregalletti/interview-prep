@@ -1,6 +1,6 @@
 ---
 title: Overview
-summary: 
+summary: Different types of trees and traversals
 ---
 ## Core Concepts
 
