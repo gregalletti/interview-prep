@@ -179,7 +179,7 @@ What we return has to be `node.val + max(left, right)`, where I removed the 0 ch
 ## Complexity
 
 - **Time**: $O(n)$ _as we visit every node only once, it's a DFS_
-- **Space**: $O(n)$ _as we store the entire tree in the recursion stack if unbalanced_, $O(log(n))$ otherwise
+- **Space**: $O(n)$ _as we store the entire tree in the recursion stack if unbalanced_, $O(\log(n))$ otherwise
 
 !!! note ""
     where $n$ is the number of nodes in the tree

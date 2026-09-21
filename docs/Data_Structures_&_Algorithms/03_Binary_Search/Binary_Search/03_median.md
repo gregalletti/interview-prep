@@ -8,7 +8,7 @@ external_links:
 
     <span/>
 
-    Your solution should run in $O(log(m+n))$ time.
+    Your solution should run in $O(\log(m+n))$ time.
 
     ### Examples
 
@@ -127,7 +127,7 @@ We now have all the elements to implement a proper solution.
 
 ### Optimal Approach
 
-The key intuition here to use binary search is that instead of moving the indices one by one, we can move them in a binary search fashion. We can start with the middle of the first array and calculate the corresponding index in the second array. Then we can check if the partition is valid or not (with the same method as before), and if not, we can move the index in the first array to the left or right half with binary search. This way we can reduce the search space by half each time instead of moving one by one, which gives us $O(log(min(m, n)))$ time complexity.
+The key intuition here to use binary search is that instead of moving the indices one by one, we can move them in a binary search fashion. We can start with the middle of the first array and calculate the corresponding index in the second array. Then we can check if the partition is valid or not (with the same method as before), and if not, we can move the index in the first array to the left or right half with binary search. This way we can reduce the search space by half each time instead of moving one by one, which gives us $O(\log(min(m, n)))$ time complexity.
 
 The game changer here is thinking about what we are actually searching for. We are not searching for a specific value as in a traditional binary search problem, but we are searching for a partition point. This is a very important distinction to make, and it took me a while to realize this.
 
@@ -281,7 +281,7 @@ Why are we searching on the smaller array? First of all it makes the search fast
 
 ## Complexity
 
-- **Time**: $O(log(min(m, n)))$ _as we perform binary search on the smaller array_
+- **Time**: $O(\log(min(m, n)))$ _as we perform binary search on the smaller array_
 - **Space**: $O()$ _as we don't use any extra space_
 
 !!! note ""

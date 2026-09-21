@@ -281,5 +281,5 @@ The **Java improved version** just simplifies the `TreeNode` class: in this part
 
 ## Key Takeaways
 
-- As it already happened in (LRU Cache)[../05_Linked_List/Linked_List/02_lru.md], in theory the Java code should throw compile errors, because we're accessing a private fields of class `TreeNode` from class `PrefixTree`, 2 top-level classes. In a real-world case, we would need to implement getters and setters.
+- As it already happened in [LRU Cache](../../05_Linked_List/Linked_List/02_lru.md), in theory the Java code should throw compile errors, because we're accessing a private fields of class `TreeNode` from class `PrefixTree`, 2 top-level classes. In a real-world case, we would need to implement getters and setters.
 - This issue also gets solved (without getters and setters) by the improved Java version.

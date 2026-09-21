@@ -10,7 +10,7 @@ Awareness only, one sentence, no implementation.
 - Aho-Corasick — trie + KMP failure links, for matching many patterns at once.
 
 ## Data structures
-- Segment Tree — range query + range update in O(log n).
+- Segment Tree — range query + range update in $O(\log n)$.
 - Fenwick Tree / BIT — simpler cousin of segment tree, prefix-sum queries with point updates.
 - Suffix Array/Tree — indexing structure for many substring queries on one string.
 - Skip List — probabilistic alternative to a balanced BST.

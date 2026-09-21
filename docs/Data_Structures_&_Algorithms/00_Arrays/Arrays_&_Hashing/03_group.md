@@ -26,7 +26,7 @@ external_links:
 
 ## Analysis
 
-Most intuitive solution is to iterate through the strings and check if isAnagram. This would need O(n) for the loop, to be multiplied by the complexity of executing the isAnagram. This is way too much.
+Most intuitive solution is to iterate through the strings and check if isAnagram. This would need $O(n)$ for the loop, to be multiplied by the complexity of executing the isAnagram. This is way too much.
 
 We can instead work on the smallest constraint we're given, which is the English letters count (26). Let's try to build a hashmap based on this.
 

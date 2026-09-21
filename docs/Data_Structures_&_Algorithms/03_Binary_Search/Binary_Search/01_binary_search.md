@@ -7,10 +7,10 @@ external_links:
     You are given an array of distinct integers `nums`, sorted in ascending order, and an integer `target`.
     
     <span/>
-    
+
     Implement a function to search for `target` within `nums`. If it exists, then return its index, otherwise, return -1.
 
-    Your solution must run in $O(logn)$ time.
+    Your solution must run in $O(\log n)$ time.
 
     ### Examples
 
@@ -57,7 +57,7 @@ In other words, that's what we're doing:
 
 $\dfrac{n}{2}$ -> $\dfrac{n}{4}$ -> $\dfrac{n}{8}$ -> $\dfrac{n}{16}$ -> ... -> $1$, for a defined number of steps $k$.
 
-So we can rewrite this as $\dfrac{n}{2^k} = 1$ and solve for $k$. $n = 2^k$ -> this is the definition of logarithm to base 2, so $k = log₂(n)$. According to Big O notation, we can drop the base of the logarithm, so we can say that the time complexity of binary search is $O(log n)$.
+So we can rewrite this as $\dfrac{n}{2^k} = 1$ and solve for $k$. $n = 2^k$ -> this is the definition of logarithm to base 2, so $k = log₂(n)$. According to Big O notation, we can drop the base of the logarithm, so we can say that the time complexity of binary search is $O(\log n)$.
 
 ## Solution - Iterative
 
@@ -110,7 +110,7 @@ So we can rewrite this as $\dfrac{n}{2^k} = 1$ and solve for $k$. $n = 2^k$ -> t
 
 ### Complexity
 
-- **Time**: $O(log n)$ _as we keep dividing the search space in half_
+- **Time**: $O(\log n)$ _as we keep dividing the search space in half_
 - **Space**: $O(1)$ _as we don't store any additional data_
 
 !!! note ""
@@ -162,8 +162,8 @@ So we can rewrite this as $\dfrac{n}{2^k} = 1$ and solve for $k$. $n = 2^k$ -> t
 
 ### Complexity
 
-- **Time**: $O(log n)$ _as we keep dividing the search space in half_
-- **Space**: $O(log n)$ _as we don't store additional data, but we need to count the recursive stack memory used (one call per level)_
+- **Time**: $O(\log n)$ _as we keep dividing the search space in half_
+- **Space**: $O(\log n)$ _as we don't store additional data, but we need to count the recursive stack memory used (one call per level)_
 
 !!! note ""
     where $n$ is the length of the input array `nums`.

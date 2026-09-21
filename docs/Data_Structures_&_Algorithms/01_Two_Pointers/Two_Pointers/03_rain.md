@@ -24,10 +24,10 @@ external_links:
 
 Even if it looks similar to the previous problem, it's a bit more complex. Mainly because in the previous problem we had to choose any two bars and get the area, while here we have to consider all the bars and how much water can be trapped between them.
 
-We can start from 0 and 1, and try to use some sort for raycasting (by projecting the left bar onto the right bar), but it would be O(n^2) time complexity as we would still have to calculate the area for each pair and subtract the heights, not optimal. We can do better.
+We can start from 0 and 1, and try to use some sort for raycasting (by projecting the left bar onto the right bar), but it would be $O(n^2)$ time complexity as we would still have to calculate the area for each pair and subtract the heights, not optimal. We can do better.
 
 Let's think about water calculation better: at every position i, the amount of water that can be trapped at that position is determined as before by the maximum height to the left and the maximum height to the right. But we need to make sure we subtract the height of the bar at that position.
-However, we can't just calculate the maximum height to the left and right for every position, as it would be O(n^2) time complexity again. We can instead pre-calculate them.
+However, we can't just calculate the maximum height to the left and right for every position, as it would be $O(n^2)$ time complexity again. We can instead pre-calculate them.
 
 We can create one array of length n, where the i-th element of the array represents the max height to the left. Same thing for the right. Then we'll only iterate once more through the original array and sum the water.
 

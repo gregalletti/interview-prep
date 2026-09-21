@@ -126,7 +126,7 @@ while the height returned to the parent is:
 ## Complexity
 
 - **Time**: $O(n)$ _as we visit each node of the tree once_
-- **Space**: $O(n)$ _as we store the entire tree in the recursion stack if unbalanced_, $O(log(n))$ otherwise
+- **Space**: $O(n)$ _as we store the entire tree in the recursion stack if unbalanced_, $O(\log(n))$ otherwise
 
 !!! note ""
     where $n$ is number of nodes in the tree

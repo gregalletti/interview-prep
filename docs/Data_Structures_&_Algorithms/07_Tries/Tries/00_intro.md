@@ -62,9 +62,9 @@ Choice of child container:
 
 | Container | Time per step | Memory | Best for |
 |---|---|---|---|
-| Fixed array (`[26]` for `a–z`) | O(1) | O(σ) per node, even if empty | Small, fixed alphabet; speed-critical |
-| Hash map | O(1) average | Only existing children (+ map overhead) | Large or unknown alphabet (Unicode) — the default choice |
-| Sorted map (`TreeMap`, sorted list) | O(log σ) | Only existing children | Need ordered children without sorting at query time |
+| Fixed array (`[26]` for `a–z`) | $O(1)$ | $O(σ)$ per node, even if empty | Small, fixed alphabet; speed-critical |
+| Hash map | $O(1)$ average | Only existing children (+ map overhead) | Large or unknown alphabet (Unicode) — the default choice |
+| Sorted map (`TreeMap`, sorted list) | $O(\log σ)$ | Only existing children | Need ordered children without sorting at query time |
 
 ### Operations
 
@@ -80,17 +80,17 @@ Let `L` = key length, `N` = number of keys, `M` = total characters over all keys
 
 | Operation | Time | Notes |
 |---|---|---|
-| Insert | O(L) | O(L) with array children; O(L) average with hash-map children |
-| Search | O(L) | |
-| Starts-with | O(L) | |
-| Delete | O(L) | Includes pruning |
-| Enumerate all keys with a prefix | O(L + K) | Add O(K log σ) if children must be sorted at query time |
-| Space | O(σ · M) worst case (array children) | O(M) nodes with map children; ≤ M + 1 nodes total |
+| Insert | $O(L)$ | $O(L)$ with array children; $O(L)$ average with hash-map children |
+| Search | $O(L)$ | |
+| Starts-with | $O(L)$ | |
+| Delete | $O(L)$ | Includes pruning |
+| Enumerate all keys with a prefix | $O(L + K)$ | Add $O(K \log σ)$ if children must be sorted at query time |
+| Space | $O(σ · M)$ worst case (array children) | $O(M)$ nodes with map children; ≤ M + 1 nodes total |
 
 Comparison for `N` string keys of length up to `L`:
 
 | Structure | Exact lookup | Prefix query | Ordered iteration |
 |---|---|---|---|
-| Trie | O(L) | O(L + K) | Yes |
-| Hash map | O(L) avg | O(N · L) scan | No |
-| Sorted array / balanced BST | O(L log N) | O(L log N + results) | Yes |
+| Trie | $O(L)$ | $O(L + K)$ | Yes |
+| Hash map | $O(L)$ avg | $O(N · L)$ scan | No |
+| Sorted array / balanced BST | $O(L\log N)$ | $O(L\log N + results)$ | Yes |
