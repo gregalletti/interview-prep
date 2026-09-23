@@ -2,17 +2,17 @@
 title: Overview
 summary: Arrays and hashing patterns for interviews
 ---
-Arrays and hashing are among the most common building blocks in coding interviews. They show up in everything from simple lookups to more advanced sliding-window and prefix-sum problems.
+**Arrays** and **hashing** are among the most common building blocks in coding interviews. They show up in everything from simple lookups to more advanced sliding-window and prefix-sum problems.
 
-An array gives $O(1)$ access by index, while a hash map or set gives near-constant-time membership and lookup. In interviews, the real skill is knowing when to use one for speed, when to use the other for frequency tracking, and when a sorted array changes the whole approach.
+An array gives $O(1)$ access by index, while a hash map or set gives near-constant-time membership and lookup. In interviews, **the real skill is knowing when to use** one for speed, when to use the other for frequency tracking, and when a sorted array changes the whole approach.
 
-## Key Concepts
+## Core Concepts
 
 ### Arrays
 
 - Contiguous storage with direct index access
 - Good for prefix sums, subarrays, and in-place modification
-- Common tradeoff: fast access but $O(n)$ insert/delete in the middle
+- **Common tradeoff:** fast access but $O(n)$ insert/delete in the middle
 
 ### Hashing
 
@@ -37,7 +37,7 @@ An array gives $O(1)$ access by index, while a hash map or set gives near-consta
 - `list.add(x)` and `list.remove(index)` for dynamic lists
 - `HashSet` for uniqueness
 - `HashMap` for key-value lookup
-- `Collections.frequency(list, x)` for counting
+- `map.merge(x, 1, Integer::sum)` for frequency counting
 
 ## Common Interview Questions
 
@@ -64,7 +64,11 @@ freq = Counter(arr)
 Store value to index so you can answer “did I see this before?” in $O(1)$.
 
 ```python
-index_map = {value: i for i, value in enumerate(arr)}
+seen = {}
+for i, value in enumerate(arr):
+    if value in seen:
+        ...
+    seen[value] = i
 ```
 
 ### 3. Set for Existence Checks
@@ -80,17 +84,17 @@ seen = set(arr)
 When the problem asks about subarray sums, prefix sums are often the key.
 
 ```python
-prefix = 0
+prefix = [0]
 for x in arr:
-    prefix += x
+    prefix.append(prefix[-1] + x)
 ```
 
 ## Quick Tips
 
-- If the input is unsorted, hashing is often the first idea.
-- If the input is sorted, consider two pointers or binary search.
-- For repeated counting, prefer a map over repeated scanning.
-- In Java, use `HashMap`/`HashSet` when you need average-$O(1)$ lookup; in Python, prefer `dict` and `set`.
+- **Unsorted input:** hashing is often the first idea.
+- **Sorted input:** consider two pointers or binary search.
+- **Repeated counting:** prefer a map over repeated scanning.
+- **Java:** use `HashMap`/`HashSet` when you need average-$O(1)$ lookup. **Python:** prefer `dict` and `set`.
 
 ## Time and Space Complexity
 

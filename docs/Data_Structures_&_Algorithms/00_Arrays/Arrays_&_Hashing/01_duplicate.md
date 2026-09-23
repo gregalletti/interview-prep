@@ -15,7 +15,7 @@ external_links:
 
 ## Analysis
 
-Quite an easy one: the idea is tha we can just count the number of unique elements and compare it to the length of the original array. If they differ (unique < original) it means we have duplicates.
+Quite an easy one: the idea is that we can just count the number of unique elements and compare it to the length of the original array. If they differ (unique < original) it means we have duplicates.
 
 Compact versions just show the same logic with two different flavours.
 

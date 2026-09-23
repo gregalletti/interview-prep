@@ -7,4 +7,3 @@ summary: Useful basic concepts worth a refresher
 ## API Design
 
 ## OOP
-jksdansdak
