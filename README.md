@@ -4,15 +4,17 @@ See the live [diary](https://gregalletti.github.io/interview-prep/) on Pages.
 
 ## Setup
 
-Install mkdocs and material plugin.
-`pip install mkdocs mkdocs-material`
+Obviously you need mkdocs and material plugin. This project is now using [mkdocs-shadcn](https://github.com/asiffer/mkdocs-shadcn/tree/master) theme.
 
-This project is now using [mkdocs-shadcn](https://github.com/asiffer/mkdocs-shadcn/tree/master) theme.
-Follow the installation process (quite simple):
+Follow the installation process below:
 
-`pip install mkdocs-shadcn`
+```
+pip install mkdocs mkdocs-material
 
-`pip install pymdown-extensions`
+pip install mkdocs-shadcn
+
+pip install pymdown-extensions
+```
 
 ## Usage
 
@@ -28,17 +30,20 @@ Follow the installation process (quite simple):
 `mkdocs serve`
 or
 `python -m mkdocs serve`
-
 will expose the documentation at http://127.0.0.1:8000/
 
-`mkdocs serve --livereload` to enable live page reload
+Use `mkdocs serve --livereload` to enable live page reload
 
 ### Github Pages deployment from Local
 
 You can deploy from local to GH pages by executing:
-`mkdocs gh-deploy`.
+
+`mkdocs gh-deploy`
 or
-`python -m mkdocs gh-deploy`.
+`python -m mkdocs gh-deploy`
+or
+`python3 -m mkdocs gh-deploy`
+or whichever command you prefer
 
 ### Github Pages deployment from Pipeline
 

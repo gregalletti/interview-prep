@@ -1,6 +1,7 @@
 site_name: Coding Interview Diary
 site_description: Algorithms, patterns, and interview prep
-# repo_url: "https://github.com/gregalletti/interview-prep"
+site_url: "https://gregalletti.github.io/interview-prep"
+repo_url: "https://github.com/gregalletti/interview-prep"
 
 theme:
   name: shadcn
