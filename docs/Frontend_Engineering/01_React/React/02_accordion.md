@@ -259,12 +259,12 @@ One note from the problem statement caught my attention:
 
 What we should consider:
 
-- **Clear visual feedback** — obvious open/closed state and smooth transitions.
-- **Accessibility** — aria-expanded, aria-controls, keyboard interaction, etc.
-- **Good focus behavior** — users should always know where they are when navigating with the keyboard.
-- **Responsive design** — comfortable interaction on mobile.
-- **Animation** — subtle expand/collapse animation, if it doesn't hurt accessibility.
-- **Content readability** — spacing, typography, and sensible panel width.
+- **Clear visual feedback** - obvious open/closed state and smooth transitions.
+- **Accessibility** - aria-expanded, aria-controls, keyboard interaction, etc.
+- **Good focus behavior** - users should always know where they are when navigating with the keyboard.
+- **Responsive design** - comfortable interaction on mobile.
+- **Animation** - subtle expand/collapse animation, if it doesn't hurt accessibility.
+- **Content readability** - spacing, typography, and sensible panel width.
 - **Potentially an “Expand all / Collapse all”** action if there are many sections.
 
 TODO: implement some because why not

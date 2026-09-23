@@ -30,7 +30,7 @@ Trace: push `first` → push `second` → push `third` → `third` logs and retu
                 ├──────────────┤
                 │  first()     │
                 └──────────────┘
-                (only one frame runs at a time — this is what
+                (only one frame runs at a time - this is what
                 "single-threaded" actually refers to)
 
 ### The queues

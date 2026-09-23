@@ -25,7 +25,7 @@ root
 
 - **Lookup cost depends on key length `L`, not on the number of keys `N`.**
 - Common prefixes are stored once, which saves space when keys overlap heavily.
-- Natively supports **prefix queries** (autocomplete, "starts with", prefix counting) — something hash maps cannot do.
+- Natively supports **prefix queries** (autocomplete, "starts with", prefix counting) - something hash maps cannot do.
 - A DFS visiting children in sorted order yields keys in **lexicographic order**.
 - No hashing and no collisions; behavior is deterministic (no rehash spikes).
 - The root represents the empty string. Any node can carry extra data (a count, a value, a "best suggestion" pointer).
@@ -45,11 +45,11 @@ root
 
 ### Common Variants
 
-- **Compressed trie / radix tree / Patricia trie** — collapses single-child chains into one edge labeled with a substring. Far fewer nodes.
-- **Ternary search tree** — each node has three links (<, =, >); much more memory-efficient than array-based tries.
-- **Double-array trie / HAT-trie** — compact, cache-friendly, used in production tokenizers and dictionaries.
-- **DAWG (minimal acyclic automaton)** — also merges shared *suffixes*; static dictionaries only.
-- **Suffix trie / suffix tree** — indexes all suffixes of one string (substring search).
+- **Compressed trie / radix tree / Patricia trie** - collapses single-child chains into one edge labeled with a substring. Far fewer nodes.
+- **Ternary search tree** - each node has three links (<, =, >); much more memory-efficient than array-based tries.
+- **Double-array trie / HAT-trie** - compact, cache-friendly, used in production tokenizers and dictionaries.
+- **DAWG (minimal acyclic automaton)** - also merges shared *suffixes*; static dictionaries only.
+- **Suffix trie / suffix tree** - indexes all suffixes of one string (substring search).
 
 ## Common Implementation
 
@@ -63,7 +63,7 @@ Choice of child container:
 | Container | Time per step | Memory | Best for |
 |---|---|---|---|
 | Fixed array (`[26]` for `a–z`) | $O(1)$ | $O(σ)$ per node, even if empty | Small, fixed alphabet; speed-critical |
-| Hash map | $O(1)$ average | Only existing children (+ map overhead) | Large or unknown alphabet (Unicode) — the default choice |
+| Hash map | $O(1)$ average | Only existing children (+ map overhead) | Large or unknown alphabet (Unicode) - the default choice |
 | Sorted map (`TreeMap`, sorted list) | $O(\log σ)$ | Only existing children | Need ordered children without sorting at query time |
 
 ### Operations

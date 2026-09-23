@@ -45,11 +45,11 @@ Min-heap (tree view)          Array view (0-indexed)
  
 #### Common Variants
  
-- **Binary heap** — the default; array-backed, simple, cache-friendly.
-- **d-ary heap** (e.g. `d = 4`) — shallower tree, cheaper decrease-key, often faster in practice for large heaps.
-- **Binomial / Fibonacci / pairing heaps** — mergeable heaps with better amortized bounds for some operations (Fibonacci: $O(1)$ amortized insert and decrease-key). Rarely faster than a binary heap in real workloads due to constants and pointer overhead.
-- **Indexed priority queue** — heap plus a position map, giving real decrease-key/remove in $O(\log n)$.
-- **Min-max heap / double-ended PQ** — access to both minimum and maximum.
+- **Binary heap** - the default; array-backed, simple, cache-friendly.
+- **d-ary heap** (e.g. `d = 4`) - shallower tree, cheaper decrease-key, often faster in practice for large heaps.
+- **Binomial / Fibonacci / pairing heaps** - mergeable heaps with better amortized bounds for some operations (Fibonacci: $O(1)$ amortized insert and decrease-key). Rarely faster than a binary heap in real workloads due to constants and pointer overhead.
+- **Indexed priority queue** - heap plus a position map, giving real decrease-key/remove in $O(\log n)$.
+- **Min-max heap / double-ended PQ** - access to both minimum and maximum.
 
 ### Common Implementation
  
