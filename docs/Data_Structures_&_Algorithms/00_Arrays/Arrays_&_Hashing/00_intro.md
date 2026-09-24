@@ -54,40 +54,36 @@ An array gives $O(1)$ access by index, while a hash map or set gives near-consta
 
 Use a map or `Counter` to count occurrences, then inspect the counts.
 
-```python
-from collections import Counter
-freq = Counter(arr)
-```
+    :::python
+    from collections import Counter
+    freq = Counter(arr)
 
 ### 2. Index Lookup
 
 Store value to index so you can answer “did I see this before?” in $O(1)$.
 
-```python
-seen = {}
-for i, value in enumerate(arr):
-    if value in seen:
-        ...
-    seen[value] = i
-```
+    :::python
+    seen = {}
+    for i, value in enumerate(arr):
+        if value in seen:
+            ...
+        seen[value] = i
 
 ### 3. Set for Existence Checks
 
 If the problem is about duplicates or missing values, a set is often the simplest solution.
 
-```python
-seen = set(arr)
-```
+    :::python
+    seen = set(arr)
 
 ### 4. Prefix Sum
 
 When the problem asks about subarray sums, prefix sums are often the key.
 
-```python
-prefix = [0]
-for x in arr:
-    prefix.append(prefix[-1] + x)
-```
+    :::python
+    prefix = [0]
+    for x in arr:
+        prefix.append(prefix[-1] + x)
 
 ## Quick Tips
 

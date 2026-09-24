@@ -4,22 +4,20 @@ summary: Prefix tree and operations
 ---
 A **trie** (also *prefix tree* or *digital tree*) is a rooted tree that stores a set of strings so that each node represents a **prefix** shared by all keys below it. Edges are labeled with a symbol (usually a character); the path from the root to a node spells out that node's prefix. A flag on a node marks whether the prefix is also a **complete key** (ends the word).
 
-```
-Keys: "car", "card", "care", "cat", "dog"
+    Keys: "car", "card", "care", "cat", "dog"
 
-root
-├── c
-│   └── a
-│       ├── r*        ("car")
-│       │   ├── d*    ("card")
-│       │   └── e*    ("care")
-│       └── t*        ("cat")
-└── d
-    └── o
-        └── g*        ("dog")
+    root
+    ├── c
+    │   └── a
+    │       ├── r*        ("car")
+    │       │   ├── d*    ("card")
+    │       │   └── e*    ("care")
+    │       └── t*        ("cat")
+    └── d
+        └── o
+            └── g*        ("dog")
 
-* = end-of-word flag set
-```
+    * = end-of-word flag set
 
 ## Key Concepts
 

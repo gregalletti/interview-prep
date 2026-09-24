@@ -10,17 +10,15 @@ summary:
 
 At each node of the tree, you pick one option, recurse into the resulting state, and - once that branch is exhausted - undo the choice before trying the next option. This is what distinguishes it from plain brute force: instead of generating every full candidate and checking it at the end, backtracking checks partial candidates and cuts a branch the moment it becomes infeasible ("prune early").
 
-```
-Subsets of [1, 2, 3]                (choose / skip 1 → choose / skip 2 → ...)
+    Subsets of [1, 2, 3]                (choose / skip 1 → choose / skip 2 → ...)
 
-                          []
-                 /                  \
-              [1]                   []
-            /     \               /    \
-        [1,2]     [1]          [2]      []
-        /   \      /  \        /  \     /  \
-   [1,2,3] [1,2] [1,3] [1]  [2,3] [2] [3]  []
-```
+                            []
+                    /                  \
+                [1]                   []
+                /     \               /    \
+            [1,2]     [1]          [2]      []
+            /   \      /  \        /  \     /  \
+    [1,2,3] [1,2] [1,3] [1]  [2,3] [2] [3]  []
 
 ## Key Points
 

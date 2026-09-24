@@ -35,89 +35,79 @@ I initially thought about some sort of merge sort approach without merging, wher
 
 See the following example:
 
-```text
-A = [10, 20, 30]
-B = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    A = [10, 20, 30]
+    B = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-Total = 3 + 9 = 12
-Target = 12 // 2 = 6
-```
+    Total = 3 + 9 = 12
+    Target = 12 // 2 = 6
 
 We want the left side of the merged array to contain exactly 6 elements. A natural first guess is to take 3 from A and 3 from B.
 
-```text
-A = [10, 20, 30 | ]
-             P1 = 3
+    A = [10, 20, 30 | ]
+                P1 = 3
 
-B = [1, 2, 3 | 4, 5, 6, 7, 8, 9]
-          P2 = 3
+    B = [1, 2, 3 | 4, 5, 6, 7, 8, 9]
+            P2 = 3
 
-A[P1] is ignored because there is no right-side element in A
-B[P2 - 1] = 3
+    A[P1] is ignored because there is no right-side element in A
+    B[P2 - 1] = 3
 
-A[P1 - 1] = 30
-B[P2]     = 4
+    A[P1 - 1] = 30
+    B[P2]     = 4
 
-30 > 4 -> partition is invalid, move P1 left.
-```
+    30 > 4 -> partition is invalid, move P1 left.
 
 Try the next partition:
 
-```text
-A = [10, 20 | 30]
-         P1 = 2
+    A = [10, 20 | 30]
+            P1 = 2
 
-B = [1, 2, 3, 4 | 5, 6, 7, 8, 9]
-             P2 = 4
+    B = [1, 2, 3, 4 | 5, 6, 7, 8, 9]
+                P2 = 4
 
-A[P1]     = 30
-B[P2 - 1] = 4
+    A[P1]     = 30
+    B[P2 - 1] = 4
 
-4 <= 30 -> partition is valid, but we need to check the other side as well.
+    4 <= 30 -> partition is valid, but we need to check the other side as well.
 
-A[P1 - 1] = 20
-B[P2]     = 5
+    A[P1 - 1] = 20
+    B[P2]     = 5
 
-20 > 5 -> partition is still invalid, move P1 left again.
-```
+    20 > 5 -> partition is still invalid, move P1 left again.
 
 Try again:
 
-```text
-A = [10 | 20, 30]
-     P1 = 1
+    A = [10 | 20, 30]
+        P1 = 1
 
-B = [1, 2, 3, 4, 5 | 6, 7, 8, 9]
-                P2 = 5
+    B = [1, 2, 3, 4, 5 | 6, 7, 8, 9]
+                    P2 = 5
 
-A[P1]     = 20
-B[P2 - 1] = 5
+    A[P1]     = 20
+    B[P2 - 1] = 5
 
-5 <= 20 -> partition is valid, but we need to check the other side as well.
+    5 <= 20 -> partition is valid, but we need to check the other side as well.
 
-A[P1 - 1] = 10
-B[P2]     = 6
+    A[P1 - 1] = 10
+    B[P2]     = 6
 
-10 > 6 -> partition is invalid, move P1 left one more time.
-```
+    10 > 6 -> partition is invalid, move P1 left one more time.
 
 Now we get the valid partition:
 
-```text
-A = [ | 10, 20, 30]
-   P1 = 0
+    A = [ | 10, 20, 30]
+    P1 = 0
 
-B = [1, 2, 3, 4, 5, 6 | 7, 8, 9]
-                   P2 = 6
+    B = [1, 2, 3, 4, 5, 6 | 7, 8, 9]
+                    P2 = 6
 
-A[P1]     = 10
-B[P2 - 1] = 6
+    A[P1]     = 10
+    B[P2 - 1] = 6
 
-6 <= 10 -> partition is valid, but we need to check the other side as well.
+    6 <= 10 -> partition is valid, but we need to check the other side as well.
 
-A[P1 - 1] is ignored because there is no left-side element in A
-B[P2]     = 7
-```
+    A[P1 - 1] is ignored because there is no left-side element in A
+    B[P2]     = 7
 
 This is the correct partition, and the full left side is `[1, 2, 3, 4, 5, 6]`.
 
@@ -135,61 +125,53 @@ As always, indices definition might be tricky. I personally prefer for this case
 
 Let' walk through the same example again:
 
-```text
-A = [10, 20, 30]
-B = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    A = [10, 20, 30]
+    B = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-Total = 3 + 9 = 12
-Target = 12 // 2 = 6
-```
+    Total = 3 + 9 = 12
+    Target = 12 // 2 = 6
 
 We start with a middle split of A:
 
-```text
-A = [10 | 20, 30]
-     P1 = 1
+    A = [10 | 20, 30]
+        P1 = 1
 
-B = [1, 2, 3, 4, 5 | 6, 7, 8, 9]
-                P2 = 5
+    B = [1, 2, 3, 4, 5 | 6, 7, 8, 9]
+                    P2 = 5
 
-A[P1]     = 20
-B[P2 - 1] = 5
+    A[P1]     = 20
+    B[P2 - 1] = 5
 
-5 <= 20 -> partition is valid, but we need to check the other side as well.
+    5 <= 20 -> partition is valid, but we need to check the other side as well.
 
-A[P1 - 1] = 10
-B[P2]     = 7
+    A[P1 - 1] = 10
+    B[P2]     = 7
 
-10 > 6 -> partition is invalid, the left side is too large
-```
+    10 > 6 -> partition is invalid, the left side is too large
 
 Move the partition to the left side of A and repeat the check:
 
-```text
-A = [ | 10, 20, 30]
-   P1 = 0
+    A = [ | 10, 20, 30]
+    P1 = 0
 
-B = [1, 2, 3, 4, 5, 6 | 7, 8, 9]
-                   P2 = 6
+    B = [1, 2, 3, 4, 5, 6 | 7, 8, 9]
+                    P2 = 6
 
-A[P1]     = 10
-B[P2 - 1] = 6
+    A[P1]     = 10
+    B[P2 - 1] = 6
 
-6 <= 10 -> partition is valid, but we need to check the other side as well.
+    6 <= 10 -> partition is valid, but we need to check the other side as well.
 
-A[P1 - 1] is ignored
-B[P2]     = 7
-```
+    A[P1 - 1] is ignored
+    B[P2]     = 7
 
 This is now valid, so the correct partition is:
 
-```text
-A = [ | 10, 20, 30]
-B = [1, 2, 3, 4, 5, 6 | 7, 8, 9]
+    A = [ | 10, 20, 30]
+    B = [1, 2, 3, 4, 5, 6 | 7, 8, 9]
 
-P1 = 0
-P2 = 6
-```
+    P1 = 0
+    P2 = 6
 
 The median is then `(6 + 7) / 2 = 6.5` since the total number of elements is **even**. In case of an **odd** total number, the median would be the minimum of the right side (the first element "left out" of the partition as it's the smallest one).
 

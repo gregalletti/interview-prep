@@ -32,11 +32,10 @@ Use state for data that changes over time and props for data passed from parent 
 
 Effects should usually be used for side effects such as fetching data, subscriptions, or DOM work.
 
-```jsx
-useEffect(() => {
-  fetchData();
-}, []);
-```
+  :::jsx
+  useEffect(() => {
+    fetchData();
+  }, []);
 
 ### 3. Memoization
 

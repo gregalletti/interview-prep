@@ -9,17 +9,15 @@ A **heap** is a *complete binary tree* that satisfies the **heap property**:
 
 A **priority queue** is the *abstract data type*: insert elements with a priority, and always remove the one with the highest priority (smallest or largest key). A heap is the standard way to implement it. The two terms are not interchangeable: the priority queue is the interface, the heap is one implementation of it.
  
-```
-Min-heap (tree view)          Array view (0-indexed)
- 
-        1                     index:  0  1  2  3  4  5
-      /   \                   value:  1  3  2  7  4  5
-     3     2
-    / \   /
-   7   4 5                    parent(i) = (i - 1) / 2
-                              left(i)   = 2i + 1
-                              right(i)  = 2i + 2
-```
+    Min-heap (tree view)          Array view (0-indexed)
+    
+            1                     index:  0  1  2  3  4  5
+        /   \                   value:  1  3  2  7  4  5
+        3     2
+        / \   /
+    7   4 5                    parent(i) = (i - 1) / 2
+                                left(i)   = 2i + 1
+                                right(i)  = 2i + 2
  
 ### Key Concepts
  
@@ -96,102 +94,100 @@ Priority queue implementations compared:
  
 `heapq` provides a **min-heap on a plain list**. There is no max-heap; negate the keys instead.
  
-```python
-import heapq
-from itertools import count
- 
-# --- Basic usage ---------------------------------------------------------
-h = [5, 1, 4]
-heapq.heapify(h)              # O(n), in place
-heapq.heappush(h, 2)          # O(log n)
-h[0]                          # peek -> 1
-heapq.heappop(h)              # O(log n) -> 1
-heapq.heappushpop(h, 3)       # push then pop, faster than the two calls
-heapq.heapreplace(h, 3)       # pop then push (raises on empty heap)
-heapq.nlargest(2, h)          # O(n log k)
-heapq.merge([1, 4], [2, 3])   # lazily merges sorted iterables
- 
-# max-heap: store negated keys
-mx = []
-heapq.heappush(mx, -7)
--heapq.heappop(mx)            # 7
- 
-# --- Priority queue with stable ties (FIFO among equal priorities) ---------
-pq, tie = [], count()
-heapq.heappush(pq, (2, next(tie), "write"))
-heapq.heappush(pq, (1, next(tie), "plan"))
-heapq.heappush(pq, (2, next(tie), "test"))
-while pq:
-    prio, _, task = heapq.heappop(pq)     # plan, write, test
- 
- 
-# --- Top-k largest using a min-heap of size k -----------------------------
-def top_k(nums, k):
-    if k <= 0:
-        return []
-    h = []
-    for x in nums:
-        if len(h) < k:
-            heapq.heappush(h, x)
-        elif x > h[0]:
-            heapq.heapreplace(h, x)
-    return sorted(h, reverse=True)
-```
+    :::python
+    import heapq
+    from itertools import count
+    
+    # --- Basic usage ---------------------------------------------------------
+    h = [5, 1, 4]
+    heapq.heapify(h)              # O(n), in place
+    heapq.heappush(h, 2)          # O(log n)
+    h[0]                          # peek -> 1
+    heapq.heappop(h)              # O(log n) -> 1
+    heapq.heappushpop(h, 3)       # push then pop, faster than the two calls
+    heapq.heapreplace(h, 3)       # pop then push (raises on empty heap)
+    heapq.nlargest(2, h)          # O(n log k)
+    heapq.merge([1, 4], [2, 3])   # lazily merges sorted iterables
+    
+    # max-heap: store negated keys
+    mx = []
+    heapq.heappush(mx, -7)
+    -heapq.heappop(mx)            # 7
+    
+    # --- Priority queue with stable ties (FIFO among equal priorities) ---------
+    pq, tie = [], count()
+    heapq.heappush(pq, (2, next(tie), "write"))
+    heapq.heappush(pq, (1, next(tie), "plan"))
+    heapq.heappush(pq, (2, next(tie), "test"))
+    while pq:
+        prio, _, task = heapq.heappop(pq)     # plan, write, test
+    
+    
+    # --- Top-k largest using a min-heap of size k -----------------------------
+    def top_k(nums, k):
+        if k <= 0:
+            return []
+        h = []
+        for x in nums:
+            if len(h) < k:
+                heapq.heappush(h, x)
+            elif x > h[0]:
+                heapq.heapreplace(h, x)
+        return sorted(h, reverse=True)
  
 A from-scratch min-heap:
  
-```python
-class MinHeap:
-    def __init__(self, items=None):
-        self.a = list(items) if items else []
-        for i in range(len(self.a) // 2 - 1, -1, -1):   # O(n) build
-            self._sift_down(i)
- 
-    def __len__(self):
-        return len(self.a)
- 
-    def peek(self):
-        return self.a[0]
- 
-    def push(self, x):
-        self.a.append(x)
-        self._sift_up(len(self.a) - 1)
- 
-    def pop(self):
-        a = self.a
-        top = a[0]
-        last = a.pop()
-        if a:
-            a[0] = last
-            self._sift_down(0)
-        return top
- 
-    def _sift_up(self, i):
-        a = self.a
-        x = a[i]
-        while i > 0:
-            p = (i - 1) // 2
-            if a[p] <= x:
-                break
-            a[i] = a[p]
-            i = p
-        a[i] = x
- 
-    def _sift_down(self, i):
-        a, n = self.a, len(self.a)
-        x = a[i]
-        while True:
-            c = 2 * i + 1
-            if c >= n:
-                break
-            if c + 1 < n and a[c + 1] < a[c]:
-                c += 1                      # pick the smaller child
-            if a[c] >= x:
-                break
-            a[i] = a[c]
-            i = c
-        a[i] = x
-```
+    :::python
+    class MinHeap:
+        def __init__(self, items=None):
+            self.a = list(items) if items else []
+            for i in range(len(self.a) // 2 - 1, -1, -1):   # O(n) build
+                self._sift_down(i)
+    
+        def __len__(self):
+            return len(self.a)
+    
+        def peek(self):
+            return self.a[0]
+    
+        def push(self, x):
+            self.a.append(x)
+            self._sift_up(len(self.a) - 1)
+    
+        def pop(self):
+            a = self.a
+            top = a[0]
+            last = a.pop()
+            if a:
+                a[0] = last
+                self._sift_down(0)
+            return top
+    
+        def _sift_up(self, i):
+            a = self.a
+            x = a[i]
+            while i > 0:
+                p = (i - 1) // 2
+                if a[p] <= x:
+                    break
+                a[i] = a[p]
+                i = p
+            a[i] = x
+    
+        def _sift_down(self, i):
+            a, n = self.a, len(self.a)
+            x = a[i]
+            while True:
+                c = 2 * i + 1
+                if c >= n:
+                    break
+                if c + 1 < n and a[c + 1] < a[c]:
+                    c += 1                      # pick the smaller child
+                if a[c] >= x:
+                    break
+                a[i] = a[c]
+                i = c
+            a[i] = x
  
 **Python notes**
  
@@ -201,105 +197,103 @@ class MinHeap:
  
 `java.util.PriorityQueue` is an array-backed binary **min-heap**. Use a `Comparator` for max-heap or custom ordering.
  
-```java
-import java.util.*;
- 
-// --- Basic usage ---------------------------------------------------------
-PriorityQueue<Integer> minPq = new PriorityQueue<>();
-PriorityQueue<Integer> maxPq = new PriorityQueue<>(Comparator.reverseOrder());
- 
-minPq.offer(5); minPq.offer(1); minPq.offer(3);   // O(log n) each
-minPq.peek();                                      // 1, O(1)
-minPq.poll();                                      // 1, O(log n)
- 
-// Custom ordering, e.g. {node, distance} entries for Dijkstra
-PriorityQueue<int[]> pq =
-        new PriorityQueue<>((a, b) -> Integer.compare(a[1], b[1]));
- 
-// O(n) heapify via the collection constructor
-PriorityQueue<Integer> fromList = new PriorityQueue<>(List.of(9, 4, 7, 1));
- 
-// --- Top-k largest using a min-heap of size k ------------------------------
-static List<Integer> topK(int[] nums, int k) {
-    if (k <= 0) return List.of();
-    PriorityQueue<Integer> h = new PriorityQueue<>();
-    for (int x : nums) {
-        if (h.size() < k) {
-            h.offer(x);
-        } else if (x > h.peek()) {
-            h.poll();
-            h.offer(x);
+    :::java
+    import java.util.*;
+    
+    // --- Basic usage ---------------------------------------------------------
+    PriorityQueue<Integer> minPq = new PriorityQueue<>();
+    PriorityQueue<Integer> maxPq = new PriorityQueue<>(Comparator.reverseOrder());
+    
+    minPq.offer(5); minPq.offer(1); minPq.offer(3);   // O(log n) each
+    minPq.peek();                                      // 1, O(1)
+    minPq.poll();                                      // 1, O(log n)
+    
+    // Custom ordering, e.g. {node, distance} entries for Dijkstra
+    PriorityQueue<int[]> pq =
+            new PriorityQueue<>((a, b) -> Integer.compare(a[1], b[1]));
+    
+    // O(n) heapify via the collection constructor
+    PriorityQueue<Integer> fromList = new PriorityQueue<>(List.of(9, 4, 7, 1));
+    
+    // --- Top-k largest using a min-heap of size k ------------------------------
+    static List<Integer> topK(int[] nums, int k) {
+        if (k <= 0) return List.of();
+        PriorityQueue<Integer> h = new PriorityQueue<>();
+        for (int x : nums) {
+            if (h.size() < k) {
+                h.offer(x);
+            } else if (x > h.peek()) {
+                h.poll();
+                h.offer(x);
+            }
         }
+        List<Integer> out = new ArrayList<>(h);
+        out.sort(Comparator.reverseOrder());
+        return out;
     }
-    List<Integer> out = new ArrayList<>(h);
-    out.sort(Comparator.reverseOrder());
-    return out;
-}
-```
  
 A from-scratch generic min-heap:
  
-```java
-import java.util.*;
- 
-public class MinHeap<T extends Comparable<T>> {
-    private Object[] a = new Object[16];
-    private int size;
- 
-    public int size()        { return size; }
-    public boolean isEmpty() { return size == 0; }
- 
-    @SuppressWarnings("unchecked")
-    private T at(int i) { return (T) a[i]; }
- 
-    public T peek() {
-        if (size == 0) throw new NoSuchElementException();
-        return at(0);
-    }
- 
-    public void push(T x) {
-        if (size == a.length) a = Arrays.copyOf(a, size * 2);
-        a[size] = x;
-        siftUp(size++);
-    }
- 
-    public T pop() {
-        if (size == 0) throw new NoSuchElementException();
-        T top = at(0);
-        T last = at(--size);
-        a[size] = null;                       // avoid holding a stale reference
-        if (size > 0) {
-            a[0] = last;
-            siftDown(0);
+    :::java
+    import java.util.*;
+    
+    public class MinHeap<T extends Comparable<T>> {
+        private Object[] a = new Object[16];
+        private int size;
+    
+        public int size()        { return size; }
+        public boolean isEmpty() { return size == 0; }
+    
+        @SuppressWarnings("unchecked")
+        private T at(int i) { return (T) a[i]; }
+    
+        public T peek() {
+            if (size == 0) throw new NoSuchElementException();
+            return at(0);
         }
-        return top;
-    }
- 
-    private void siftUp(int i) {
-        T x = at(i);
-        while (i > 0) {
-            int p = (i - 1) >>> 1;
-            if (at(p).compareTo(x) <= 0) break;
-            a[i] = a[p];
-            i = p;
+    
+        public void push(T x) {
+            if (size == a.length) a = Arrays.copyOf(a, size * 2);
+            a[size] = x;
+            siftUp(size++);
         }
-        a[i] = x;
-    }
- 
-    private void siftDown(int i) {
-        T x = at(i);
-        int half = size >>> 1;                // indices < half have at least one child
-        while (i < half) {
-            int c = 2 * i + 1;
-            if (c + 1 < size && at(c + 1).compareTo(at(c)) < 0) c++;
-            if (x.compareTo(at(c)) <= 0) break;
-            a[i] = a[c];
-            i = c;
+    
+        public T pop() {
+            if (size == 0) throw new NoSuchElementException();
+            T top = at(0);
+            T last = at(--size);
+            a[size] = null;                       // avoid holding a stale reference
+            if (size > 0) {
+                a[0] = last;
+                siftDown(0);
+            }
+            return top;
         }
-        a[i] = x;
+    
+        private void siftUp(int i) {
+            T x = at(i);
+            while (i > 0) {
+                int p = (i - 1) >>> 1;
+                if (at(p).compareTo(x) <= 0) break;
+                a[i] = a[p];
+                i = p;
+            }
+            a[i] = x;
+        }
+    
+        private void siftDown(int i) {
+            T x = at(i);
+            int half = size >>> 1;                // indices < half have at least one child
+            while (i < half) {
+                int c = 2 * i + 1;
+                if (c + 1 < size && at(c + 1).compareTo(at(c)) < 0) c++;
+                if (x.compareTo(at(c)) <= 0) break;
+                a[i] = a[c];
+                i = c;
+            }
+            a[i] = x;
+        }
     }
-}
-```
  
 **Java notes**
  
