@@ -91,10 +91,12 @@ The recursive calls have a simple meaning: they represent the choice to either w
                     if i >= len(nums) or current > target:
                         return
                     if current == target:
-                        ans.append(combination)
+                        ans.append(combination.copy())
                         return
 
-                    backtrack(current + nums[i], combination + [nums[i]], i)
+                    combination.append(nums[i])
+                    backtrack(current + nums[i], combination, i)
+                    combination.pop()
                     backtrack(current, combination, i + 1)
 
                 backtrack(0, [], 0)
@@ -120,7 +122,7 @@ The recursive calls have a simple meaning: they represent the choice to either w
                     return;
                 } 
                 if (current == t) {
-                    ans.add(new ArrayList<>(combination));x
+                    ans.add(new ArrayList<>(combination));
                     return;
                 }
 
@@ -143,4 +145,8 @@ Not today.
 
 ## Key Takeaways
 
-- One subtle difference which is always good to remember: in Python we can do `combination + [nums[i]]` because this is **creating a copy** of the original `combination` list. If we do the same in Java, this won't work because we're modifying the list that all the other branches see. A similar behavior would happen in Python in the same way if we did `combination.append(nums[i])` instead -> we would need to `pop()` after.
+- If you observe the recursive approach, the `choose → explore → un-choose` patter is very clear - but we need to be careful when modifying objects. 
+- In Pyhon `combination.append(nums[i])` chooses, then we call backtracking (explore), and after that `combination.pop()` un-chooses. For the second backtracking call, we don't need any of this since the choice is *don't include*.
+- In Java we do the exact same. Just remember that we don't have a handy pop method but we remove the element by the index, so `combination.remove(combination.size() - 1);`
+- Both of the above instructions have a side effect, which is the fact that they actually modify the `combination` object. This means that `ans` might be affected, since if it's a valid combination we're appending to it. We can make sure no side effect gets triggered **by appending a copy of the combination**: `ans.append(combination.copy())` in Python and `ans.add(new ArrayList<>(combination));` in Java.
+- In theory, this can be avoided in Python by passing `combination + [nums[i]]` instead because this is **creating a copy** of the original `combination` list. Still works, but does not show the backtracking logic as explicit as the other approach.
