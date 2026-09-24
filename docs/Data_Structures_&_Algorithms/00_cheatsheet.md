@@ -40,7 +40,7 @@ This page collects the small details that come up in almost every coding problem
 | Remove | `del d[k]` | - | raises `KeyError` |
 | Remove & return | `.pop(k)` | value | raises `KeyError` |
 | Remove & return safe | `.pop(k, default)` | value or default | default |
-| Remove arbitrary pair | `.popitem()` | `(k, v)` | raises `KeyError` |
+| Remove last-inserted pair (LIFO) | `.popitem()` | `(k, v)` | raises `KeyError` |
 | Contains key | `k in d` | `bool` | - |
 | Keys / Values / Items | `.keys()` / `.values()` / `.items()` | view objects | - |
 | Merge another dict | `.update(other)` | `None` | - |
@@ -61,13 +61,14 @@ This page collects the small details that come up in almost every coding problem
 | Union | `s1 \| s2` or `.union()` | `set` | - |
 | Intersection | `s1 & s2` or `.intersection()` | `set` | - |
 | Difference | `s1 - s2` or `.difference()` | `set` | - |
-| Symmetric difference | `s1 ^ s2` | `set` | - |
+| Symmetric difference | `s1 ^ s2` or `.symmetric_difference()` | `set` | - |
 | Clear all | `.clear()` | `None` | - |
 
-### Common Syntax and Methods
+### Common Methods
 
 - Use `len(arr)` for array or string length
 - Use `arr.append(x)` to add to a list and `arr.pop()` to remove the last item
+- Use `sorted(iterable, key=..., reverse=...)` for a new sorted list; `.sort()` mutates in place and returns `None`
 - Use `dict.get(key, default)` instead of manually checking membership
 - Use `set` for fast membership checks and `dict` for key-value storage
 - Use `collections.Counter` for frequency counting and `collections.defaultdict` for grouping
@@ -80,10 +81,11 @@ This page collects the small details that come up in almost every coding problem
 - In Python, `in` on a set or dict is usually $O(1)$ on average
 - For queue-like behavior, `deque` is often better than a plain list
 - For string building in loops, prefer `list` + `join` over repeated concatenation
+- Use `bisect.bisect_left`/`bisect.bisect_right` for binary search on a sorted list, `bisect.insort` for sorted insertion
 
 ## Java Cheat Sheet
 
-Note the general pattern: Java collection methods rarely throw on "not found" - they signal via return value (`false`/`null`) instead.
+Note the general pattern: **value/key-based** lookups (`contains`, `remove(Object)`, `Map.get`) signal "not found" via a return value (`false`/`null`); **index-based** access (`get(int)`, `set(int)`, positional `add`/`remove`) still throws, same as raw arrays.
 
 ### `List<E>` (ArrayList, LinkedList, ...)
 
@@ -96,6 +98,7 @@ Note the general pattern: Java collection methods rarely throw on "not found" - 
 | Remove by index | `remove(int i)` | removed element | throws `IndexOutOfBoundsException` |
 | Access by index | `get(int i)` | element | throws `IndexOutOfBoundsException` |
 | Update by index | `set(int i, E e)` | old element | throws `IndexOutOfBoundsException` |
+| Sub-range view | `subList(from, to)` | `List<E>` (backed view) | throws `IndexOutOfBoundsException` |
 | Contains | `contains(Object o)` | `boolean` | - |
 | Index of value | `indexOf(Object o)` | `int` | `-1` |
 | Size | `size()` | `int` | - |
@@ -105,6 +108,7 @@ Note the general pattern: Java collection methods rarely throw on "not found" - 
 | Remove all in collection | `removeAll(Collection)` | `boolean` | - |
 
 > `List<Integer>`: `list.remove(1)` binds to `remove(int index)`, not the value. Use `list.remove(Integer.valueOf(1))` to remove the value.
+> `subList(from, to)` returns a *view* backed by the original list — structural changes to either can throw `ConcurrentModificationException`.
 
 ### `Set<E>` (HashSet, TreeSet, LinkedHashSet, ...)
 
@@ -133,17 +137,48 @@ Note the general pattern: Java collection methods rarely throw on "not found" - 
 | Contains key | `containsKey(k)` | `boolean` | - |
 | Contains value | `containsValue(v)` | `boolean` | - |
 | Keys / Values / Entries | `keySet()` / `values()` / `entrySet()` | views | - |
-| Merge / compute | `merge(k, v, fn)` | new value | applies fn or inserts |
-| Compute if absent | `computeIfAbsent(key, k -> {function})` | value | computes & inserts |
-| Compute if present | `computeIfPresent(key, (k, v) -> {function})` | new value or `null` | no-op |
+| Merge | `merge(k, v, fn)` | new value or `null` | applies fn or inserts |
+| Compute (general) | `compute(k, (k, v) -> {...})` | new value or `null` | called with `null` current value if absent |
+| Compute if absent | `computeIfAbsent(key, k -> {...})` | value | computes & inserts |
+| Compute if present | `computeIfPresent(key, (k, v) -> {...})` | new value or `null` | no-op |
 | Size | `size()` | `int` | - |
 | Is empty | `isEmpty()` | `boolean` | - |
 | Clear all | `clear()` | `void` | - |
 
-> `computeIfAbsent` calls your lambda with one argument: the key you looked up 
+> `computeIfAbsent` calls your lambda with one argument: the key you looked up
 > `computeIfPresent` calls your lambda with two arguments: the key and its current value
+> Returning `null` from the function passed to `merge`, `compute`, or `computeIfPresent` removes the mapping.
 
-## Core Contrast
+### `int[]` vs `List<Integer>`
+
+- **Why both exist:** generics use type erasure and only work with reference types, so `List<int>` isn't possible — `List<Integer>` boxes each value; `int[]` predates generics and never needed to
+- **Memory:** `int[]` is one contiguous block of primitives; `List<Integer>` is an array of references to separately heap-allocated `Integer` objects — more memory, worse cache locality
+- **Boxing cost:** every insert/read through `List<Integer>` autoboxes/unboxes; combine with the `Integer` caching gotcha above
+- **Size:** `int[]` is fixed-length; `ArrayList` grows on its own (amortized $O(1)$ append)
+- **Null:** `int[]` can never hold `null`; `List<Integer>` can
+- **API:** `int[]` only has `.length` plus static `Arrays` methods; `List` has a full Collections API and works directly with generics/Streams
+- **Gotcha:** `Arrays.asList(intArray)` gives a `List<int[]>` with one element, not a `List<Integer>` — only behaves as expected on `Integer[]`
+- **Convert:** `Arrays.stream(arr).boxed().collect(Collectors.toList())` and `list.stream().mapToInt(Integer::intValue).toArray()`
+
+### Common Methods
+
+- Use `arr.length` for arrays and `s.length()` for strings
+- Use `list.size()` for collection size, not `length`
+- Use `ArrayDeque` for stack/queue-style operations
+- Use `StringBuilder` when building strings in loops
+- Use `map.getOrDefault(key, 0)` for safe counting, or `map.merge(key, 1, Integer::sum)` for counting in a single call
+- Use `map.putIfAbsent(key, value)` when you want to initialize only once
+- Use `Collections.sort(list)` for sorting lists
+- Use `Objects.equals(a, b)` when null safety matters
+
+### Small Tips
+
+- `==` compares references for objects, while `equals()` compares values (watch for autoboxed `Integer` caching, `-128` to `127`, where `==` can appear to "work" by accident)
+- For arrays, `length` is a field; for strings and collections, `length()` or `size()` are methods
+- In Java, prefer `ArrayList` for dynamic arrays and `HashMap`/`HashSet` for fast lookup
+- **`HashMap`/`HashSet`:** $O(1)$ average, no order guarantee. **`LinkedHashMap`/`LinkedHashSet`:** $O(1)$ average, insertion order. **`TreeMap`/`TreeSet`:** $O(\log n)$, sorted key order
+
+## Python vs Java: Core Contrast
 
 | | Python default | Java default |
 |---|---|---|
@@ -151,26 +186,14 @@ Note the general pattern: Java collection methods rarely throw on "not found" - 
 | Silent variant available? | yes (`discard`, `pop(k, default)`) | already the default |
 | Missing key on access | raises `KeyError`/`IndexError` | returns `null` (Map) or throws (List/array index) |
 
-### Common Syntax and Methods
-
-- Use `arr.length` for arrays and `s.length()` for strings
-- Use `list.size()` for collection size, not `length`
-- Use `ArrayDeque` for stack/queue-style operations
-- Use `StringBuilder` when building strings in loops
-- Use `map.getOrDefault(key, 0)` for safe counting
-- Use `map.putIfAbsent(key, value)` when you want to initialize only once
-- Use `Collections.sort(list)` for sorting lists
-- Use `Objects.equals(a, b)` when null safety matters
-
-### Small Tips
-
-- `==` compares references for objects, while `equals()` compares values
-- For arrays, `length` is a field; for strings and collections, `length()` or `size()` are methods
-- In Java, prefer `ArrayList` for dynamic arrays and `HashMap`/`HashSet` for fast lookup
-
 ## Generic Interview Habits
 
-- If a problem asks for “constant extra space,” think about in-place pointer logic first
+- If a problem asks for "constant extra space", think about in-place pointer logic first
 - If you see repeated counting, think about a map or counter
+- If the problem involves nesting, parentheses, or reverse order, think about stack
 - If the array is sorted, try binary search or two pointers before more complex approaches
-- If the problem involves nesting, parentheses, or reverse order, a stack is often the right structure
+- If you're scanning a subarray/substring under a size or sum constraint, think about sliding window
+- If you need the k largest/smallest elements, think about heap
+- If you're generating all subsets, permutations, or combinations, think about backtracking
+- If the problem is about words, prefixes, or autocomplete, think about trie
+- If you need to track connected groups or detect cycles, think about union-find
