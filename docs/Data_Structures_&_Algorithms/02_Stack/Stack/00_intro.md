@@ -17,7 +17,7 @@ The most common stack problems are about matching delimiters, tracking previous 
 ### Python
 
 - `stack = []`: a list exposes all the necessary stack methods
-- `stack = deque()` (`from collections import deque`): interchangeable with a list for pure stack use, not meaningfully faster — its real advantage is $O(1)$ operations at *both* ends, useful if you also need queue behavior
+- `stack = deque()` (`from collections import deque`): interchangeable with a list for pure stack use, not meaningfully faster - its real advantage is $O(1)$ operations at *both* ends, useful if you also need queue behavior
 - `stack.append(x)` to push
 - `stack.pop()` to pop
 - `stack[-1]` to inspect the top without removing it

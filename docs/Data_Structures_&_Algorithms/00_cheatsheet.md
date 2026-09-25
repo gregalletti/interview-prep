@@ -108,7 +108,7 @@ Note the general pattern: **value/key-based** lookups (`contains`, `remove(Objec
 | Remove all in collection | `removeAll(Collection)` | `boolean` | - |
 
 > `List<Integer>`: `list.remove(1)` binds to `remove(int index)`, not the value. Use `list.remove(Integer.valueOf(1))` to remove the value.
-> `subList(from, to)` returns a *view* backed by the original list — structural changes to either can throw `ConcurrentModificationException`.
+> `subList(from, to)` returns a *view* backed by the original list - structural changes to either can throw `ConcurrentModificationException`.
 
 ### `Set<E>` (HashSet, TreeSet, LinkedHashSet, ...)
 
@@ -151,13 +151,13 @@ Note the general pattern: **value/key-based** lookups (`contains`, `remove(Objec
 
 ### `int[]` vs `List<Integer>`
 
-- **Why both exist:** generics use type erasure and only work with reference types, so `List<int>` isn't possible — `List<Integer>` boxes each value; `int[]` predates generics and never needed to
-- **Memory:** `int[]` is one contiguous block of primitives; `List<Integer>` is an array of references to separately heap-allocated `Integer` objects — more memory, worse cache locality
+- **Why both exist:** generics use type erasure and only work with reference types, so `List<int>` isn't possible - `List<Integer>` boxes each value; `int[]` predates generics and never needed to
+- **Memory:** `int[]` is one contiguous block of primitives; `List<Integer>` is an array of references to separately heap-allocated `Integer` objects - more memory, worse cache locality
 - **Boxing cost:** every insert/read through `List<Integer>` autoboxes/unboxes; combine with the `Integer` caching gotcha above
 - **Size:** `int[]` is fixed-length; `ArrayList` grows on its own (amortized $O(1)$ append)
 - **Null:** `int[]` can never hold `null`; `List<Integer>` can
 - **API:** `int[]` only has `.length` plus static `Arrays` methods; `List` has a full Collections API and works directly with generics/Streams
-- **Gotcha:** `Arrays.asList(intArray)` gives a `List<int[]>` with one element, not a `List<Integer>` — only behaves as expected on `Integer[]`
+- **Gotcha:** `Arrays.asList(intArray)` gives a `List<int[]>` with one element, not a `List<Integer>` - only behaves as expected on `Integer[]`
 - **Convert:** `Arrays.stream(arr).boxed().collect(Collectors.toList())` and `list.stream().mapToInt(Integer::intValue).toArray()`
 
 ### Common Methods

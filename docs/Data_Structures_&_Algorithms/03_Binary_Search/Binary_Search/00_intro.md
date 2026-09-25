@@ -101,7 +101,7 @@ Many interview problems reduce to “find the smallest value where a condition b
 
 ## Quick Tips
 
-- **Loop invariant:** always define it clearly — the answer remains inside the current range.
+- **Loop invariant:** always define it clearly - the answer remains inside the current range.
 - **First/last valid index:** the loop condition and update logic matter a lot.
 - **Monotonic condition:** binary search is often the intended approach.
 
