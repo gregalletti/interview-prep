@@ -37,6 +37,10 @@ Well then, how do we use the trie? A trie works well when we already have a comp
 
 TODO: finish the explanation
 
+### The *better* solution
+
+### The *even better* solution
+
 ## Solution
 
 === "Python"
