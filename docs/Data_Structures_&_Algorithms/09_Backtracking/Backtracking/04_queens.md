@@ -129,7 +129,9 @@ external_links:
                             columns.add(col)
                             downRightDiagonals.add(row - col)
                             upRightDiagonals.add(row + col)
+
                             backtrack(row + 1)
+                            
                             board[row][col] = "."
                             columns.remove(col)
                             downRightDiagonals.remove(row - col)
