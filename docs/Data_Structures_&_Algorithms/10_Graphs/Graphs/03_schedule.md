@@ -68,6 +68,45 @@ external_links:
                         return False
                 return True
 
+=== "Python (using set)"
+
+        :::python
+        class Solution:
+            def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+                # create a graph course -> [prereq1, prereq2, ...]
+                graph = {}
+                for course, prereq in prerequisites:
+                    graph.setdefault(course, []).append(prereq)
+
+                def follow(course: int) -> bool:
+                    # cycle detected, impossible to complete
+                    if course in cycle:
+                        return False
+
+                    # course has no prereq, so it can be followed
+                    if course not in graph or course in schedule:
+                        return True
+
+                    # add current course
+                    cycle.add(course)
+                    # follow each prereq 
+                    for prereq in graph.get(course, []):
+                        if not follow(prereq):
+                            return False
+
+                    # we're at the end and we know this course can be followed, no need to check it again if it appears later
+                    cycle.remove(course)
+                    schedule.add(course)
+                    return True
+                
+                # keep track of the courses to detect cycles
+                cycle, schedule = set(), set()
+
+                for c in graph:
+                    if not follow(c):
+                        return False
+                return True
+
 === "Java"
 
         :::java
