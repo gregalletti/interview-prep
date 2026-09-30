@@ -25,6 +25,8 @@ external_links:
 
 ## Analysis
 
+TODO: Topological sort
+
 ## Solution
 
 === "Python"
