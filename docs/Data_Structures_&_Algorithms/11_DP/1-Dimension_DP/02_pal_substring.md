@@ -1,5 +1,5 @@
 ---
-title: "🟠 Palindromic Substrings "
+title: "🟠 Palindromic Substrings"
 external_links:
     NeetCode: https://neetcode.io/problems/palindromic-substrings
 ---
@@ -20,6 +20,8 @@ external_links:
     ### Constraints
 
 ## Analysis
+
+Not sure why this problem is in this category to be honest, the solution looks a lot 2-dimensions and not 1 - but it's ok.
 
 Every single character is trivially a palindrome. The brute-force takes every substring and checks if it's a palindrome, but costs $O(n^2)$ to derive substrings, each checked in $O(n)$, for $O(n^3)$ overall. The question is what can be reused from smaller substrings to avoid redoing that work.
 
