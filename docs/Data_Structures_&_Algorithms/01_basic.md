@@ -29,7 +29,7 @@ Big-O describes how an algorithm's runtime or space grows as the input size ($n$
 - Drop constants: $O(2n)$ is $O(n)$
 - Drop lower-order terms: $O(n^2 + n)$ is $O(n^2)$
 - Sequential steps add, then take the dominant term: an $O(n)$ pass followed by an $O(n^2)$ pass is $O(n^2)$ overall
-- Nested loops multiply: a loop of $O(n)$ inside a loop of $O(m)$ is $O(n \cdot m)$
+- Nested loops multiply: a loop of $O(n)$ inside a loop of $O(m)$ is $O(n \times m)$
 - Different inputs get different variables: two separate arrays of size `a` and `b`, scanned separately, is $O(a + b)$ - not $O(n)$
 
 ## API Design

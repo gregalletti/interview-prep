@@ -97,6 +97,8 @@ external_links:
 
 ## Complexity
 
+Not today.
+
 - **Time**: $O()$ _as we _
 - **Space**: $O()$ _as we _
 

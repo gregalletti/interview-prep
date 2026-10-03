@@ -2,7 +2,7 @@
 title: Overview
 summary: Sliding window patterns for subarrays and substrings
 ---
-**Sliding window** is a technique for problems that ask about a contiguous subarray or substring - a maximum sum, a shortest length, a set of distinct characters - inside a larger sequence. Instead of re-scanning each candidate range from scratch, it **maintains a running window and only adjusts what changed at the edges**, turning an $O(n^2)$ or $O(n \cdot k)$ brute-force scan into $O(n)$.
+**Sliding window** is a technique for problems that ask about a contiguous subarray or substring - a maximum sum, a shortest length, a set of distinct characters - inside a larger sequence. Instead of re-scanning each candidate range from scratch, it **maintains a running window and only adjusts what changed at the edges**, turning an $O(n^2)$ or $O(n \times k)$ brute-force scan into $O(n)$.
 
 The window is usually defined by two indices, `left` and `right`. Some problems fix the window's width upfront; others let it grow and shrink based on a condition, which is where most of the tricky logic lives.
 
@@ -88,4 +88,4 @@ Use when the constraint depends on counts of elements inside the window, e.g. di
 | Fixed-size window scan | $O(n)$ | $O(1)$ | Each element enters and leaves the window once |
 | Variable-size window (expand + shrink) | $O(n)$ | $O(1)$ | Amortized - `left` only moves forward, never resets |
 | Window with a frequency map | $O(n)$ | $O(k)$ | `k` = size of the alphabet or distinct-value set |
-| Recomputing the window from scratch each step | $O(n \cdot k)$ | $O(1)$ | The brute-force version sliding window replaces |
+| Recomputing the window from scratch each step | $O(n \times k)$ | $O(1)$ | The brute-force version sliding window replaces |

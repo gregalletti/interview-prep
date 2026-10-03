@@ -164,7 +164,7 @@ I kept the thought raw thought process in the below code because why not.
 ## Complexity
 
 - **Time**: $O(n^2)$ _as we analyze substrings with two nested loops $O(n)$ each, and inside we check if palindrome in $O(1)$_
-- **Space**: $O(n^2)$ _as we store a dp matrix of $n \cdot m$_
+- **Space**: $O(n^2)$ _as we store a dp matrix of $n \times m$_
 
 !!! note ""
     where $n$ is the length of the input string `s`

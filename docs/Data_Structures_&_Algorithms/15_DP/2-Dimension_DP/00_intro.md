@@ -12,7 +12,7 @@ The state is `dp[i][j]`, and the recurrence almost always moves by shrinking one
 - **Two sequences:** `dp[i][j]` = "considering the first `i` elements of A and the first `j` elements of B"
 - **One sequence, two boundaries:** `dp[i][j]` = "the answer for the substring/subarray from index `i` to `j`"
 - **Item + capacity:** `dp[i][j]` = "the best outcome considering the first `i` items with capacity `j` remaining" - the classic knapsack shape
-- Space is usually $O(n \cdot m)$ for the full table, but most 2D DPs only need the current and previous row, dropping to $O(m)$
+- Space is usually $O(n \times m)$ for the full table, but most 2D DPs only need the current and previous row, dropping to $O(m)$
 
 ## Core Patterns
 
@@ -76,7 +76,7 @@ Use when choosing a subset of items under a capacity constraint, each item inclu
 
 - A 2D table is `dp = [[0] * (m + 1) for _ in range(n + 1)]` - never `[[0] * (m + 1)] * (n + 1)`, that repeats the *same* inner list by reference, so every row mutates together
 - `functools.lru_cache` still works for top-down 2D DP - pass both indices as arguments, e.g. `@lru_cache(maxsize=None)` on `def solve(i, j): ...`
-- Rolling two rows (`prev_row`, `curr_row`) instead of the full table drops space from $O(n \cdot m)$ to $O(m)$ when `dp[i]` only needs `dp[i - 1]`
+- Rolling two rows (`prev_row`, `curr_row`) instead of the full table drops space from $O(n \times m)$ to $O(m)$ when `dp[i]` only needs `dp[i - 1]`
 
 ### Java
 
@@ -95,7 +95,7 @@ Use when choosing a subset of items under a capacity constraint, each item inclu
 
 | Common operation | Typical time | Extra space | Notes |
 | --- | --- | --- | --- |
-| Two-sequence DP (LCS, edit distance) | $O(n \cdot m)$ | $O(n \cdot m)$ | One cell per pair of prefixes |
+| Two-sequence DP (LCS, edit distance) | $O(n \times m)$ | $O(n \times m)$ | One cell per pair of prefixes |
 | One-sequence, two-boundary DP (palindrome table) | $O(n^2)$ | $O(n^2)$ | One cell per substring |
-| Item + capacity DP (0/1 knapsack) | $O(n \cdot W)$ | $O(n \cdot W)$ | `W` = capacity; pseudo-polynomial, not polynomial in the input size alone |
+| Item + capacity DP (0/1 knapsack) | $O(n \times W)$ | $O(n \times W)$ | `W` = capacity; pseudo-polynomial, not polynomial in the input size alone |
 | Space-optimized (rolling rows) | same time | $O(m)$ or $O(W)$ | Only when each row depends on just the previous one |
