@@ -36,6 +36,11 @@ Also be able to design an LRU cache (hash map plus doubly linked list), since it
 
 Tarjan/Kosaraju strongly connected components, A*, max-flow (Ford-Fulkerson), Manacher, Z-algorithm, suffix arrays, Aho-Corasick, convex hull, Hungarian algorithm. If one comes up, you should be able to say what problem it solves, even without the implementation.
 
+### Extra
+
+- NP problems
+- A*
+
 ## 1. Hashing, sorting, two pointers, sliding window
  
 | Solved | In diary | Problem | Diff | Pattern signal |
